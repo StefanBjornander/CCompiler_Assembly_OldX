@@ -1,0 +1,114 @@
+function start malloc
+if memorySize >= 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stderr, record 0, offset 6
+parameter "Assertion failed: "%s" in file %s at line %i\012", record 0, offset 8
+parameter "memorySize >= 0", record 0, offset 10
+parameter "C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits\stdio\Malloc.c", record 0, offset 12
+parameter 26, record 0, offset 14
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 6
+post call integral
+post call floating
+£temporary29 = return_value
+call header
+pre call
+call function noellipse-noellipse abort, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+if memorySize == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+£temporary32 = int_to_int memorySize (Signed_Int -> Unsigned_Int)
+£temporary33 = 4 + £temporary32
+newBlockSize = £temporary33
+minGap = 0
+lastAddress = 65534
+minBlockPtr = 0
+minPrevBlockPtr = 0
+prevBlockPtr = 0
+currBlockPtr = firstBlockPtr
+if currBlockPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary35 = int_to_int currBlockPtr (Pointer -> Unsigned_Int)
+currAddress = £temporary35
+£temporary36 = *currBlockPtr
+£temporary37 = currAddress + £temporary36
+£temporary38 = lastAddress - £temporary37
+currGap = £temporary38
+if newBlockSize <= currGap goto <MiddleCode>
+goto <MiddleCode>
+if minGap == 0 goto <MiddleCode>
+goto <MiddleCode>
+if currGap < minGap goto <MiddleCode>
+goto <MiddleCode>
+minGap = currGap
+minBlockPtr = currBlockPtr
+minPrevBlockPtr = prevBlockPtr
+goto <MiddleCode>
+lastAddress = currAddress
+prevBlockPtr = currBlockPtr
+£temporary44 = *currBlockPtr, offset 2
+currBlockPtr = £temporary44
+goto <MiddleCode>
+if minBlockPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary46 = int_to_int minBlockPtr (Pointer -> Unsigned_Int)
+£temporary47 = *minBlockPtr
+£temporary48 = £temporary46 + £temporary47
+newAddress = £temporary48
+£temporary49 = int_to_int newAddress (Unsigned_Int -> Pointer)
+newBlockPtr = £temporary49
+£temporary50 = *newBlockPtr
+£temporary50 = newBlockSize
+£temporary51 = *newBlockPtr, offset 2
+£temporary51 = minBlockPtr
+if minPrevBlockPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary53 = *minPrevBlockPtr, offset 2
+£temporary53 = newBlockPtr
+goto <MiddleCode>
+firstBlockPtr = newBlockPtr
+goto <MiddleCode>
+£temporary54 = newAddress + 4
+£temporary55 = int_to_int £temporary54 (Unsigned_Int -> Pointer)
+return_value = £temporary55
+return
+goto <MiddleCode>
+£temporary56 = lastAddress - newBlockSize
+newAddress = £temporary56
+stackTop = bp
+if stackTop <= newAddress goto <MiddleCode>
+goto <MiddleCode>
+£temporary58 = int_to_int newAddress (Unsigned_Int -> Pointer)
+newBlockPtr = £temporary58
+£temporary59 = *newBlockPtr
+£temporary59 = newBlockSize
+£temporary60 = *newBlockPtr, offset 2
+£temporary60 = 0
+if prevBlockPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary62 = *prevBlockPtr, offset 2
+£temporary62 = newBlockPtr
+goto <MiddleCode>
+firstBlockPtr = newBlockPtr
+goto <MiddleCode>
+lowHeapPtr = 65534
+£temporary63 = *lowHeapPtr
+£temporary63 = newAddress
+£temporary64 = newAddress + 4
+£temporary65 = int_to_int £temporary64 (Unsigned_Int -> Pointer)
+return_value = £temporary65
+return
+goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end malloc

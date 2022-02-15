@@ -1,0 +1,14 @@
+function start islowerX
+if c >= 97 goto <MiddleCode>
+goto <MiddleCode>
+if c <= 122 goto <MiddleCode>
+goto <MiddleCode>
+£temporary189 = 1
+goto <MiddleCode>
+£temporary189 = 0
+empty
+return_value = £temporary189
+return
+empty
+return
+function end islowerX

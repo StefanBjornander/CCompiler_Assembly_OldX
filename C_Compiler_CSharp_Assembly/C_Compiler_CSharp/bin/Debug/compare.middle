@@ -1,0 +1,18 @@
+function start compare
+£temporary4295 = int_to_int valuePtr1 (Pointer -> Pointer)
+£temporary4296 = *£temporary4295
+intValue1 = £temporary4296
+£temporary4297 = int_to_int valuePtr2 (Pointer -> Pointer)
+£temporary4298 = *£temporary4297
+intValue2 = £temporary4298
+empty
+£temporary4307 = -1
+goto <MiddleCode>
+empty
+£temporary4307 = £temporary4304
+empty
+return_value = £temporary4307
+return
+empty
+return
+function end compare

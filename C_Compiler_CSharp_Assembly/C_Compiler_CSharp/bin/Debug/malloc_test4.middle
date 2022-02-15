@@ -1,0 +1,10 @@
+function start malloc_test4
+call header
+pre call
+call function noellipse-noellipse rec, record 0, extra 0
+post call integral
+post call floating
+empty
+return
+return
+function end malloc_test4

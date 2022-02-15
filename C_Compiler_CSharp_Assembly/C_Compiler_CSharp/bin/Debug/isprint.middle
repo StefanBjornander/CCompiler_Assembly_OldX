@@ -1,0 +1,21 @@
+function start isprint
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse isgraph, record 0, extra 0
+post call integral
+post call floating
+£temporary242 = return_value
+if £temporary242 != 0 goto <MiddleCode>
+goto <MiddleCode>
+if c != 32 goto <MiddleCode>
+goto <MiddleCode>
+£temporary246 = 1
+goto <MiddleCode>
+£temporary246 = 0
+empty
+return_value = £temporary246
+return
+empty
+return
+function end isprint

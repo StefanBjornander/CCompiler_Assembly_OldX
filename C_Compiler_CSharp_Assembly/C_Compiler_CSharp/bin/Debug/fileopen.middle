@@ -1,0 +1,18 @@
+function start fileopen
+ah = 61
+al = mode
+dx = name
+interrupt 33
+handle = ax
+if handle > 2 goto <MiddleCode>
+goto <MiddleCode>
+return_value = handle
+return
+goto <MiddleCode>
+errno = handle
+return_value = -1
+return
+goto <MiddleCode>
+empty
+return
+function end fileopen

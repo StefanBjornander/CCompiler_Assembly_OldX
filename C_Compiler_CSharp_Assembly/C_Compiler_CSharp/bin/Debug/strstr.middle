@@ -1,0 +1,33 @@
+function start strstr
+index = 0
+empty
+£temporary2953 = mainString + index
+£temporary2952 = *£temporary2953
+if £temporary2952 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+£temporary2956 = mainString + index
+parameter £temporary2956, record 0, offset 6
+parameter subString, record 0, offset 8
+pre call
+call function noellipse-noellipse strcmp, record 0, extra 0
+post call integral
+post call floating
+£temporary2957 = return_value
+if £temporary2957 == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2960 = mainString + index
+£temporary2959 = *£temporary2960
+£temporary2961 = &£temporary2959
+return_value = £temporary2961
+return
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end strstr

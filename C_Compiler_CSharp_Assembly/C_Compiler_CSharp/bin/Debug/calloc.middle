@@ -1,0 +1,19 @@
+function start calloc
+call header
+£temporary71 = number * size
+parameter £temporary71, record 0, offset 6
+pre call
+call function noellipse-noellipse malloc, record 0, extra 0
+post call integral
+post call floating
+£temporary72 = return_value
+pointer = £temporary72
+if pointer != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+goto <MiddleCode>
+return_value = pointer
+return
+empty
+return
+function end calloc

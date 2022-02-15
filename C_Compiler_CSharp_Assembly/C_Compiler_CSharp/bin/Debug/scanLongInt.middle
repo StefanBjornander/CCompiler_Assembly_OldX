@@ -1,0 +1,95 @@
+function start scanLongInt
+longValue = 0
+minus = 0
+found = 0
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1203 = return_value
+input = £temporary1203
+call header
+£temporary1204 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1204, record 0, offset 6
+pre call
+call function noellipse-noellipse isspace, record 0, extra 0
+post call integral
+post call floating
+£temporary1205 = return_value
+if £temporary1205 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1206 = return_value
+input = £temporary1206
+goto <MiddleCode>
+if input == 43 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1209 = return_value
+input = £temporary1209
+goto <MiddleCode>
+if input == 45 goto <MiddleCode>
+goto <MiddleCode>
+minus = 1
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1211 = return_value
+input = £temporary1211
+goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary1212 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1212, record 0, offset 6
+pre call
+call function noellipse-noellipse isdigit, record 0, extra 0
+post call integral
+post call floating
+£temporary1213 = return_value
+if £temporary1213 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1214 = 10 * longValue
+£temporary1215 = input - 48
+£temporary1216 = int_to_int £temporary1215 (Signed_Char -> Signed_Long_Int)
+£temporary1217 = £temporary1214 + £temporary1216
+longValue = £temporary1217
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1218 = return_value
+input = £temporary1218
+found = 1
+goto <MiddleCode>
+if minus != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1220 = -longValue
+longValue = £temporary1220
+goto <MiddleCode>
+if found != 0 goto <MiddleCode>
+goto <MiddleCode>
+++g_inCount
+goto <MiddleCode>
+call header
+parameter input, record 0, offset 6
+pre call
+call function noellipse-noellipse unscanChar, record 0, extra 0
+post call integral
+post call floating
+return_value = longValue
+return
+empty
+return
+function end scanLongInt

@@ -1,0 +1,11 @@
+function start rename
+ah = 86
+cl = 0
+dx = oldName
+di = newName
+interrupt 33
+return_value = 0
+return
+empty
+return
+function end rename

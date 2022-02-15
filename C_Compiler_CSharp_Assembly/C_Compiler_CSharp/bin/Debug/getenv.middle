@@ -1,0 +1,6 @@
+function start getenv
+return_value = 0
+return
+empty
+return
+function end getenv

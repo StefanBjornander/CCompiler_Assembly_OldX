@@ -1,0 +1,546 @@
+function start math_test_1
+call header
+parameter "sin(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse sin, record 0, extra 0
+post call integral
+post call floating
+£temporary3621 = return_value
+parameter £temporary3621, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3622 = return_value
+parameter £temporary3622, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3623 = return_value
+errno = 0
+call header
+parameter "cos(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse cos, record 0, extra 0
+post call integral
+post call floating
+£temporary3624 = return_value
+parameter £temporary3624, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3625 = return_value
+parameter £temporary3625, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3626 = return_value
+errno = 0
+call header
+parameter "tan(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse tan, record 0, extra 0
+post call integral
+post call floating
+£temporary3627 = return_value
+parameter £temporary3627, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3628 = return_value
+parameter £temporary3628, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3629 = return_value
+errno = 0
+call header
+parameter "asin(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse asin, record 0, extra 0
+post call integral
+post call floating
+£temporary3630 = return_value
+parameter £temporary3630, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3631 = return_value
+parameter £temporary3631, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3632 = return_value
+errno = 0
+call header
+parameter "acos(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse acos, record 0, extra 0
+post call integral
+post call floating
+£temporary3633 = return_value
+parameter £temporary3633, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3634 = return_value
+parameter £temporary3634, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3635 = return_value
+errno = 0
+call header
+parameter "atan(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse atan, record 0, extra 0
+post call integral
+post call floating
+£temporary3636 = return_value
+parameter £temporary3636, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3637 = return_value
+parameter £temporary3637, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3638 = return_value
+errno = 0
+call header
+parameter "sinh(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse sinh, record 0, extra 0
+post call integral
+post call floating
+£temporary3639 = return_value
+parameter £temporary3639, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3640 = return_value
+parameter £temporary3640, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3641 = return_value
+errno = 0
+call header
+parameter "cosh(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse cosh, record 0, extra 0
+post call integral
+post call floating
+£temporary3642 = return_value
+parameter £temporary3642, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3643 = return_value
+parameter £temporary3643, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3644 = return_value
+errno = 0
+call header
+parameter "tanh(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse tanh, record 0, extra 0
+post call integral
+post call floating
+£temporary3645 = return_value
+parameter £temporary3645, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3646 = return_value
+parameter £temporary3646, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3647 = return_value
+errno = 0
+call header
+parameter "exp(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse exp, record 0, extra 0
+post call integral
+post call floating
+£temporary3648 = return_value
+parameter £temporary3648, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3649 = return_value
+parameter £temporary3649, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3650 = return_value
+errno = 0
+call header
+parameter "log(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse log, record 0, extra 0
+post call integral
+post call floating
+£temporary3651 = return_value
+parameter £temporary3651, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3652 = return_value
+parameter £temporary3652, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3653 = return_value
+errno = 0
+call header
+parameter "log10(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse log10, record 0, extra 0
+post call integral
+post call floating
+£temporary3654 = return_value
+parameter £temporary3654, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3655 = return_value
+parameter £temporary3655, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3656 = return_value
+errno = 0
+call header
+parameter "sqrt(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse sqrt, record 0, extra 0
+post call integral
+post call floating
+£temporary3657 = return_value
+parameter £temporary3657, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3658 = return_value
+parameter £temporary3658, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3659 = return_value
+errno = 0
+call header
+parameter "floor(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse floor, record 0, extra 0
+post call integral
+post call floating
+£temporary3660 = return_value
+parameter £temporary3660, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3661 = return_value
+parameter £temporary3661, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3662 = return_value
+errno = 0
+call header
+parameter "ceil(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse ceil, record 0, extra 0
+post call integral
+post call floating
+£temporary3663 = return_value
+parameter £temporary3663, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3664 = return_value
+parameter £temporary3664, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3665 = return_value
+errno = 0
+call header
+parameter "fabs(%f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary3666 = return_value
+parameter £temporary3666, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3667 = return_value
+parameter £temporary3667, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3668 = return_value
+errno = 0
+j = 0
+call header
+push float x
+parameter x, record 0, offset 6
+£temporary3669 = &j
+parameter £temporary3669, record 0, offset 14
+pre call
+call function noellipse-noellipse frexp, record 0, extra 0
+post call integral
+post call floating
+£temporary3670 = return_value
+pop float z
+call header
+parameter "(z, j) = (%f, %i), errno = %i <%s>\012", record 0, offset 6
+push float z
+parameter z, record 0, offset 8
+parameter j, record 0, offset 16
+parameter errno, record 0, offset 18
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3671 = return_value
+parameter £temporary3671, record 0, offset 20
+pre call
+call function noellipse-ellipse printf, record 0, extra 14
+post call integral
+post call floating
+£temporary3672 = return_value
+if errno != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter "Error message:", record 0, offset 6
+pre call
+call function noellipse-noellipse perror, record 0, extra 0
+post call integral
+post call floating
+errno = 0
+goto <MiddleCode>
+push 0
+pop float w
+call header
+push float x
+parameter x, record 0, offset 6
+push float w
+pop float empty X
+£temporary3675 = &w
+parameter £temporary3675, record 0, offset 14
+pre call
+call function noellipse-noellipse modf, record 0, extra 0
+post call integral
+post call floating
+£temporary3676 = return_value
+pop float z
+call header
+parameter "(z, w) = (%f, %f), errno = %i <%s>\012", record 0, offset 6
+push float z
+parameter z, record 0, offset 8
+push float w
+parameter w, record 0, offset 16
+parameter errno, record 0, offset 24
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3677 = return_value
+parameter £temporary3677, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary3678 = return_value
+if errno != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter "Error message:", record 0, offset 6
+pre call
+call function noellipse-noellipse perror, record 0, extra 0
+post call integral
+post call floating
+errno = 0
+goto <MiddleCode>
+call header
+parameter "\012", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary3681 = return_value
+empty
+return
+return
+function end math_test_1

@@ -1,0 +1,14 @@
+function start ungetc
+£temporary920 = *stream, offset 20
+£temporary921 = int_to_int £temporary920 (Signed_Char -> Signed_Int)
+if £temporary921 != -1 goto <MiddleCode>
+goto <MiddleCode>
+£temporary923 = *stream, offset 20
+£temporary924 = int_to_int c (Signed_Int -> Signed_Char)
+£temporary923 = £temporary924
+goto <MiddleCode>
+return_value = c
+return
+empty
+return
+function end ungetc

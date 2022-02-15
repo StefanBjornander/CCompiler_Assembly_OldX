@@ -1,0 +1,8 @@
+function start abort
+ah = 76
+al = -1
+interrupt 33
+empty
+return
+return
+function end abort

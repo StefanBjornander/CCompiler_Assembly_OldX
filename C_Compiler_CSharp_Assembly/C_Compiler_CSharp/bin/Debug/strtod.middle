@@ -1,0 +1,30 @@
+function start strtod
+chars = 0
+push 0
+pop float value
+call header
+parameter s, record 0, offset 6
+parameter "%lf%n", record 0, offset 8
+push float value
+pop float empty X
+£temporary2139 = &value
+parameter £temporary2139, record 0, offset 10
+£temporary2140 = &chars
+parameter £temporary2140, record 0, offset 12
+pre call
+call function noellipse-ellipse sscanf, record 0, extra 4
+post call integral
+post call floating
+£temporary2141 = return_value
+if endp != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2143 = *endp
+£temporary2144 = s + chars
+£temporary2143 = £temporary2144
+goto <MiddleCode>
+push float value
+return_value = value
+return
+empty
+return
+function end strtod

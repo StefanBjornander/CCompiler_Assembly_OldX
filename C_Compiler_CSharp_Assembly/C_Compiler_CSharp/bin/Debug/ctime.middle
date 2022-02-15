@@ -1,0 +1,20 @@
+function start ctime
+call header
+call header
+parameter time, record 0, offset 6
+pre call
+call function noellipse-noellipse localtime, record 0, extra 0
+post call integral
+post call floating
+£temporary2551 = return_value
+parameter £temporary2551, record 0, offset 6
+pre call
+call function noellipse-noellipse asctime, record 0, extra 0
+post call integral
+post call floating
+£temporary2552 = return_value
+return_value = £temporary2552
+return
+empty
+return
+function end ctime

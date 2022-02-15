@@ -1,0 +1,24 @@
+function start strcpy
+index = 0
+empty
+£temporary2789 = source + index
+£temporary2788 = *£temporary2789
+if £temporary2788 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2793 = target + index
+£temporary2792 = *£temporary2793
+£temporary2795 = source + index
+£temporary2794 = *£temporary2795
+£temporary2792 = £temporary2794
+empty
+++index
+goto <MiddleCode>
+£temporary2797 = target + index
+£temporary2796 = *£temporary2797
+£temporary2796 = 0
+return_value = target
+return
+empty
+return
+function end strcpy

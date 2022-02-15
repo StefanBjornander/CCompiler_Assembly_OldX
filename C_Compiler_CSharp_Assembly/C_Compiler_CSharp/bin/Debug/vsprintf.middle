@@ -1,0 +1,17 @@
+function start vsprintf
+g_outStatus = 1
+£temporary2103 = int_to_int outString (Pointer -> Pointer)
+g_outDevice = £temporary2103
+call header
+parameter format, record 0, offset 6
+parameter arg_list, record 0, offset 8
+pre call
+call function noellipse-noellipse printFormat, record 0, extra 0
+post call integral
+post call floating
+£temporary2104 = return_value
+return_value = £temporary2104
+return
+empty
+return
+function end vsprintf

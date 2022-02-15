@@ -1,0 +1,159 @@
+function start realloc
+if newMemorySize >= 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stderr, record 0, offset 6
+parameter "Assertion failed: "%s" in file %s at line %i\012", record 0, offset 8
+parameter "newMemorySize >= 0", record 0, offset 10
+parameter "C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits\stdio\Malloc.c", record 0, offset 12
+parameter 249, record 0, offset 14
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 6
+post call integral
+post call floating
+£temporary98 = return_value
+call header
+pre call
+call function noellipse-noellipse abort, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+if oldMemoryPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+if newMemorySize > 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stderr, record 0, offset 6
+parameter "Assertion failed: "%s" in file %s at line %i\012", record 0, offset 8
+parameter "( oldMemoryPtr != NULL ) \174\174 ( newMemorySize > 0 )", record 0, offset 10
+parameter "C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits\stdio\Malloc.c", record 0, offset 12
+parameter 250, record 0, offset 14
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 6
+post call integral
+post call floating
+£temporary104 = return_value
+call header
+pre call
+call function noellipse-noellipse abort, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+if oldMemoryPtr == 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter newMemorySize, record 0, offset 6
+pre call
+call function noellipse-noellipse malloc, record 0, extra 0
+post call integral
+post call floating
+£temporary107 = return_value
+return_value = £temporary107
+return
+goto <MiddleCode>
+if newMemorySize == 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter oldMemoryPtr, record 0, offset 6
+pre call
+call function noellipse-noellipse free, record 0, extra 0
+post call integral
+post call floating
+return_value = 0
+return
+goto <MiddleCode>
+£temporary110 = int_to_int newMemorySize (Signed_Int -> Unsigned_Int)
+£temporary111 = £temporary110 + 4
+newBlockSize = £temporary111
+if oldMemoryPtr >= 4 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stderr, record 0, offset 6
+parameter "Assertion failed: "%s" in file %s at line %i\012", record 0, offset 8
+parameter "oldMemoryPtr >= BLOCK_HEADER_SIZE", record 0, offset 10
+parameter "C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits\stdio\Malloc.c", record 0, offset 12
+parameter 262, record 0, offset 14
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 6
+post call integral
+post call floating
+£temporary114 = return_value
+call header
+pre call
+call function noellipse-noellipse abort, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+£temporary116 = int_to_int oldMemoryPtr (Pointer -> Unsigned_Int)
+£temporary117 = £temporary116 - 4
+£temporary118 = int_to_int £temporary117 (Unsigned_Int -> Pointer)
+oldBlockPtr = £temporary118
+£temporary119 = *oldBlockPtr
+if newBlockSize <= £temporary119 goto <MiddleCode>
+goto <MiddleCode>
+£temporary121 = *oldBlockPtr
+£temporary121 = newBlockSize
+£temporary122 = int_to_int oldMemoryPtr (Pointer -> Pointer)
+return_value = £temporary122
+return
+goto <MiddleCode>
+lastAddress = 65534
+currBlockPtr = firstBlockPtr
+if currBlockPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+if currBlockPtr == oldBlockPtr goto <MiddleCode>
+goto <MiddleCode>
+£temporary125 = int_to_int currBlockPtr (Pointer -> Unsigned_Int)
+£temporary126 = lastAddress - £temporary125
+availableSize = £temporary126
+if availableSize >= newBlockSize goto <MiddleCode>
+goto <MiddleCode>
+£temporary128 = *oldBlockPtr
+£temporary128 = newBlockSize
+return_value = oldMemoryPtr
+return
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+£temporary129 = int_to_int currBlockPtr (Pointer -> Unsigned_Int)
+lastAddress = £temporary129
+£temporary130 = *currBlockPtr, offset 2
+currBlockPtr = £temporary130
+goto <MiddleCode>
+call header
+parameter newMemorySize, record 0, offset 6
+pre call
+call function noellipse-noellipse malloc, record 0, extra 0
+post call integral
+post call floating
+£temporary131 = return_value
+newMemoryPtr = £temporary131
+if newMemoryPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter newMemoryPtr, record 0, offset 6
+parameter oldMemoryPtr, record 0, offset 8
+parameter newMemorySize, record 0, offset 10
+pre call
+call function noellipse-noellipse memcpy, record 0, extra 0
+post call integral
+post call floating
+£temporary133 = return_value
+call header
+parameter oldMemoryPtr, record 0, offset 6
+pre call
+call function noellipse-noellipse free, record 0, extra 0
+post call integral
+post call floating
+return_value = newMemoryPtr
+return
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end realloc

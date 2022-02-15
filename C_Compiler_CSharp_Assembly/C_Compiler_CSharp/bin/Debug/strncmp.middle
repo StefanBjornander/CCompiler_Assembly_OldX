@@ -1,0 +1,61 @@
+function start strncmp
+index = 0
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2872 = left + index
+£temporary2871 = *£temporary2872
+if £temporary2871 == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2875 = right + index
+£temporary2874 = *£temporary2875
+if £temporary2874 == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+£temporary2879 = left + index
+£temporary2878 = *£temporary2879
+if £temporary2878 == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = -1
+return
+goto <MiddleCode>
+£temporary2882 = right + index
+£temporary2881 = *£temporary2882
+if £temporary2881 == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 1
+return
+goto <MiddleCode>
+£temporary2885 = left + index
+£temporary2884 = *£temporary2885
+£temporary2887 = right + index
+£temporary2886 = *£temporary2887
+if £temporary2884 < £temporary2886 goto <MiddleCode>
+goto <MiddleCode>
+return_value = -1
+return
+goto <MiddleCode>
+£temporary2890 = left + index
+£temporary2889 = *£temporary2890
+£temporary2892 = right + index
+£temporary2891 = *£temporary2892
+if £temporary2889 > £temporary2891 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 1
+return
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end strncmp

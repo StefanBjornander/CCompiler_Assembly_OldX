@@ -1,0 +1,912 @@
+
+// ==========================================================================
+//  GPPG error listing for yacc source file <MainParser.gppg - 2020-02-25 14:45:27>
+// ==========================================================================
+//  Version:  1.5.2
+//  Machine:  STEFAN1968
+//  DateTime: 2020-02-25 14:47:45
+//  UserName: Stefan
+// ==========================================================================
+
+
+%namespace CCompiler_Main
+%partial
+
+%using System.Numerics;
+%using CCompiler;
+
+%{
+  public static Stack<BigInteger> EnumValueStack = new Stack<BigInteger>();
+%}
+
+%token AUTO REGISTER STATIC EXTERN TYPEDEF CONSTANT VOLATILE
+       SIGNED UNSIGNED CHAR WCHAR_T SHORT INT LONG
+       FLOAT DOUBLE VOID ENUM STRUCT UNION
+       PLUS MINUS DIVIDE BACKSLASH MODULO INCREMENT DECREMENT
+       EQUAL NOT_EQUAL LESS_THAN LESS_THAN_EQUAL GREATER_THAN
+       GREATER_THAN_EQUAL LEFT_SHIFT RIGHT_SHIFT
+       ASSIGN ADD_ASSIGN SUBTRACT_ASSIGN MULTIPLY_ASSIGN
+       DIVIDE_ASSIGN MODULO_ASSIGN LEFT_SHIFT_ASSIGN
+       RIGHT_SHIFT_ASSIGN AND_ASSIGN IOR_ASSIGN XOR_ASSIGN
+       COLON COMMA SEMICOLON ELLIPSE DOT ARROW ASTERRISK AMPERSAND
+       LEFT_PAREN RIGHT_PAREN LEFT_BLOCK RIGHT_BLOCK
+       LEFT_SQUARE RIGHT_SQUARE SIZEOF
+       LOGICAL_OR LOGICAL_AND LOGICAL_NOT BITWISE_XOR BITWISE_IOR
+       BITWISE_NOT QUESTION_MARK IF ELSE SWITCH CASE DEFAULT
+       FOR WHILE DO CONTINUE BREAK RETURN GOTO INTERRUPT
+       LOAD_REGISTER STORE_REGISTER CLEAR_REGISTERS
+       FLAGBYTE JUMP_REGISTER SYSTEM_CALL
+
+%union {
+  public string name;
+  public Register register;
+  public CCompiler.Type type;
+  public List<CCompiler.Type> type_list;
+  public ISet<Pair<Symbol,bool>> symbol_bool_pair_set;
+  public Pair<Symbol,bool> symbol_bool_pair;
+  public Sort sort;
+  public Symbol symbol;
+  public List<Symbol> symbol_list;
+  public List<string> string_list;
+  public Declarator declarator;
+  public List<Declarator> declarator_list;
+  public MiddleOperator middleOperator;
+  public Expression expression;
+  public List<Expression> expression_list;
+  public Statement statement;
+  public Pair<List<Symbol>,Boolean> pair;
+  public List<Pair<List<Symbol>,Boolean>> pair_list;
+  public List<MiddleCode> middle_code_list;
+  public object obj;
+  public List<object> object_list;
+}
+
+%token <name> NAME
+%token <register> REGISTER_NAME
+%token <type> TYPEDEF_NAME
+%token <symbol> VALUE
+
+%type <obj> declaration_specifier
+
+%type <name> optional_identifier
+%type <type> struct_or_union_specifier
+%type <sort> struct_or_union
+
+%type <type> enum_specifier
+%type <symbol_bool_pair_set> enum_list
+%type <symbol_bool_pair> enum
+%type <middle_code_list> declarator_list init_bitfield_declarator declaration_specifier_list declaration
+
+%type <declarator> declarator direct_declarator
+%type <type_list> optional_pointer_list pointer_list
+%type <type> pointer
+
+%type <pair> optional_parameter_ellipse_list parameter_ellipse_list
+%type <symbol_list> parameter_list
+%type <symbol> parameter_declaration
+
+%type <string_list> optional_identifier_list identifier_list
+%type <object_list> initializer_list
+%type <obj> initializer
+
+%type <type> type_name
+%type <declarator> abstract_declarator direct_abstract_declarator
+
+%type <middleOperator> equality_operator relation_operator
+                       shift_operator binary_Add_operator assignment_operator
+                       multiply_operator prefix_Add_operator increment_operator
+
+%type <expression> optional_constant_integral_expression
+                   constant_integral_expression optional_expression
+                   expression assignment_expression condition_expression
+                   logical_or_expression logical_and_expression
+                   bitwise_ior_expression bitwise_xor_expression
+                   bitwise_and_expression equality_expression
+                   relation_expression shift_expression add_expression
+                   multiply_expression cast_expression prefix_expression
+                   postfix_expression primary_expression
+
+%type <statement> optional_statement_list statement
+                  closed_statement opened_statement
+
+%type <expression_list> optional_argument_expression_list argument_expression_list
+                        optional_system_argument_expression_list system_argument_expression_list
+
+// --------------------------------------------------------------------------
+
+%start translation_unit
+
+%%
+// Error: NonTerminal symbol "CARRY_FLAG" has no productions
+// Warning: Terminating CARRY_FLAG fixes the following size-1 NonTerminal set
+   // {CARRY_FLAG}
+// Error: There are 1 non-terminating NonTerminal Symbols
+   //  {CARRY_FLAG}
+// --------------------------------------------------------------------------
+
+translation_unit:
+    external_declaration
+  | translation_unit external_declaration;
+
+external_declaration:
+    function_definition
+ |  declaration;
+
+// --------------------------------------------------------------------------
+
+function_definition:
+    declarator {
+      GenerateDeclaration.GenerateFunctionHeader(null, $1);
+    }
+    optional_declaration_list {
+      GenerateDeclaration.CheckFunctionDefinition();
+    }
+    LEFT_BLOCK optional_statement_list RIGHT_BLOCK {
+      GenerateDeclaration.CheckGotoSet();
+      GenerateDeclaration.GenerateFunctionEnd($6);
+    }
+  | declaration_specifier_list declarator {
+      GenerateDeclaration.GenerateFunctionHeader(Start.SpecifierStack.Pop(), $2);
+    }
+    optional_declaration_list {
+      GenerateDeclaration.CheckFunctionDefinition();
+    }
+    LEFT_BLOCK optional_statement_list RIGHT_BLOCK {
+      GenerateDeclaration.CheckGotoSet();
+      GenerateDeclaration.GenerateFunctionEnd($7);
+    };
+
+optional_declaration_list:
+    /* Empty */
+  | optional_declaration_list declaration;
+
+// --------------------------------------------------------------------------
+
+declaration:
+    declaration_specifier_list SEMICOLON {
+      Start.SpecifierStack.Pop().Generate();
+      $$ = new MyList<MiddleCode>();
+    }
+  | declaration_specifier_list declarator_list SEMICOLON {
+      Start.SpecifierStack.Pop();
+      $$ = $2;
+    };
+
+declaration_specifier_list:
+    declaration_specifier {
+      Specifier specifier = new Specifier();
+      specifier.Add($1);
+      Start.SpecifierStack.Push(specifier);
+    }
+  | declaration_specifier_list declaration_specifier {
+      Specifier specifier = Start.SpecifierStack.Peek();
+      specifier.Add($2);
+    };
+
+declaration_specifier:
+    CONSTANT { $$ = Mask.Constant; }
+  | VOLATILE { $$ = Mask.Volatile; }
+  | AUTO     { $$ = Mask.Auto;     }
+  | REGISTER { $$ = Mask.Register; }
+  | STATIC   { 
+      if (Start.CurrentTable.Scope == Scope.Global) {
+        $$ = Mask.Private;
+      }
+      else {
+        $$ = Mask.Static;
+      }
+    }
+  | EXTERN   { $$ = Mask.Extern;   }
+  | TYPEDEF  { $$ = Mask.Typedef;  }
+  | VOID     { $$ = Mask.Void;     }
+  | CHAR     { $$ = Mask.Char;     }
+//  | WCHAR_T  { $$ = Mask.WChar_T;  }
+  | SHORT    { $$ = Mask.Short;    }
+  | INT      { $$ = Mask.Int;      }
+  | LONG     { $$ = Mask.Long;     }
+  | FLOAT    { $$ = Mask.Float;    }
+  | DOUBLE   { $$ = Mask.Double;   }
+  | SIGNED   { $$ = Mask.Signed;   }
+  | UNSIGNED { $$ = Mask.Unsigned; }
+  | struct_or_union_specifier { $$ = $1; }
+  | enum_specifier            { $$ = $1; }
+  | TYPEDEF_NAME              { $$ = $1; };
+
+// --------------------------------------------------------------------------
+
+struct_or_union_specifier:
+    struct_or_union optional_identifier {
+      GenerateDeclaration.GenerateStructUnionHeader($2, $1);
+      Scope scope = ($1 == Sort.Struct) ? Scope.Struct : Scope.Union;
+      Start.CurrentTable = new SymbolTable(Start.CurrentTable, scope);
+    }
+    LEFT_BLOCK declaration_list RIGHT_BLOCK {
+      $$ = GenerateDeclaration.GenerateStructUnionSpecifier($2, $1);
+      Start.CurrentTable = Start.CurrentTable.ParentTable;
+    }
+  | struct_or_union NAME {
+      $$ = GenerateDeclaration.LookupStructUnionSpecifier($2, $1);
+    };
+
+struct_or_union:
+    STRUCT { $$ = Sort.Struct; }
+  | UNION  { $$ = Sort.Union;  };
+
+optional_identifier:
+    /* Empty */ { $$ = null; }
+  | NAME        { $$ = $1;   };
+
+declaration_list:
+    declaration
+  | declaration_list declaration;
+
+// --------------------------------------------------------------------------
+
+enum_specifier:
+    ENUM optional_identifier {
+      Start.EnumValueStack.Push(BigInteger.Zero);
+    }
+    LEFT_BLOCK enum_list RIGHT_BLOCK {
+      $$ = GenerateDeclaration.GenerateEnumSpecifier($2, $5);
+      Start.EnumValueStack.Pop();
+    }
+  | ENUM NAME {
+      $$ = GenerateDeclaration.LookupEnum($2);
+    };
+
+enum_list:
+    enum {
+      ISet<Pair<Symbol,bool>> memberSet = new HashSet<Pair<Symbol,bool>>();
+      memberSet.Add($1);
+      $$ = memberSet;
+    }
+  | enum_list COMMA enum {
+      ISet<Pair<Symbol,bool>> memberSet = $1;
+      memberSet.Add($3);
+      $$ = memberSet;
+    };
+
+enum:
+    NAME {
+      Symbol symbol = GenerateDeclaration.GenerateEnumItem($1, null);
+      $$ = new Pair<Symbol,bool>(symbol, false);
+    }
+  | NAME ASSIGN constant_integral_expression {
+      Symbol symbol = GenerateDeclaration.GenerateEnumItem($1, $3.Symbol());
+      $$ = new Pair<Symbol,bool>(symbol, true);
+    };
+
+// --------------------------------------------------------------------------
+
+declarator_list:
+    init_bitfield_declarator {
+      $$ = $1;
+    }
+  | declarator_list COMMA init_bitfield_declarator {
+      $1.AddRange($3);
+      $$ = $1;
+    };
+    
+init_bitfield_declarator:
+    declarator {
+      GenerateDeclaration.GenerateDeclarator(Start.SpecifierStack.Peek(), $1);
+      $$ = new MyList<MiddleCode>();
+    }
+  | declarator ASSIGN initializer {
+      $$ = GenerateDeclaration.GenerateAssignmentDeclarator(Start.SpecifierStack.Peek(), $1, $3);
+    }
+  | declarator COLON constant_integral_expression {
+      GenerateDeclaration.GenerateBitfieldDeclarator(Start.SpecifierStack.Peek(), $1, $3.Symbol());
+      $$ = new MyList<MiddleCode>();
+    }
+  | COLON constant_integral_expression {
+      GenerateDeclaration.GenerateBitfieldDeclarator(Start.SpecifierStack.Peek(), null, $2.Symbol());
+      $$ = new MyList<MiddleCode>();
+    };
+
+declarator:
+    optional_pointer_list direct_declarator {
+      $$ = GenerateDeclaration.GeneratePointerDeclarator($1, $2);
+    };
+
+direct_declarator:
+    NAME {
+      $$ = new Declarator($1);
+    }
+  | LEFT_PAREN declarator RIGHT_PAREN {
+      $$ = $2; 
+    }
+  | direct_declarator LEFT_SQUARE optional_constant_integral_expression RIGHT_SQUARE {
+      $$ = GenerateDeclaration.GenerateArrayType($1, $3);
+    }
+  | direct_declarator LEFT_PAREN parameter_ellipse_list RIGHT_PAREN {
+      $$ = GenerateDeclaration.GenerateNewFunctionDeclaration($1, $3);
+    }
+  | direct_declarator LEFT_PAREN optional_identifier_list RIGHT_PAREN {
+      $$ = GenerateDeclaration.GenerateOldFunctionDeclaration($1, $3);
+    };
+
+optional_pointer_list:
+    /* Empty */  { $$ = new MyList<CCompiler.Type>(); }
+  | pointer_list { $$ = $1; };
+
+pointer_list:
+    pointer {
+      $$ = new MyList<CCompiler.Type>();
+      ((List<CCompiler.Type>) $$).Add($1);
+    }
+  | pointer_list pointer {
+      $1.Add($2);
+      $$ = $1;
+    };
+
+pointer:
+    ASTERRISK {
+      $$ = new CCompiler.Type((CCompiler.Type) null);
+    }
+  | ASTERRISK declaration_specifier_list {
+      $$ = Start.SpecifierStack.Pop().GenerateQualifiers();
+    };
+
+// --------------------------------------------------------------------------
+
+optional_parameter_ellipse_list:
+    /* Empty */            { $$ = null; }
+  | parameter_ellipse_list { $$ = $1;   };
+    
+parameter_ellipse_list:
+    parameter_list {
+      $$ = new Pair<List<Symbol>,Boolean>($1, false);
+    }
+  | parameter_list COMMA ELLIPSE {
+      $$ = new Pair<List<Symbol>,Boolean>($1, true);
+    };
+
+parameter_list:
+    {
+      ++Start.ParameterCount;
+    }
+    parameter_declaration {
+      --Start.ParameterCount;
+      List<Symbol> symbolList = new MyList<Symbol>();
+      symbolList.Add($2);
+      $$ = symbolList;
+    }
+  | parameter_list COMMA {
+      ++Start.ParameterCount;
+    }
+    parameter_declaration {
+      --Start.ParameterCount;
+      $1.Add($4);
+      $$ = $1;
+    };
+
+parameter_declaration:
+    declaration_specifier_list {
+      $$ = GenerateDeclaration.GenerateParameter(Start.SpecifierStack.Pop(), null);
+    }
+  | declaration_specifier_list declarator {
+      $$ = GenerateDeclaration.GenerateParameter(Start.SpecifierStack.Pop(), $2);
+    }
+  | declaration_specifier_list abstract_declarator {
+      $$ = GenerateDeclaration.GenerateParameter(Start.SpecifierStack.Pop(), $2);
+    };
+
+optional_identifier_list:
+    /* Empty */     { $$ = new MyList<string>(); }
+  | identifier_list { $$ = $1;                 };
+
+identifier_list:
+    NAME {
+      List<string> nameList = new MyList<string>();
+      nameList.Add($1);
+      $$ = nameList;
+    }
+  | identifier_list COMMA NAME {
+      $1.Add($3); 
+      $$ = $1;
+    };
+
+// --------------------------------------------------------------------------
+
+initializer:
+    assignment_expression {
+      $$ = $1;
+    }
+  | LEFT_BLOCK initializer_list optional_comma RIGHT_BLOCK {
+      $$ = $2;
+    };
+
+optional_comma:
+    /* Empty */
+  | COMMA;
+
+initializer_list:
+    initializer {
+      List<object> initializerList = new MyList<object>();
+      initializerList.Add($1);
+      $$ = initializerList;
+    }
+  | initializer_list COMMA initializer {
+      $1.Add($3);
+      $$ = $1;
+    };
+
+// --------------------------------------------------------------------------
+
+type_name:
+    declaration_specifier_list  {
+      $$ = GenerateDeclaration.GenerateTypeName(Start.SpecifierStack.Pop(), null);
+    }
+  | declaration_specifier_list abstract_declarator {
+      $$ = GenerateDeclaration.GenerateTypeName(Start.SpecifierStack.Pop(), $2);
+    };
+
+// --------------------------------------------------------------------------
+
+abstract_declarator:
+    pointer_list {
+      $$ = GenerateDeclaration.GeneratePointerDeclarator($1, null);
+    }      
+  | optional_pointer_list direct_abstract_declarator {
+      $$ = GenerateDeclaration.GeneratePointerDeclarator($1, $2);
+    };      
+
+direct_abstract_declarator:
+    LEFT_PAREN abstract_declarator RIGHT_PAREN {
+      $$ = $2;
+    }
+  | LEFT_SQUARE optional_constant_integral_expression RIGHT_SQUARE {
+      $$ = GenerateDeclaration.GenerateArrayType(null, $2);
+    }
+  | direct_abstract_declarator
+    LEFT_SQUARE optional_constant_integral_expression RIGHT_SQUARE {
+      $$ = GenerateDeclaration.GenerateArrayType($1, $3);
+    }
+  | LEFT_PAREN optional_parameter_ellipse_list RIGHT_PAREN {
+      $$ = GenerateDeclaration.GenerateNewFunctionDeclaration(null, $2);
+    }
+  | direct_abstract_declarator
+    LEFT_PAREN optional_parameter_ellipse_list RIGHT_PAREN {
+      $$ = GenerateDeclaration.GenerateNewFunctionDeclaration($1, $3);
+    };
+
+// Statements ---------------------------------------------------------------
+
+optional_statement_list:
+    /* Empty */ {
+      $$ = new Statement(new MyList<MiddleCode>(), new ListSet<MiddleCode>());
+    }
+  | optional_statement_list statement {
+      Start.Backpatch($1.NextSet(), $2.List());
+      List<MiddleCode> codeList = new MyList<MiddleCode>();
+      codeList.AddRange($1.List());
+      codeList.AddRange($2.List());
+      $$ = new Statement(codeList, $2.NextSet());
+    };
+
+statement:
+    opened_statement { $$ = $1; }
+  | closed_statement { $$ = $1; };
+
+switch_header:
+    /* Empty. */ { MiddleCodeGenerator.GenerateSwitchHeader(); };
+
+loop_header:
+    /* Empty. */ { MiddleCodeGenerator.GenerateLoopHeader(); };
+
+opened_statement:
+    IF LEFT_PAREN expression RIGHT_PAREN statement {
+      $$ = MiddleCodeGenerator.GenerateIfStatement($3, $5);
+    }
+  | IF LEFT_PAREN expression RIGHT_PAREN closed_statement ELSE opened_statement {
+      $$ = MiddleCodeGenerator.GenerateIfElseStatement($3, $5, $7);
+    }
+  | SWITCH switch_header LEFT_PAREN expression RIGHT_PAREN opened_statement {
+      $$ = MiddleCodeGenerator.GenerateSwitchStatement($4, $6);
+    }
+  | CASE constant_integral_expression COLON opened_statement {
+      $$ = MiddleCodeGenerator.GenerateCaseStatement($2, $4);
+    }
+  | WHILE loop_header LEFT_PAREN expression RIGHT_PAREN opened_statement {
+      $$ = MiddleCodeGenerator.GenerateWhileStatement($4, $6);
+    }
+  | FOR loop_header LEFT_PAREN optional_expression SEMICOLON
+    optional_expression SEMICOLON optional_expression RIGHT_PAREN
+    opened_statement {
+      $$ = MiddleCodeGenerator.GenerateForStatement($4, $6, $8, $10);
+    }
+  | NAME COLON opened_statement {
+      $$ = MiddleCodeGenerator.GenerateLabelStatement($1, $3);
+    };
+
+closed_statement:
+   IF LEFT_PAREN expression RIGHT_PAREN closed_statement ELSE closed_statement {
+      $$ = MiddleCodeGenerator.GenerateIfElseStatement($3, $5, $7);
+    }
+  | SWITCH switch_header LEFT_PAREN expression RIGHT_PAREN closed_statement {
+      $$ = MiddleCodeGenerator.GenerateSwitchStatement($4, $6);
+    }
+  | WHILE loop_header LEFT_PAREN expression RIGHT_PAREN closed_statement {
+      $$ = MiddleCodeGenerator.GenerateWhileStatement($4, $6);
+    }
+  | FOR loop_header LEFT_PAREN optional_expression SEMICOLON
+    optional_expression SEMICOLON optional_expression RIGHT_PAREN
+    closed_statement {
+      $$ = MiddleCodeGenerator.GenerateForStatement($4, $6, $8, $10);
+    }
+  | DO loop_header statement WHILE LEFT_PAREN expression RIGHT_PAREN SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateDoStatement($3, $6);
+    }
+  | CASE constant_integral_expression COLON closed_statement {
+      $$ = MiddleCodeGenerator.GenerateCaseStatement($2, $4);
+    }
+  | DEFAULT COLON closed_statement {
+      $$ = MiddleCodeGenerator.GenerateDefaultStatement($3);
+    }
+  | CONTINUE SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateContinueStatement();
+    }
+  | BREAK SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateBreakStatement();
+    }
+  | LEFT_BLOCK {
+      Start.CurrentTable = new SymbolTable(Start.CurrentTable, Scope.Block);
+    }
+    optional_statement_list RIGHT_BLOCK {
+      Start.CurrentTable = Start.CurrentTable.ParentTable;
+      $$ = $3;
+    }
+  | GOTO NAME SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateGotoStatement($2);
+    }
+  | RETURN optional_expression SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateReturnStatement($2);
+    }
+  | optional_expression SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateExpressionStatement($1);
+    }
+  | declaration {
+      $$ = new Statement($1, new ListSet<MiddleCode>());
+    }
+  /*| LOAD_REGISTER LEFT_PAREN REGISTER_NAME COMMA expression RIGHT_PAREN SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateLoadToRegisterStatement($3, $5);
+    }
+  | STORE_REGISTER LEFT_PAREN NAME COMMA expression RIGHT_PAREN SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateSaveFromRegisterStatement($3, $5);
+    }
+  | CLEAR_REGISTERS LEFT_PAREN RIGHT_PAREN SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateClearRegistersStatement();
+    }
+  | FLAGBYTE LEFT_PAREN expression RIGHT_PAREN SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateLoadFlagbyteStatement($3);
+    }*/
+  | JUMP_REGISTER LEFT_PAREN REGISTER_NAME RIGHT_PAREN SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateJumpRegisterStatement($3);
+    }
+  | INTERRUPT LEFT_PAREN constant_integral_expression RIGHT_PAREN SEMICOLON {
+      $$ = MiddleCodeGenerator.GenerateInterruptStatement($3);
+    };
+
+// Expressions ---------------------------------------------------------------
+
+optional_constant_integral_expression:
+    /*/ Empty */                 { $$ = null; }
+  | constant_integral_expression { $$ = $1;   };
+
+constant_integral_expression:
+    condition_expression {
+      $$ = MiddleCodeGenerator.GenerateConstantIntegralExpression($1);
+    };
+
+// --------------------------------------------------------------------------
+
+optional_expression:
+    /* Empty */ { $$ = null; }
+  | expression  { $$ = $1;   };
+
+expression:
+   assignment_expression {
+      $$ = $1;
+    }
+  | expression COMMA assignment_expression {
+      $$ = MiddleCodeGenerator.GenerateCommaExpression($1, $3);
+    };
+
+// --------------------------------------------------------------------------
+
+assignment_expression:
+    condition_expression {
+      $$ = $1;
+    }
+  | prefix_expression ASSIGN assignment_expression {
+      $$ = MiddleCodeGenerator.GenerateSimpleAssignmentExpression($1, $3);
+    }
+  | prefix_expression assignment_operator assignment_expression {
+      $$ = MiddleCodeGenerator.GenerateCompoundAssignmentExpression($1, $2, $3);
+    };
+
+assignment_operator:
+    ADD_ASSIGN         { $$ = MiddleOperator.BinaryAdd;      }
+  | SUBTRACT_ASSIGN    { $$ = MiddleOperator.BinarySubtract; }
+  | MULTIPLY_ASSIGN    { $$ = MiddleOperator.SignedMultiply; }
+  | DIVIDE_ASSIGN      { $$ = MiddleOperator.SignedDivide;   }
+  | MODULO_ASSIGN      { $$ = MiddleOperator.SignedModulo;   }
+  | AND_ASSIGN         { $$ = MiddleOperator.BitwiseAnd;     }
+  | IOR_ASSIGN         { $$ = MiddleOperator.BitwiseIOr;     }
+  | XOR_ASSIGN         { $$ = MiddleOperator.BitwiseXOr;     }
+  | LEFT_SHIFT_ASSIGN  { $$ = MiddleOperator.ShiftLeft;      }
+  | RIGHT_SHIFT_ASSIGN { $$ = MiddleOperator.ShiftRight;     };
+
+// --------------------------------------------------------------------------
+
+condition_expression:
+    logical_or_expression {
+      $$ = $1;
+    }
+  | logical_or_expression QUESTION_MARK expression COLON condition_expression {
+      $$ = MiddleCodeGenerator.GenerateConditionalExpression($1, $3, $5);
+    };
+
+// --------------------------------------------------------------------------
+
+logical_or_expression:
+    logical_and_expression {
+      $$ = $1;
+    }
+  | logical_or_expression LOGICAL_OR logical_and_expression {
+      $$ = MiddleCodeGenerator.GenerateLogicalOrExpression($1, $3);
+    };
+
+// --------------------------------------------------------------------------
+
+logical_and_expression:
+    bitwise_ior_expression {
+      $$ = $1;
+    }
+  | logical_and_expression LOGICAL_AND bitwise_ior_expression {
+      $$ = MiddleCodeGenerator.GenerateLogicalAndExpression($1, $3);
+    };
+
+// --------------------------------------------------------------------------
+
+bitwise_ior_expression:
+    bitwise_xor_expression {
+      $$ = $1;
+    }
+  | bitwise_ior_expression BITWISE_IOR bitwise_xor_expression {
+      $$ = MiddleCodeGenerator.GenerateBitwiseExpression($1, MiddleOperator.BitwiseIOr, $3);
+    };
+
+// --------------------------------------------------------------------------
+
+bitwise_xor_expression:
+    bitwise_and_expression {
+      $$ = $1;
+    }
+  | bitwise_xor_expression BITWISE_XOR bitwise_and_expression {
+      $$ = MiddleCodeGenerator.GenerateBitwiseExpression($1, MiddleOperator.BitwiseXOr, $3);
+    };
+
+// --------------------------------------------------------------------------
+
+bitwise_and_expression:
+    equality_expression {
+      $$ = $1;
+    }
+  | bitwise_and_expression AMPERSAND equality_expression {
+      $$ = MiddleCodeGenerator.GenerateBitwiseExpression($1, MiddleOperator.BitwiseAnd, $3);
+    };
+
+// --------------------------------------------------------------------------
+
+equality_expression:
+    relation_expression {
+      $$ = $1;
+    }
+  | equality_expression equality_operator relation_expression {
+      $$ = MiddleCodeGenerator.GenerateRelationalExpression($1, $2, $3);
+    };
+
+equality_operator:
+    EQUAL     { $$ = MiddleOperator.Equal;    }
+  | NOT_EQUAL { $$ = MiddleOperator.NotEqual; };
+
+// --------------------------------------------------------------------------
+
+relation_expression:
+    shift_expression {
+      $$ = $1;
+    }
+  | relation_expression relation_operator shift_expression {
+      $$ = MiddleCodeGenerator.GenerateRelationalExpression($1, $2, $3);
+    };
+
+relation_operator:
+    LESS_THAN          { $$ = MiddleOperator.SignedLessThan;         }
+  | LESS_THAN_EQUAL    { $$ = MiddleOperator.SignedLessThanEqual;    }
+  | GREATER_THAN       { $$ = MiddleOperator.SignedGreaterThan;      }
+  | GREATER_THAN_EQUAL { $$ = MiddleOperator.SignedGreaterThanEqual; };
+
+// --------------------------------------------------------------------------
+
+shift_expression:
+    add_expression {
+      $$ = $1;
+    }
+  | shift_expression shift_operator add_expression {
+      $$ = MiddleCodeGenerator.GenerateShiftExpression($1, $2, $3);
+    };
+
+shift_operator:
+    LEFT_SHIFT  { $$ = MiddleOperator.ShiftLeft;  }
+  | RIGHT_SHIFT { $$ = MiddleOperator.ShiftRight; };
+
+// --------------------------------------------------------------------------
+
+add_expression:
+    multiply_expression {
+      $$ = $1;
+    }
+  | add_expression binary_Add_operator multiply_expression {
+      $$ = MiddleCodeGenerator.GenerateAdditionExpression($1, $2, $3);
+    };
+
+binary_Add_operator:
+    PLUS  { $$ = MiddleOperator.BinaryAdd;      }
+  | MINUS { $$ = MiddleOperator.BinarySubtract; };
+
+// --------------------------------------------------------------------------
+
+multiply_expression:
+    cast_expression {
+      $$ = $1;
+    }
+  | multiply_expression multiply_operator cast_expression {
+      $$ = MiddleCodeGenerator.GenerateMultiplyExpression($1, $2, $3);
+    };
+
+multiply_operator:
+    ASTERRISK { $$ = MiddleOperator.SignedMultiply; }
+  | DIVIDE    { $$ = MiddleOperator.SignedDivide;   }
+  | MODULO    { $$ = MiddleOperator.SignedModulo;   };
+
+// --------------------------------------------------------------------------
+
+cast_expression:
+    prefix_expression {
+      $$ = $1;
+    }
+  | LEFT_PAREN type_name RIGHT_PAREN cast_expression {
+      $$ = MiddleCodeGenerator.GenerateCastExpression($2, $4);
+    };
+
+// --------------------------------------------------------------------------
+
+prefix_Add_operator:
+    PLUS  { $$ = MiddleOperator.UnaryAdd;      }
+  | MINUS { $$ = MiddleOperator.UnarySubtract; };
+
+increment_operator:
+    INCREMENT { $$ = MiddleOperator.Increment; }
+  | DECREMENT { $$ = MiddleOperator.Decrement; };
+
+// --------------------------------------------------------------------------
+
+prefix_expression:
+    postfix_expression {
+      $$ = $1; 
+    }
+  | prefix_Add_operator cast_expression {
+      $$ = MiddleCodeGenerator.GenerateUnaryExpression($1, $2);
+    }
+  | increment_operator prefix_expression {
+      $$ = MiddleCodeGenerator.GeneratePrefixIncrementExpression($1, $2);
+    }
+  | LOGICAL_NOT cast_expression {
+      $$ = MiddleCodeGenerator.GenerateLogicalNotExpression($2);
+    }
+  | BITWISE_NOT cast_expression {
+      $$ = MiddleCodeGenerator.GenerateBitwiseNotExpression($2);
+    }
+  | SIZEOF prefix_expression {
+      $$ = MiddleCodeGenerator.GenerateSizeOfExpression($2);
+    }
+  | SIZEOF LEFT_PAREN type_name RIGHT_PAREN {
+      $$ = MiddleCodeGenerator.GenerateSizeOfType($3);
+    }
+  | AMPERSAND cast_expression {
+      $$ = MiddleCodeGenerator.GenerateAddressExpression($2);
+    }
+  | ASTERRISK cast_expression {
+      $$ = MiddleCodeGenerator.GenerateDerefExpression($2);
+    };
+
+// --------------------------------------------------------------------------
+
+postfix_expression:
+    primary_expression {
+      $$ = $1; 
+    }
+  | postfix_expression increment_operator {
+      $$ = MiddleCodeGenerator.GeneratePostfixIncrementExpression($1, $2);
+    }
+  | postfix_expression DOT NAME {
+      $$ = MiddleCodeGenerator.GenerateDotExpression($1, $3);
+    }
+  | postfix_expression ARROW NAME {
+      $$ = MiddleCodeGenerator.GenerateArrowExpression($1, $3);
+    }
+  | postfix_expression LEFT_SQUARE expression RIGHT_SQUARE {
+      $$ = MiddleCodeGenerator.GenerateIndexExpression($1, $3);
+    }
+  | postfix_expression {
+      MiddleCodeGenerator.GenerateCallHeader($1);
+    }
+    LEFT_PAREN optional_argument_expression_list RIGHT_PAREN {
+      $$ = MiddleCodeGenerator.GenerateCallExpression($1, $4);
+    };
+
+// --------------------------------------------------------------------------
+
+primary_expression:
+    NAME {
+      $$ = MiddleCodeGenerator.GenerateSymbolExpression($1);
+    }
+  | VALUE {
+      $$ = MiddleCodeGenerator.GenerateValueExpression($1);
+    }
+  | SYSTEM_CALL COLON NAME LEFT_PAREN optional_system_argument_expression_list RIGHT_PAREN {
+      $$ = MiddleCodeGenerator.GenerateSystemCall($3, $5);
+    }
+  | REGISTER_NAME {
+      $$ = MiddleCodeGenerator.GenerateInspectRegisterExpression($1);
+    }
+  | CARRY_FLAG {
+      $$ = MiddleCodeGenerator.GenerateCarryFlagExpression();
+    }
+  | FLAGBYTE LEFT_PAREN RIGHT_PAREN {
+      $$ = MiddleCodeGenerator.GenerateFlagbyteExpression();
+    }
+  | LEFT_PAREN expression RIGHT_PAREN {
+      $$ = $2; 
+    };
+
+// --------------------------------------------------------------------------
+
+optional_system_argument_expression_list:
+    /* Empty */                     { $$ = new List<Expression>(); }
+  | system_argument_expression_list { $$ = $1;                     };
+
+system_argument_expression_list:
+    assignment_expression {
+      List<Expression> argList = new List<Expression>();
+      argList.Add($1);
+      $$ = argList;
+    }
+  | system_argument_expression_list COMMA assignment_expression {
+      List<Expression> argList = $1;
+      argList.Add($3);
+      $$ = argList;
+    };
+
+optional_argument_expression_list:
+    /* Empty */              { $$ = new MyList<Expression>(); }
+  | argument_expression_list { $$ = $1;                           };
+
+argument_expression_list:
+    assignment_expression {
+      List<Expression> argList = new MyList<Expression>();
+      argList.Add(MiddleCodeGenerator.GenerateParameterExpression($1));
+      $$ = argList;
+    }
+  | argument_expression_list COMMA assignment_expression {
+      List<Expression> argList = $1;
+      argList.Add(MiddleCodeGenerator.GenerateParameterExpression($3));
+      $$ = argList;
+    };
+
+// --------------------------------------------------------------------------
+
+%%// ==========================================================================
+

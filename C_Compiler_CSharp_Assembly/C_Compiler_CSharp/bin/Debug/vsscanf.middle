@@ -1,0 +1,17 @@
+function start vsscanf
+g_inStatus = 1
+£temporary1494 = int_to_int inString (Pointer -> Pointer)
+g_inDevice = £temporary1494
+call header
+parameter format, record 0, offset 6
+parameter arg_list, record 0, offset 8
+pre call
+call function noellipse-noellipse scanFormat, record 0, extra 0
+post call integral
+post call floating
+£temporary1495 = return_value
+return_value = £temporary1495
+return
+empty
+return
+function end vsscanf

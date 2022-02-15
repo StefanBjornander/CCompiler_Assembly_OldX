@@ -1,0 +1,28 @@
+function start ispunct
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse isgraph, record 0, extra 0
+post call integral
+post call floating
+£temporary248 = return_value
+if £temporary248 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse isalnum, record 0, extra 0
+post call integral
+post call floating
+£temporary250 = return_value
+if £temporary250 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary254 = 1
+goto <MiddleCode>
+£temporary254 = 0
+empty
+return_value = £temporary254
+return
+empty
+return
+function end ispunct

@@ -1,0 +1,28 @@
+function start stack_test
+count = 0
+call header
+parameter 1024, record 0, offset 6
+pre call
+call function noellipse-noellipse malloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4177 = return_value
+pointer = £temporary4177
+if pointer != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter "1024 bytes-block number: %i\012", record 0, offset 6
+£temporary4179 = count
+++count
+parameter £temporary4179, record 0, offset 8
+parameter pointer, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary4180 = return_value
+goto <MiddleCode>
+empty
+return
+return
+function end stack_test

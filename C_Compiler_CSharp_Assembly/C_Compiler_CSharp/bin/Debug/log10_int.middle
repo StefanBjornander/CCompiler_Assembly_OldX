@@ -1,0 +1,57 @@
+function start log10_int
+push float x
+push 0
+if x > 0 goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push 1
+if x == 1 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+push float x
+push 1
+if x > 1 goto <MiddleCode>
+goto <MiddleCode>
+count = 0
+push float x
+push 1
+if x > 1 goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push float 10
+x = x / 10
+top float x
+pop float empty X
+++count
+goto <MiddleCode>
+£temporary388 = count - 1
+return_value = £temporary388
+return
+goto <MiddleCode>
+count = 0
+push float x
+push 1
+if x < 1 goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push float 10
+x = x * 10
+top float x
+pop float empty X
+++count
+goto <MiddleCode>
+£temporary391 = -count
+return_value = £temporary391
+return
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+errno = 6
+return_value = 0
+return
+goto <MiddleCode>
+empty
+return
+function end log10_int

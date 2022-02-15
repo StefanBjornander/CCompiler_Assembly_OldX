@@ -1,0 +1,14 @@
+function start print_ldiv
+call header
+parameter "ldiv_t quot %li rem %li\012", record 0, offset 6
+parameter £temporary4327, record 0, offset 8
+parameter £temporary4328, record 0, offset 12
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary4329 = return_value
+empty
+return
+return
+function end print_ldiv

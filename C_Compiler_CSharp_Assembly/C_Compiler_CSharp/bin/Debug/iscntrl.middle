@@ -1,0 +1,19 @@
+function start iscntrl
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse isprint, record 0, extra 0
+post call integral
+post call floating
+£temporary257 = return_value
+if £temporary257 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary260 = 1
+goto <MiddleCode>
+£temporary260 = 0
+empty
+return_value = £temporary260
+return
+empty
+return
+function end iscntrl

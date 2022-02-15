@@ -1,0 +1,10 @@
+function start fabs
+empty
+goto <MiddleCode>
+empty
+empty
+return_value = £temporary654
+return
+empty
+return
+function end fabs

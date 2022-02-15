@@ -1,0 +1,146 @@
+function start scanLongDouble
+minus = 0
+found = 0
+push float 0.0
+pop float value
+push float 1.0
+pop float factor
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1266 = return_value
+input = £temporary1266
+call header
+£temporary1267 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1267, record 0, offset 6
+pre call
+call function noellipse-noellipse isspace, record 0, extra 0
+post call integral
+post call floating
+£temporary1268 = return_value
+if £temporary1268 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1269 = return_value
+input = £temporary1269
+goto <MiddleCode>
+if input == 43 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1272 = return_value
+input = £temporary1272
+goto <MiddleCode>
+if input == 45 goto <MiddleCode>
+goto <MiddleCode>
+minus = 1
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1274 = return_value
+input = £temporary1274
+goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary1275 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1275, record 0, offset 6
+pre call
+call function noellipse-noellipse isdigit, record 0, extra 0
+post call integral
+post call floating
+£temporary1276 = return_value
+if £temporary1276 != 0 goto <MiddleCode>
+goto <MiddleCode>
+push float value
+pop float empty X
+push float 10.0
+push float value
+£temporary1277 = 10.0 * value
+£temporary1278 = input - 48
+£temporary1280 = int_to_int £temporary1278 (Signed_Char -> Signed_Int)
+£temporary1279 = int_to_float £temporary1280 (Signed_Int -> Long_Double)
+£temporary1281 = £temporary1277 + £temporary1279
+top float value
+pop float empty X
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1282 = return_value
+input = £temporary1282
+found = 1
+goto <MiddleCode>
+if input == 46 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1285 = return_value
+input = £temporary1285
+call header
+£temporary1286 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1286, record 0, offset 6
+pre call
+call function noellipse-noellipse isdigit, record 0, extra 0
+post call integral
+post call floating
+£temporary1287 = return_value
+if £temporary1287 != 0 goto <MiddleCode>
+goto <MiddleCode>
+push float factor
+push float 10.0
+factor = factor / 10.0
+top float factor
+pop float empty X
+push float value
+push float factor
+£temporary1288 = input - 48
+£temporary1290 = int_to_int £temporary1288 (Signed_Char -> Signed_Int)
+£temporary1289 = int_to_float £temporary1290 (Signed_Int -> Long_Double)
+£temporary1291 = factor * £temporary1289
+value = value + £temporary1291
+top float value
+pop float empty X
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1292 = return_value
+input = £temporary1292
+found = 1
+goto <MiddleCode>
+goto <MiddleCode>
+if minus != 0 goto <MiddleCode>
+goto <MiddleCode>
+push float value
+pop float empty X
+push float value
+£temporary1294 = -value
+top float value
+pop float empty X
+goto <MiddleCode>
+if found != 0 goto <MiddleCode>
+goto <MiddleCode>
+++g_inCount
+goto <MiddleCode>
+push float value
+return_value = value
+return
+empty
+return
+function end scanLongDouble

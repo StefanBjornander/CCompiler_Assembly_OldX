@@ -1,0 +1,139 @@
+function start float_test
+call header
+parameter "FLT_RADIX = %i\012", record 0, offset 6
+parameter 2, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3306 = return_value
+call header
+parameter "FLT_ROUNDS = %i\012\012", record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3307 = return_value
+call header
+parameter "FLT_DIG = %i\012", record 0, offset 6
+parameter 6, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3308 = return_value
+call header
+parameter "FLT_EPSILON = %.10f\012", record 0, offset 6
+push float 0.000001
+parameter 0.000001, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary3309 = return_value
+call header
+parameter "FLT_MANT_DIG = %i\012", record 0, offset 6
+parameter 2, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3310 = return_value
+call header
+parameter "FLT_MAX = %f\012", record 0, offset 6
+push float 1000000
+parameter 1000000, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary3311 = return_value
+call header
+parameter "FLT_MAX_EXP = %i\012", record 0, offset 6
+parameter 6, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3312 = return_value
+call header
+parameter "FLT_MIN = %.10f\012", record 0, offset 6
+push float 0.000001
+parameter 0.000001, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary3313 = return_value
+call header
+parameter "FLT_MIN_EXP = %i\012\012", record 0, offset 6
+parameter -6, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3314 = return_value
+call header
+parameter "DBL_DIG = %i\012", record 0, offset 6
+parameter 6, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3315 = return_value
+call header
+parameter "DBL_EPSILON = %.10f\012", record 0, offset 6
+push float 0.000001
+parameter 0.000001, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary3316 = return_value
+call header
+parameter "DBL_MANT_DIG = %i\012", record 0, offset 6
+parameter 2, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3317 = return_value
+call header
+parameter "DBL_MAX = %f\012", record 0, offset 6
+push float 1000000
+parameter 1000000, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary3318 = return_value
+call header
+parameter "DBL_MAX_EXP = %i\012", record 0, offset 6
+parameter 6, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3319 = return_value
+call header
+parameter "DBL_MIN = %.10f\012", record 0, offset 6
+push float 0.000001
+parameter 0.000001, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary3320 = return_value
+call header
+parameter "DBL_MIN_EXP = %i\012\012", record 0, offset 6
+parameter -6, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3321 = return_value
+empty
+return
+return
+function end float_test

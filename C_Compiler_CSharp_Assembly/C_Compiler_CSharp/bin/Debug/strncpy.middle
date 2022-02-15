@@ -1,0 +1,33 @@
+function start strncpy
+index = 0
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+£temporary2800 = source + index
+£temporary2799 = *£temporary2800
+if £temporary2799 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2805 = target + index
+£temporary2804 = *£temporary2805
+£temporary2807 = source + index
+£temporary2806 = *£temporary2807
+£temporary2804 = £temporary2806
+empty
+++index
+goto <MiddleCode>
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2811 = target + index
+£temporary2810 = *£temporary2811
+£temporary2810 = 0
+empty
+++index
+goto <MiddleCode>
+return_value = target
+return
+empty
+return
+function end strncpy

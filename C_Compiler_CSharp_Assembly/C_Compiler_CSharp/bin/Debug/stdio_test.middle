@@ -1,0 +1,483 @@
+function start stdio_test
+n = 0
+£temporary3912 = &n
+p = £temporary3912
+call header
+parameter "<%i> <%i> <%li> <%li> <%u> <%lu>\012\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3913 = return_value
+call header
+parameter "<%6i> <%6i> <%6li> <%6li> <%6u> <%6lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3914 = return_value
+call header
+parameter "<%+6i> <%+6i> <%+6li> <%+6li> <%+6u> <%+6lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3915 = return_value
+call header
+parameter "<%-6i> <%-6i> <%-6li> <%-6li> <%-6u> <%-6lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3916 = return_value
+call header
+parameter "<%+-6i> <%+-6i> <%+-6li> <%+-6li> <%+-6u> <%+-6lu>\012\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3917 = return_value
+call header
+parameter "<%06i> <%06i> <%06li> <%06li> <%06u> <%06lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3918 = return_value
+call header
+parameter "<%+06i> <%+06i> <%+06li> <%+06li> <%+06u> <%+06lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3919 = return_value
+call header
+parameter "<%-06i> <%-06i> <%-06li> <%-06li> <%-06u> <%-06lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3920 = return_value
+call header
+parameter "<%+-06i> <%+-06i> <%+-06li> <%+-06li> <%+-06u> <%+-06lu>\012\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3921 = return_value
+call header
+parameter "<% 6i> <% 6i> <% 6li> <% 6li> <% 6u> <% 6lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3922 = return_value
+call header
+parameter "<%+ 6i> <%+ 6i> <%+ 6li> <%+ 6li> <%+ 6u> <%+ 6lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3923 = return_value
+call header
+parameter "<%- 6i> <%- 6i> <%- 6li> <%- 6li> <%- 6u> <%- 6lu>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3924 = return_value
+call header
+parameter "<%+- 6i> <%+- 6i> <%+- 6li> <%+- 6li> <%+- 6u> <%+- 6lu>\012\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter -123, record 0, offset 16
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3925 = return_value
+call header
+parameter "<%#x> <%#X> <%#o> <%#lx> <%#lX> <%#lo>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter 123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter 123, record 0, offset 14
+parameter 123, record 0, offset 18
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 18
+post call integral
+post call floating
+£temporary3926 = return_value
+call header
+parameter "<%%> <%s> <%c> <%p>\012\012", record 0, offset 6
+parameter "Hello, World!", record 0, offset 8
+parameter 88, record 0, offset 10
+parameter p, record 0, offset 12
+pre call
+call function noellipse-ellipse printf, record 0, extra 6
+post call integral
+post call floating
+£temporary3927 = return_value
+call header
+parameter "<%f> <%e> <%E> <%g> <%G>\012", record 0, offset 6
+push float 123.456
+parameter 123.456, record 0, offset 8
+push float 123.456
+parameter 123.456, record 0, offset 16
+push float 123.456
+parameter 123.456, record 0, offset 24
+push float 123456.1
+parameter 123456.1, record 0, offset 32
+push float 123456.1
+parameter 123456.1, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3928 = return_value
+call header
+parameter "<%lf> <%le> <%lE> <%lg> <%lG>\012", record 0, offset 6
+push float 123.456
+parameter 123.456, record 0, offset 8
+push float 123.456
+parameter 123.456, record 0, offset 16
+push float 123.456
+parameter 123.456, record 0, offset 24
+push float 123456.1
+parameter 123456.1, record 0, offset 32
+push float 123456.1
+parameter 123456.1, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3929 = return_value
+call header
+parameter "<%#f> <%#e> <%#E> <%#g> <%#G>\012", record 0, offset 6
+push float 123.456
+parameter 123.456, record 0, offset 8
+push float 123.456
+parameter 123.456, record 0, offset 16
+push float 123.456
+parameter 123.456, record 0, offset 24
+push float 123.456
+parameter 123.456, record 0, offset 32
+push float 123.456
+parameter 123.456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3930 = return_value
+call header
+parameter "<%#lf> <%#le> <%#lE> <%#lg> <%#lG>\012", record 0, offset 6
+push float 123.456
+parameter 123.456, record 0, offset 8
+push float 123.456
+parameter 123.456, record 0, offset 16
+push float 123.456
+parameter 123.456, record 0, offset 24
+push float 123.456
+parameter 123.456, record 0, offset 32
+push float 123.456
+parameter 123.456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3931 = return_value
+call header
+parameter "<%6.3f> <%6.3e> <%6.3E> <%6.3g> <%6.3G>\012", record 0, offset 6
+push float 123.456
+parameter 123.456, record 0, offset 8
+push float 123.456
+parameter 123.456, record 0, offset 16
+push float 123.456
+parameter 123.456, record 0, offset 24
+push float 123.456
+parameter 123.456, record 0, offset 32
+push float 123.456
+parameter 123.456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3932 = return_value
+call header
+parameter "<%6.3lf> <%6.3le> <%6.3lE> <%6.3lg> <%6.3lG>\012\012", record 0, offset 6
+push float 123.456
+parameter 123.456, record 0, offset 8
+push float 123.456
+parameter 123.456, record 0, offset 16
+push float 123.456
+parameter 123.456, record 0, offset 24
+push float 123.456
+parameter 123.456, record 0, offset 32
+push float 123.456
+parameter 123.456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3933 = return_value
+call header
+parameter "<%f> <%e> <%E> <%g> <%G>\012", record 0, offset 6
+push float -123.456
+parameter -123.456, record 0, offset 8
+push float -123.456
+parameter -123.456, record 0, offset 16
+push float -123.456
+parameter -123.456, record 0, offset 24
+push float -0.000000123456
+parameter -0.000000123456, record 0, offset 32
+push float -0.000000123456
+parameter -0.000000123456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3934 = return_value
+call header
+parameter "<%lf> <%le> <%lE> <%lg> <%lG>\012", record 0, offset 6
+push float -123.456
+parameter -123.456, record 0, offset 8
+push float -123.456
+parameter -123.456, record 0, offset 16
+push float -123.456
+parameter -123.456, record 0, offset 24
+push float -0.000000123456
+parameter -0.000000123456, record 0, offset 32
+push float -0.000000123456
+parameter -0.000000123456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3935 = return_value
+call header
+parameter "<%#f> <%#e> <%#E> <%#g> <%#G>\012", record 0, offset 6
+push float -123.456
+parameter -123.456, record 0, offset 8
+push float -123.456
+parameter -123.456, record 0, offset 16
+push float -123.456
+parameter -123.456, record 0, offset 24
+push float -123.456
+parameter -123.456, record 0, offset 32
+push float -123.456
+parameter -123.456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3936 = return_value
+call header
+parameter "<%#lf> <%#le> <%#lE> <%#lg> <%#lG>\012", record 0, offset 6
+push float -123.456
+parameter -123.456, record 0, offset 8
+push float -123.456
+parameter -123.456, record 0, offset 16
+push float -123.456
+parameter -123.456, record 0, offset 24
+push float -123.456
+parameter -123.456, record 0, offset 32
+push float -123.456
+parameter -123.456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3937 = return_value
+call header
+parameter "<%6.3f> <%6.3e> <%6.3E> <%6.3g> <%6.3G>\012", record 0, offset 6
+push float -123.456
+parameter -123.456, record 0, offset 8
+push float -123.456
+parameter -123.456, record 0, offset 16
+push float -123.456
+parameter -123.456, record 0, offset 24
+push float -123.456
+parameter -123.456, record 0, offset 32
+push float -123.456
+parameter -123.456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3938 = return_value
+call header
+parameter "<%6.3lf> <%6.3le> <%6.3lE> <%6.3lg> <%6.3lG>\012\012", record 0, offset 6
+push float -123.456
+parameter -123.456, record 0, offset 8
+push float -123.456
+parameter -123.456, record 0, offset 16
+push float -123.456
+parameter -123.456, record 0, offset 24
+push float -123.456
+parameter -123.456, record 0, offset 32
+push float -123.456
+parameter -123.456, record 0, offset 40
+pre call
+call function noellipse-ellipse printf, record 0, extra 40
+post call integral
+post call floating
+£temporary3939 = return_value
+a = 0
+b = 0
+n = 0
+call header
+parameter "Please write three integers: ", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary3940 = return_value
+call header
+parameter "%i %*i %i %n", record 0, offset 6
+£temporary3941 = &a
+parameter £temporary3941, record 0, offset 8
+£temporary3942 = &b
+parameter £temporary3942, record 0, offset 10
+£temporary3943 = &n
+parameter £temporary3943, record 0, offset 12
+pre call
+call function noellipse-ellipse scanf, record 0, extra 6
+post call integral
+post call floating
+£temporary3944 = return_value
+call header
+parameter "<%i> <%i> <%i>\012", record 0, offset 6
+parameter a, record 0, offset 8
+parameter b, record 0, offset 10
+parameter n, record 0, offset 12
+pre call
+call function noellipse-ellipse printf, record 0, extra 6
+post call integral
+post call floating
+£temporary3945 = return_value
+call header
+parameter "Please write the patterns [abc]: ", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary3946 = return_value
+call header
+parameter "%[abc]", record 0, offset 6
+parameter s, record 0, offset 8
+pre call
+call function noellipse-ellipse scanf, record 0, extra 2
+post call integral
+post call floating
+£temporary3947 = return_value
+call header
+parameter "\012<%s>\012", record 0, offset 6
+parameter s, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3948 = return_value
+call header
+parameter "Please write the patterns [^abc]: ", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary3949 = return_value
+call header
+parameter "%[^abc]", record 0, offset 6
+parameter s, record 0, offset 8
+pre call
+call function noellipse-ellipse scanf, record 0, extra 2
+post call integral
+post call floating
+£temporary3950 = return_value
+call header
+parameter "\012<%s>", record 0, offset 6
+parameter s, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3951 = return_value
+empty
+return
+return
+function end stdio_test

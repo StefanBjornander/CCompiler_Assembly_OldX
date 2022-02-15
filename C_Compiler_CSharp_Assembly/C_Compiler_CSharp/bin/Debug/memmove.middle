@@ -1,0 +1,42 @@
+function start memmove
+£temporary3038 = int_to_int target (Pointer -> Pointer)
+charTarget = £temporary3038
+£temporary3039 = int_to_int source (Pointer -> Pointer)
+charSource = £temporary3039
+if source < target goto <MiddleCode>
+goto <MiddleCode>
+£temporary3041 = size - 1
+index = £temporary3041
+empty
+if index >= 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary3045 = charTarget + index
+£temporary3044 = *£temporary3045
+£temporary3047 = charSource + index
+£temporary3046 = *£temporary3047
+£temporary3044 = £temporary3046
+empty
+--index
+goto <MiddleCode>
+goto <MiddleCode>
+index = 0
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary3051 = charTarget + index
+£temporary3050 = *£temporary3051
+£temporary3053 = charSource + index
+£temporary3052 = *£temporary3053
+£temporary3050 = £temporary3052
+empty
+++index
+goto <MiddleCode>
+goto <MiddleCode>
+£temporary3054 = int_to_int target (Pointer -> Pointer)
+return_value = £temporary3054
+return
+empty
+return
+function end memmove

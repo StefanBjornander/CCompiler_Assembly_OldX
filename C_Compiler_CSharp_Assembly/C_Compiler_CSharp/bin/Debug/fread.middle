@@ -1,0 +1,28 @@
+function start fread
+£temporary925 = *stream, offset 2
+handle = £temporary925
+£temporary926 = size * nobj
+total = £temporary926
+ah = 63
+bx = handle
+cx = total
+dx = ptr
+interrupt 33
+save from flagbyte
+£temporary928 = int_to_int flagbyte (Signed_Short_Int -> Unsigned_Int)
+£temporary927 = £temporary928 & 1
+if £temporary927 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary929 = *stream, offset 21
+errno = 14
+£temporary929 = errno
+return_value = 0
+return
+goto <MiddleCode>
+count = ax
+return_value = count
+return
+goto <MiddleCode>
+empty
+return
+function end fread

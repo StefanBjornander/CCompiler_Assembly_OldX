@@ -1,0 +1,18 @@
+function start scanf
+£temporary1466 = &format
+£temporary1467 = int_to_int £temporary1466 (Pointer -> Pointer)
+£temporary1468 = £temporary1467 + 2
+arg_list = £temporary1468
+call header
+parameter format, record 0, offset 6
+parameter arg_list, record 0, offset 8
+pre call
+call function ellipse-noellipse vscanf, record 0, extra 0
+post call integral
+post call floating
+£temporary1469 = return_value
+return_value = £temporary1469
+return
+empty
+return
+function end scanf

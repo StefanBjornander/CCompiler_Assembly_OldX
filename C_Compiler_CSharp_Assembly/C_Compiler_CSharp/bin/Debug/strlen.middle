@@ -1,0 +1,16 @@
+function start strlen
+index = 0
+empty
+£temporary2965 = string + index
+£temporary2964 = *£temporary2965
+if £temporary2964 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+empty
+++index
+goto <MiddleCode>
+return_value = index
+return
+empty
+return
+function end strlen

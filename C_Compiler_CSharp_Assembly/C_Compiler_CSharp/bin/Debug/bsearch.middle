@@ -1,0 +1,4 @@
+function start bsearch
+empty
+return
+function end bsearch

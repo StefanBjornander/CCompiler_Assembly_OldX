@@ -1,0 +1,84 @@
+function start generateTempName
+if size < 3 goto <MiddleCode>
+goto <MiddleCode>
+c = 97
+empty
+if c <= 122 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary1013 = name + size
+£temporary1012 = *£temporary1013
+£temporary1012 = c
+£temporary1014 = size + 1
+£temporary1016 = name + £temporary1014
+£temporary1015 = *£temporary1016
+£temporary1015 = 0
+call header
+parameter name, record 0, offset 6
+pre call
+call function noellipse-noellipse exists, record 0, extra 0
+post call integral
+post call floating
+£temporary1017 = return_value
+if £temporary1017 != 0 goto <MiddleCode>
+goto <MiddleCode>
+if status == 0 goto <MiddleCode>
+if status == 1 goto <MiddleCode>
+goto <MiddleCode>
+return_value = name
+return
+call header
+parameter name, record 0, offset 6
+pre call
+call function noellipse-noellipse existsTempName, record 0, extra 0
+post call integral
+post call floating
+£temporary1020 = return_value
+if £temporary1020 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary1024 = g_tempSize * 2
+£temporary1025 = g_tempArray + £temporary1024
+£temporary1023 = *£temporary1025
+parameter £temporary1023, record 0, offset 6
+parameter name, record 0, offset 8
+pre call
+call function noellipse-noellipse strcpy, record 0, extra 0
+post call integral
+post call floating
+£temporary1026 = return_value
+£temporary1027 = g_tempSize
+++g_tempSize
+£temporary1029 = £temporary1027 * 2
+£temporary1030 = g_tempArray + £temporary1029
+£temporary1028 = *£temporary1030
+return_value = £temporary1028
+return
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter name, record 0, offset 6
+£temporary1031 = size + 1
+parameter £temporary1031, record 0, offset 8
+parameter status, record 0, offset 10
+pre call
+call function noellipse-noellipse generateTempName, record 0, extra 0
+post call integral
+post call floating
+£temporary1032 = return_value
+result = £temporary1032
+if result != 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = result
+return
+goto <MiddleCode>
+empty
+++c
+goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end generateTempName

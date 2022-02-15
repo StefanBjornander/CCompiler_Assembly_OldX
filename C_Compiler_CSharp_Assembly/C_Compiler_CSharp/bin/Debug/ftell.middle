@@ -1,0 +1,15 @@
+function start ftell
+call header
+parameter stream, record 0, offset 6
+parameter 0, record 0, offset 8
+parameter 1, record 0, offset 12
+pre call
+call function noellipse-noellipse fseek, record 0, extra 0
+post call integral
+post call floating
+£temporary953 = return_value
+return_value = £temporary953
+return
+empty
+return
+function end ftell

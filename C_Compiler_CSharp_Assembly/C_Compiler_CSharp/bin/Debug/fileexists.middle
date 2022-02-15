@@ -1,0 +1,18 @@
+function start fileexists
+ah = 67
+al = 0
+dx = name
+interrupt 33
+code = ax
+clear registers
+if code != 2 goto <MiddleCode>
+goto <MiddleCode>
+£temporary747 = 1
+goto <MiddleCode>
+£temporary747 = 0
+empty
+return_value = £temporary747
+return
+empty
+return
+function end fileexists

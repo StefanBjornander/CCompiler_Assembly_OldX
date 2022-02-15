@@ -1,0 +1,25 @@
+function start exists
+ah = 67
+al = 0
+dx = name
+interrupt 33
+save from flagbyte
+£temporary1005 = int_to_int flagbyte (Signed_Short_Int -> Unsigned_Int)
+£temporary1004 = £temporary1005 & 1
+if £temporary1004 != 0 goto <MiddleCode>
+goto <MiddleCode>
+code = ax
+if code != 2 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1007 = 1
+goto <MiddleCode>
+£temporary1007 = 0
+empty
+return_value = £temporary1007
+return
+goto <MiddleCode>
+return_value = 1
+return
+empty
+return
+function end exists

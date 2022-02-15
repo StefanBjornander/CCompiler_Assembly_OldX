@@ -1,0 +1,31 @@
+function start printChar
+if g_outStatus == 0 goto <MiddleCode>
+if g_outStatus == 1 goto <MiddleCode>
+if g_outStatus == 2 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1510 = int_to_int g_outDevice (Pointer -> Pointer)
+stream = £temporary1510
+£temporary1511 = *stream, offset 2
+handle = £temporary1511
+ah = 64
+bx = handle
+cx = 1
+£temporary1512 = &c
+dx = £temporary1512
+interrupt 33
+++g_outChars
+goto <MiddleCode>
+£temporary1514 = int_to_int g_outDevice (Pointer -> Pointer)
+outString = £temporary1514
+£temporary1515 = g_outChars
+++g_outChars
+£temporary1517 = outString + £temporary1515
+£temporary1516 = *£temporary1517
+£temporary1516 = c
+goto <MiddleCode>
+++g_outChars
+goto <MiddleCode>
+empty
+return
+return
+function end printChar

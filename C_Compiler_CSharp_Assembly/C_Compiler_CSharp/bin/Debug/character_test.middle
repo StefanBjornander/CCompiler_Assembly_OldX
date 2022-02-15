@@ -1,0 +1,230 @@
+function start character_test
+call header
+parameter "ascii %i\012", record 0, offset 6
+£temporary3150 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3150, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3151 = return_value
+call header
+parameter "islower('%c') = %s\012", record 0, offset 6
+£temporary3152 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3152, record 0, offset 8
+empty
+£temporary3159 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3159 = "No"
+empty
+parameter £temporary3159, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3160 = return_value
+call header
+parameter "isupper('%c') = %s\012", record 0, offset 6
+£temporary3161 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3161, record 0, offset 8
+empty
+£temporary3168 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3168 = "No"
+empty
+parameter £temporary3168, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3169 = return_value
+call header
+parameter "isalpha('%c') = %s\012", record 0, offset 6
+£temporary3170 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3170, record 0, offset 8
+empty
+£temporary3177 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3177 = "No"
+empty
+parameter £temporary3177, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3178 = return_value
+call header
+parameter "isdigit('%c') = %s\012", record 0, offset 6
+£temporary3179 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3179, record 0, offset 8
+empty
+£temporary3186 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3186 = "No"
+empty
+parameter £temporary3186, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3187 = return_value
+call header
+parameter "isalnum('%c') = %s\012", record 0, offset 6
+£temporary3188 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3188, record 0, offset 8
+empty
+£temporary3195 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3195 = "No"
+empty
+parameter £temporary3195, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3196 = return_value
+call header
+parameter "isxdigit('%c') = %s\012", record 0, offset 6
+£temporary3197 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3197, record 0, offset 8
+empty
+£temporary3204 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3204 = "No"
+empty
+parameter £temporary3204, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3205 = return_value
+call header
+parameter "isgraph('%c') = %s\012", record 0, offset 6
+£temporary3206 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3206, record 0, offset 8
+empty
+£temporary3213 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3213 = "No"
+empty
+parameter £temporary3213, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3214 = return_value
+call header
+parameter "isprint('%c') = %s\012", record 0, offset 6
+£temporary3215 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3215, record 0, offset 8
+empty
+£temporary3222 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3222 = "No"
+empty
+parameter £temporary3222, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3223 = return_value
+call header
+parameter "ispunct('%c') = %s\012", record 0, offset 6
+£temporary3224 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3224, record 0, offset 8
+empty
+£temporary3231 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3231 = "No"
+empty
+parameter £temporary3231, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3232 = return_value
+call header
+parameter "iscntrl('%c') = %s\012", record 0, offset 6
+£temporary3233 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3233, record 0, offset 8
+empty
+£temporary3240 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3240 = "No"
+empty
+parameter £temporary3240, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3241 = return_value
+call header
+parameter "isspace('%c') = %s\012", record 0, offset 6
+£temporary3242 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3242, record 0, offset 8
+empty
+£temporary3249 = "Yes"
+goto <MiddleCode>
+empty
+£temporary3249 = "No"
+empty
+parameter £temporary3249, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3250 = return_value
+call header
+parameter "tolower('%c') = '%c'\012", record 0, offset 6
+£temporary3251 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3251, record 0, offset 8
+call header
+£temporary3252 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3252, record 0, offset 6
+pre call
+call function noellipse-noellipse tolower, record 0, extra 0
+post call integral
+post call floating
+£temporary3253 = return_value
+£temporary3254 = int_to_int £temporary3253 (Signed_Int -> Signed_Char)
+£temporary3255 = int_to_int £temporary3254 (Signed_Char -> Signed_Int)
+parameter £temporary3255, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3256 = return_value
+call header
+parameter "toupper('%c') = '%c'\012\012", record 0, offset 6
+£temporary3257 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3257, record 0, offset 8
+call header
+£temporary3258 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary3258, record 0, offset 6
+pre call
+call function noellipse-noellipse toupper, record 0, extra 0
+post call integral
+post call floating
+£temporary3259 = return_value
+£temporary3260 = int_to_int £temporary3259 (Signed_Int -> Signed_Char)
+£temporary3261 = int_to_int £temporary3260 (Signed_Char -> Signed_Int)
+parameter £temporary3261, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3262 = return_value
+empty
+return
+return
+function end character_test

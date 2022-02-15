@@ -1,0 +1,12 @@
+function start testX
+if j == 1 goto <MiddleCode>
+goto <MiddleCode>
+i = 1
+goto <MiddleCode>
+i = 2
+goto <MiddleCode>
+j = i
+empty
+return
+return
+function end testX

@@ -1,0 +1,49 @@
+function start time
+ah = 42
+interrupt 33
+year = cx
+month = dh
+monthDay = dl
+clear registers
+year = year - 1900
+--month
+clear registers
+ah = 44
+interrupt 33
+hour = ch
+min = cl
+sec = dh
+clear registers
+£temporary2235 = int_to_int sec (Signed_Short_Int -> Signed_Int)
+s$tm_sec = £temporary2235
+£temporary2237 = int_to_int min (Signed_Short_Int -> Signed_Int)
+s$tm_min = £temporary2237
+£temporary2239 = int_to_int hour (Signed_Short_Int -> Signed_Int)
+s$tm_hour = £temporary2239
+£temporary2241 = int_to_int monthDay (Signed_Short_Int -> Signed_Int)
+s$tm_mday = £temporary2241
+£temporary2243 = int_to_int month (Signed_Short_Int -> Signed_Int)
+s$tm_mon = £temporary2243
+s$tm_year = year
+s$tm_wday = 0
+s$tm_yday = 0
+s$tm_isdst = 1
+call header
+£temporary2248 = &s
+parameter £temporary2248, record 0, offset 6
+pre call
+call function noellipse-noellipse mktime, record 0, extra 0
+post call integral
+post call floating
+£temporary2249 = return_value
+time = £temporary2249
+if timePtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2251 = *timePtr
+£temporary2251 = time
+goto <MiddleCode>
+return_value = time
+return
+empty
+return
+function end time

@@ -1,0 +1,12 @@
+function start toupperX
+empty
+£temporary302 = £temporary297
+goto <MiddleCode>
+empty
+£temporary302 = c
+empty
+return_value = £temporary302
+return
+empty
+return
+function end toupperX

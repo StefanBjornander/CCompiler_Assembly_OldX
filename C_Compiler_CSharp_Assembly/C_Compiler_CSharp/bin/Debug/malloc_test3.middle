@@ -1,0 +1,90 @@
+function start malloc_test3
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4217 = return_value
+a = £temporary4217
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4218 = return_value
+b = £temporary4218
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4219 = return_value
+c = £temporary4219
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4220 = return_value
+d = £temporary4220
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4221 = return_value
+e = £temporary4221
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter a, record 0, offset 6
+pre call
+call function noellipse-noellipse free, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter b, record 0, offset 6
+pre call
+call function noellipse-noellipse free, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse free, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter d, record 0, offset 6
+pre call
+call function noellipse-noellipse free, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter e, record 0, offset 6
+pre call
+call function noellipse-noellipse free, record 0, extra 0
+post call integral
+post call floating
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+empty
+return
+return
+function end malloc_test3

@@ -1,0 +1,136 @@
+function start frexp
+if p != 0 goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push 0
+if x == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary415 = *p
+£temporary415 = 0
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+£temporary416 = *p
+call header
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary417 = return_value
+parameter £temporary417, record 0, offset 6
+pre call
+call function noellipse-noellipse log, record 0, extra 0
+post call integral
+post call floating
+£temporary418 = return_value
+call header
+push float 2
+parameter 2, record 0, offset 6
+pre call
+call function noellipse-noellipse log, record 0, extra 0
+post call integral
+post call floating
+£temporary419 = return_value
+£temporary420 = £temporary418 / £temporary419
+£temporary421 = float_to_int £temporary420 (Double -> Signed_Int)
+£temporary422 = £temporary421 + 1
+£temporary416 = £temporary422
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary423 = return_value
+call header
+push float 2
+parameter 2, record 0, offset 6
+£temporary424 = *p
+£temporary425 = int_to_float £temporary424 (Signed_Int -> Double)
+parameter £temporary425, record 0, offset 14
+pre call
+call function noellipse-noellipse pow, record 0, extra 0
+post call integral
+post call floating
+£temporary426 = return_value
+£temporary427 = £temporary423 / £temporary426
+pop float quotient
+empty
+goto <MiddleCode>
+empty
+empty
+return_value = £temporary433
+return
+goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push 0
+if x == 0 goto <MiddleCode>
+goto <MiddleCode>
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+call header
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary435 = return_value
+parameter £temporary435, record 0, offset 6
+pre call
+call function noellipse-noellipse log, record 0, extra 0
+post call integral
+post call floating
+£temporary436 = return_value
+call header
+push float 2
+parameter 2, record 0, offset 6
+pre call
+call function noellipse-noellipse log, record 0, extra 0
+post call integral
+post call floating
+£temporary437 = return_value
+£temporary438 = £temporary436 / £temporary437
+£temporary439 = float_to_int £temporary438 (Double -> Signed_Int)
+£temporary440 = £temporary439 + 1
+n = £temporary440
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary441 = return_value
+call header
+push float 2
+parameter 2, record 0, offset 6
+£temporary442 = int_to_float n (Signed_Int -> Double)
+parameter £temporary442, record 0, offset 14
+pre call
+call function noellipse-noellipse pow, record 0, extra 0
+post call integral
+post call floating
+£temporary443 = return_value
+£temporary444 = £temporary441 / £temporary443
+pop float a
+empty
+goto <MiddleCode>
+empty
+empty
+return_value = £temporary450
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+function end frexp

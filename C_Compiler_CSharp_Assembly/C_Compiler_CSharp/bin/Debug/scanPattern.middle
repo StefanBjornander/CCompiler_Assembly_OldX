@@ -1,0 +1,111 @@
+function start scanPattern
+index = 0
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1066 = return_value
+input = £temporary1066
+call header
+£temporary1067 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1067, record 0, offset 6
+pre call
+call function noellipse-noellipse isspace, record 0, extra 0
+post call integral
+post call floating
+£temporary1068 = return_value
+if £temporary1068 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1069 = return_value
+input = £temporary1069
+goto <MiddleCode>
+if string != 0 goto <MiddleCode>
+goto <MiddleCode>
+if not != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter pattern, record 0, offset 6
+£temporary1074 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1074, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary1075 = return_value
+if £temporary1075 != 0 goto <MiddleCode>
+goto <MiddleCode>
+if not != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter pattern, record 0, offset 6
+£temporary1078 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1078, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary1079 = return_value
+if £temporary1079 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1085 = index
+++index
+£temporary1087 = string + £temporary1085
+£temporary1086 = *£temporary1087
+£temporary1086 = input
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1088 = return_value
+input = £temporary1088
+goto <MiddleCode>
+£temporary1090 = string + index
+£temporary1089 = *£temporary1090
+£temporary1089 = 0
+goto <MiddleCode>
+if not != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter pattern, record 0, offset 6
+£temporary1093 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1093, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary1094 = return_value
+if £temporary1094 != 0 goto <MiddleCode>
+goto <MiddleCode>
+if not != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter pattern, record 0, offset 6
+£temporary1097 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1097, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary1098 = return_value
+if £temporary1098 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1104 = return_value
+input = £temporary1104
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+return
+function end scanPattern

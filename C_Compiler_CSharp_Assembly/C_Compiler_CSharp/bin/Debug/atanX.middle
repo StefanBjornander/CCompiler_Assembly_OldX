@@ -1,0 +1,92 @@
+function start atanX
+push float v
+push 0
+if v == 0 goto <MiddleCode>
+goto <MiddleCode>
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+call header
+push float v
+parameter v, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary582 = return_value
+push 1
+if £temporary582 <= 1 goto <MiddleCode>
+goto <MiddleCode>
+push 1
+pop float x_nplus1
+push float x
+pop float empty X
+push float x_nplus1
+top float x
+pop float empty X
+push float x_nplus1
+pop float empty X
+push float x
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse tan, record 0, extra 0
+post call integral
+post call floating
+£temporary584 = return_value
+push float v
+£temporary585 = £temporary584 - v
+call header
+call header
+push float 2
+push float x
+£temporary586 = 2 * x
+parameter £temporary586, record 0, offset 6
+pre call
+call function noellipse-noellipse cos, record 0, extra 0
+post call integral
+post call floating
+£temporary587 = return_value
+push 1
+£temporary588 = £temporary587 + 1
+parameter £temporary588, record 0, offset 6
+pre call
+call function noellipse-noellipse square, record 0, extra 0
+post call integral
+post call floating
+£temporary589 = return_value
+£temporary590 = £temporary585 * £temporary589
+push float 2
+£temporary591 = £temporary590 / 2
+£temporary592 = x - £temporary591
+top float x_nplus1
+pop float empty X
+call header
+push float x_nplus1
+push float x
+£temporary593 = x_nplus1 - x
+parameter £temporary593, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary594 = return_value
+push float 0.000000001
+if £temporary594 >= 0.000000001 goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+push float x_nplus1
+return_value = x_nplus1
+return
+goto <MiddleCode>
+errno = 6
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+function end atanX

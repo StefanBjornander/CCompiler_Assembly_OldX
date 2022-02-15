@@ -1,0 +1,135 @@
+function start printLongDoubleExpo
+push float value
+push float 0.0
+if value == 0.0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 48, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+push float 0.0
+parameter 0.0, record 0, offset 6
+parameter precision, record 0, offset 14
+parameter grid, record 0, offset 16
+pre call
+call function noellipse-noellipse printLongDoubleFraction, record 0, extra 0
+post call integral
+post call floating
+call header
+empty
+£temporary1668 = 69
+goto <MiddleCode>
+empty
+£temporary1668 = 101
+empty
+parameter £temporary1668, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 101, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 48, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+push float value
+push float 0.0
+if value < 0.0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 45, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+push float value
+pop float empty X
+push float value
+£temporary1674 = -value
+top float value
+pop float empty X
+goto <MiddleCode>
+call header
+push float value
+parameter value, record 0, offset 6
+pre call
+call function noellipse-noellipse log10, record 0, extra 0
+post call integral
+post call floating
+£temporary1675 = return_value
+£temporary1676 = float_to_int £temporary1675 (Double -> Signed_Int)
+expo = £temporary1676
+push float value
+call header
+push float 10
+parameter 10, record 0, offset 6
+£temporary1677 = int_to_float expo (Signed_Int -> Double)
+parameter £temporary1677, record 0, offset 14
+pre call
+call function noellipse-noellipse pow, record 0, extra 0
+post call integral
+post call floating
+£temporary1678 = return_value
+value = value / £temporary1678
+top float value
+pop float empty X
+call header
+push float value
+parameter value, record 0, offset 6
+parameter plus, record 0, offset 14
+parameter space, record 0, offset 16
+parameter grid, record 0, offset 18
+parameter precision, record 0, offset 20
+pre call
+call function noellipse-noellipse printLongDoublePlain, record 0, extra 0
+post call integral
+post call floating
+call header
+empty
+£temporary1684 = 69
+goto <MiddleCode>
+empty
+£temporary1684 = 101
+empty
+parameter £temporary1684, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 101, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 101, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+£temporary1688 = int_to_int expo (Signed_Int -> Signed_Long_Int)
+parameter £temporary1688, record 0, offset 6
+parameter 1, record 0, offset 10
+parameter 0, record 0, offset 12
+pre call
+call function noellipse-noellipse printLongInt, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+return
+return
+function end printLongDoubleExpo

@@ -1,0 +1,23 @@
+function start tanh
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse sinh, record 0, extra 0
+post call integral
+post call floating
+£temporary501 = return_value
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse cosh, record 0, extra 0
+post call integral
+post call floating
+£temporary502 = return_value
+£temporary503 = £temporary501 / £temporary502
+return_value = £temporary503
+return
+empty
+return
+function end tanh

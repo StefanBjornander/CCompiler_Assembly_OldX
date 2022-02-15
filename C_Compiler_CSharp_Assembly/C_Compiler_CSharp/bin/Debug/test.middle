@@ -1,0 +1,20 @@
+function start test
+call header
+parameter "%i ", record 0, offset 6
+£temporary4172 = i
+++i
+parameter £temporary4172, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary4173 = return_value
+call header
+pre call
+call function noellipse-noellipse test, record 0, extra 0
+post call integral
+post call floating
+empty
+return
+return
+function end test

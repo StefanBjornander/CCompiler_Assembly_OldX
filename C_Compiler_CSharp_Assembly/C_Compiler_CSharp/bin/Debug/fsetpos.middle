@@ -1,0 +1,18 @@
+function start fsetpos
+call header
+parameter stream, record 0, offset 6
+£temporary966 = *ptr
+£temporary967 = int_to_int £temporary966 (Signed_Int -> Signed_Long_Int)
+parameter £temporary967, record 0, offset 8
+parameter 0, record 0, offset 12
+pre call
+call function noellipse-noellipse fseek, record 0, extra 0
+post call integral
+post call floating
+£temporary968 = return_value
+£temporary969 = int_to_int £temporary968 (Signed_Long_Int -> Signed_Int)
+return_value = £temporary969
+return
+empty
+return
+function end fsetpos

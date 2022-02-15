@@ -1,0 +1,26 @@
+function start digitToChar
+if digit < 10 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1578 = 48 + digit
+£temporary1579 = int_to_int £temporary1578 (Signed_Int -> Signed_Char)
+return_value = £temporary1579
+return
+goto <MiddleCode>
+if capital != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1580 = digit - 10
+£temporary1581 = 65 + £temporary1580
+£temporary1582 = int_to_int £temporary1581 (Signed_Int -> Signed_Char)
+return_value = £temporary1582
+return
+goto <MiddleCode>
+£temporary1583 = digit - 10
+£temporary1584 = 97 + £temporary1583
+£temporary1585 = int_to_int £temporary1584 (Signed_Int -> Signed_Char)
+return_value = £temporary1585
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+function end digitToChar

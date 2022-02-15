@@ -1,0 +1,29 @@
+function start memchr
+£temporary3069 = int_to_int block (Pointer -> Pointer)
+charBlock = £temporary3069
+£temporary3070 = int_to_int i (Signed_Int -> Signed_Char)
+c = £temporary3070
+index = 0
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary3074 = charBlock + index
+£temporary3073 = *£temporary3074
+if £temporary3073 == c goto <MiddleCode>
+goto <MiddleCode>
+£temporary3077 = charBlock + index
+£temporary3076 = *£temporary3077
+£temporary3078 = &£temporary3076
+£temporary3079 = int_to_int £temporary3078 (Pointer -> Pointer)
+return_value = £temporary3079
+return
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end memchr

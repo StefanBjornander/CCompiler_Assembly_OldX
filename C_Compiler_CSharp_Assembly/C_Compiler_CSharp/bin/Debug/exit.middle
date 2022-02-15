@@ -1,0 +1,32 @@
+function start exit
+index = 0
+empty
+if index < 16 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2191 = index * 35
+£temporary2192 = g_fileArray + £temporary2191
+£temporary2190 = *£temporary2192
+if £temporary2190.open$0 != 0 goto <MiddleCode>
+goto <MiddleCode>
+return
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+index = 255
+empty
+if index >= 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+empty
+--index
+goto <MiddleCode>
+ah = 76
+£temporary2196 = int_to_int status (Signed_Int -> Signed_Short_Int)
+al = £temporary2196
+interrupt 33
+empty
+return
+return
+function end exit

@@ -1,0 +1,115 @@
+function start time_test
+@4$weekdays$0 = "Sun"
+@4$weekdays$1 = "Mon"
+@4$weekdays$2 = "Tue"
+@4$weekdays$3 = "Wed"
+@4$weekdays$4 = "Thu"
+@4$weekdays$5 = "Fri"
+@4$weekdays$6 = "Sat"
+call header
+parameter 0, record 0, offset 6
+pre call
+call function noellipse-noellipse time, record 0, extra 0
+post call integral
+post call floating
+£temporary4503 = return_value
+now = £temporary4503
+call header
+£temporary4504 = &now
+parameter £temporary4504, record 0, offset 6
+pre call
+call function noellipse-noellipse localtime, record 0, extra 0
+post call integral
+post call floating
+£temporary4505 = return_value
+p = £temporary4505
+£temporary4506 = *p
+s = £temporary4506
+call header
+parameter "%s %02i-%02i-%02i %02i:%02i:%02i, year day %i, week day %i, daylight saving time %i\012", record 0, offset 6
+£temporary4509 = £temporary4507 * 2
+£temporary4510 = weekdays + £temporary4509
+£temporary4508 = *£temporary4510
+parameter £temporary4508, record 0, offset 8
+£temporary4512 = 1900 + £temporary4511
+parameter £temporary4512, record 0, offset 10
+£temporary4514 = £temporary4513 + 1
+parameter £temporary4514, record 0, offset 12
+parameter £temporary4515, record 0, offset 14
+parameter £temporary4516, record 0, offset 16
+parameter £temporary4517, record 0, offset 18
+parameter £temporary4518, record 0, offset 20
+parameter £temporary4519, record 0, offset 22
+parameter £temporary4520, record 0, offset 24
+parameter £temporary4521, record 0, offset 26
+pre call
+call function noellipse-ellipse printf, record 0, extra 20
+post call integral
+post call floating
+£temporary4522 = return_value
+call header
+parameter buffer1, record 0, offset 6
+call header
+£temporary4523 = &s
+parameter £temporary4523, record 0, offset 6
+pre call
+call function noellipse-noellipse asctime, record 0, extra 0
+post call integral
+post call floating
+£temporary4524 = return_value
+parameter £temporary4524, record 0, offset 8
+pre call
+call function noellipse-noellipse strcpy, record 0, extra 0
+post call integral
+post call floating
+£temporary4525 = return_value
+call header
+parameter buffer2, record 0, offset 6
+call header
+£temporary4526 = &now
+parameter £temporary4526, record 0, offset 6
+pre call
+call function noellipse-noellipse ctime, record 0, extra 0
+post call integral
+post call floating
+£temporary4527 = return_value
+parameter £temporary4527, record 0, offset 8
+pre call
+call function noellipse-noellipse strcpy, record 0, extra 0
+post call integral
+post call floating
+£temporary4528 = return_value
+call header
+parameter "asctime <%s>\012  ctime <%s>\012", record 0, offset 6
+parameter buffer1, record 0, offset 8
+parameter buffer2, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary4529 = return_value
+call header
+parameter buffer, record 0, offset 6
+parameter 300, record 0, offset 8
+parameter "short day %a, long day %A, short month %b, long month %B, date-time %c, mday %d, hour %H, gm hour %I, yday %j, month %m, min %M, am/pm %p, sec %S, wday sun %U, wday %w, wday mon %W, date %x, time %X, short year %y, long year %Y", record 0, offset 10
+£temporary4530 = &s
+parameter £temporary4530, record 0, offset 12
+pre call
+call function noellipse-noellipse strftime, record 0, extra 0
+post call integral
+post call floating
+£temporary4531 = return_value
+i = £temporary4531
+call header
+parameter "strftime <%i> <%s>\012\012", record 0, offset 6
+parameter i, record 0, offset 8
+parameter buffer, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary4532 = return_value
+empty
+return
+return
+function end time_test

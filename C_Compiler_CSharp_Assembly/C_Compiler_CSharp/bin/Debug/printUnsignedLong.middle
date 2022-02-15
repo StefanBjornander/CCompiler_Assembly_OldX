@@ -1,0 +1,80 @@
+function start printUnsignedLong
+if plus != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 43, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+if space != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 32, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+if grid != 0 goto <MiddleCode>
+goto <MiddleCode>
+if base == 8 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 48, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+if base == 16 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 48, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 120, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+empty
+£temporary1613 = 88
+goto <MiddleCode>
+empty
+£temporary1613 = 120
+empty
+parameter £temporary1613, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+goto <MiddleCode>
+if unsignedValue == 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 48, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+parameter unsignedValue, record 0, offset 6
+parameter base, record 0, offset 10
+parameter capital, record 0, offset 14
+pre call
+call function noellipse-noellipse printUnsignedLongRec, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+return
+return
+function end printUnsignedLong

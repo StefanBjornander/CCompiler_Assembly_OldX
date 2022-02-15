@@ -1,0 +1,16 @@
+function start log10
+push float 0.4342944820
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse log, record 0, extra 0
+post call integral
+post call floating
+£temporary380 = return_value
+£temporary381 = 0.4342944820 * £temporary380
+return_value = £temporary381
+return
+empty
+return
+function end log10

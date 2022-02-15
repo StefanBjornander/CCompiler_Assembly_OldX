@@ -1,0 +1,52 @@
+function start exp
+push 0
+pop float n
+push 1
+pop float faculty
+push 1
+pop float power
+push 0
+pop float sum
+push float term
+pop float empty X
+push float power
+push float faculty
+£temporary351 = power / faculty
+top float term
+pop float empty X
+push float sum
+push float term
+sum = sum + term
+top float sum
+pop float empty X
+push float power
+push float x
+power = power * x
+top float power
+pop float empty X
+push float faculty
+push float n
+push 1
+n = n + 1
+top float n
+faculty = faculty * £temporary352
+top float faculty
+pop float empty X
+call header
+push float term
+parameter term, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary353 = return_value
+push float 0.000000001
+if £temporary353 >= 0.000000001 goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+push float sum
+return_value = sum
+return
+empty
+return
+function end exp

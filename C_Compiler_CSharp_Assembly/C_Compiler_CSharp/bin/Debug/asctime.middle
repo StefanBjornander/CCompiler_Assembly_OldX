@@ -1,0 +1,73 @@
+function start asctime
+localeConvPtr = 0
+empty
+£temporary2506 = £temporary2502
+goto <MiddleCode>
+empty
+£temporary2506 = 0
+empty
+shortDayList = £temporary2506
+empty
+£temporary2512 = £temporary2508
+goto <MiddleCode>
+empty
+£temporary2512 = 0
+empty
+shortMonthList = £temporary2512
+empty
+£temporary2517 = shortDayList
+goto <MiddleCode>
+empty
+£temporary2517 = g_defaultShortDayList
+empty
+shortDayList = £temporary2517
+empty
+£temporary2522 = shortMonthList
+goto <MiddleCode>
+empty
+£temporary2522 = g_defaultShortMonthList
+empty
+shortMonthList = £temporary2522
+call header
+parameter "shortDayList <%u> shortMonthList <%u>\012", record 0, offset 6
+parameter shortDayList, record 0, offset 8
+parameter shortMonthList, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary2523 = return_value
+call header
+parameter g_timeString, record 0, offset 6
+parameter "%s %s %2i %02i:%02i:%02i %04i\012", record 0, offset 8
+£temporary2524 = *tp, offset 12
+£temporary2526 = £temporary2524 * 2
+£temporary2527 = shortDayList + £temporary2526
+£temporary2525 = *£temporary2527
+parameter £temporary2525, record 0, offset 10
+£temporary2528 = *tp, offset 8
+£temporary2530 = £temporary2528 * 2
+£temporary2531 = shortMonthList + £temporary2530
+£temporary2529 = *£temporary2531
+parameter £temporary2529, record 0, offset 12
+£temporary2532 = *tp, offset 6
+parameter £temporary2532, record 0, offset 14
+£temporary2533 = *tp, offset 4
+parameter £temporary2533, record 0, offset 16
+£temporary2534 = *tp, offset 2
+parameter £temporary2534, record 0, offset 18
+£temporary2535 = *tp
+parameter £temporary2535, record 0, offset 20
+£temporary2536 = *tp, offset 10
+£temporary2537 = £temporary2536 + 1900
+parameter £temporary2537, record 0, offset 22
+pre call
+call function noellipse-ellipse sprintf, record 0, extra 14
+post call integral
+post call floating
+£temporary2538 = return_value
+return_value = g_timeString
+return
+empty
+return
+function end asctime

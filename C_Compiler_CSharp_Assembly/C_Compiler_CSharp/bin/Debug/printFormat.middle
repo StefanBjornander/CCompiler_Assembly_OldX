@@ -1,0 +1,359 @@
+function start printFormat
+count = 0
+width = 0
+precision = 0
+percent = 0
+plus = 0
+minus = 0
+space = 0
+zero = 0
+grid = 0
+widthStar = 0
+period = 0
+precisionStar = 0
+shortInt = 0
+longInt = 0
+longDouble = 0
+g_outChars = 0
+index = 0
+empty
+£temporary1933 = format + index
+£temporary1932 = *£temporary1933
+if £temporary1932 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary1937 = format + index
+£temporary1936 = *£temporary1937
+c = £temporary1936
+if percent != 0 goto <MiddleCode>
+goto <MiddleCode>
+if c == 43 goto <MiddleCode>
+if c == 45 goto <MiddleCode>
+if c == 32 goto <MiddleCode>
+if c == 48 goto <MiddleCode>
+if c == 35 goto <MiddleCode>
+if c == 46 goto <MiddleCode>
+if c == 42 goto <MiddleCode>
+if c == 104 goto <MiddleCode>
+if c == 108 goto <MiddleCode>
+if c == 76 goto <MiddleCode>
+if c == 37 goto <MiddleCode>
+if c == 110 goto <MiddleCode>
+if c == 112 goto <MiddleCode>
+if c == 71 goto <MiddleCode>
+if c == 103 goto <MiddleCode>
+if c == 69 goto <MiddleCode>
+if c == 101 goto <MiddleCode>
+if c == 102 goto <MiddleCode>
+if c == 115 goto <MiddleCode>
+if c == 99 goto <MiddleCode>
+if c == 88 goto <MiddleCode>
+if c == 120 goto <MiddleCode>
+if c == 111 goto <MiddleCode>
+if c == 98 goto <MiddleCode>
+if c == 117 goto <MiddleCode>
+if c == 100 goto <MiddleCode>
+if c == 105 goto <MiddleCode>
+goto <MiddleCode>
+plus = 1
+goto <MiddleCode>
+minus = 1
+goto <MiddleCode>
+space = 1
+goto <MiddleCode>
+zero = 1
+goto <MiddleCode>
+grid = 1
+goto <MiddleCode>
+period = 1
+goto <MiddleCode>
+if period != 0 goto <MiddleCode>
+goto <MiddleCode>
+width = -1
+goto <MiddleCode>
+precision = -1
+goto <MiddleCode>
+goto <MiddleCode>
+shortInt = 1
+goto <MiddleCode>
+longInt = 1
+goto <MiddleCode>
+longDouble = 1
+goto <MiddleCode>
+if minus != 0 goto <MiddleCode>
+goto <MiddleCode>
+startChars = g_outChars
+call header
+£temporary1941 = format + index
+£temporary1940 = *£temporary1941
+£temporary1942 = &£temporary1940
+parameter £temporary1942, record 0, offset 6
+parameter arg_list, record 0, offset 8
+parameter plus, record 0, offset 10
+parameter space, record 0, offset 12
+parameter grid, record 0, offset 14
+£temporary1943 = &width
+parameter £temporary1943, record 0, offset 16
+parameter precision, record 0, offset 18
+parameter shortInt, record 0, offset 20
+parameter longInt, record 0, offset 22
+parameter longDouble, record 0, offset 24
+parameter 1, record 0, offset 26
+parameter 0, record 0, offset 28
+pre call
+call function noellipse-noellipse printArgument, record 0, extra 0
+post call integral
+post call floating
+£temporary1944 = return_value
+arg_list = £temporary1944
+£temporary1945 = g_outChars - startChars
+field = £temporary1945
+£temporary1946 = field
+++field
+if £temporary1946 < width goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 32, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+goto <MiddleCode>
+if zero != 0 goto <MiddleCode>
+goto <MiddleCode>
+startChars = g_outChars
+oldOutStatus = g_outStatus
+negative = 0
+g_outStatus = 2
+call header
+£temporary1950 = format + index
+£temporary1949 = *£temporary1950
+£temporary1951 = &£temporary1949
+parameter £temporary1951, record 0, offset 6
+parameter arg_list, record 0, offset 8
+parameter 0, record 0, offset 10
+parameter 0, record 0, offset 12
+parameter grid, record 0, offset 14
+£temporary1952 = &width
+parameter £temporary1952, record 0, offset 16
+parameter precision, record 0, offset 18
+parameter shortInt, record 0, offset 20
+parameter longInt, record 0, offset 22
+parameter longDouble, record 0, offset 24
+parameter 0, record 0, offset 26
+£temporary1953 = &negative
+parameter £temporary1953, record 0, offset 28
+pre call
+call function noellipse-noellipse printArgument, record 0, extra 0
+post call integral
+post call floating
+£temporary1954 = return_value
+g_outStatus = oldOutStatus
+£temporary1955 = g_outChars - startChars
+field = £temporary1955
+g_outChars = startChars
+if negative != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 45, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+++field
+goto <MiddleCode>
+if plus != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 43, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+++field
+goto <MiddleCode>
+if space != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 32, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+++field
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+£temporary1965 = field
+++field
+if £temporary1965 < width goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 48, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+£temporary1969 = format + index
+£temporary1968 = *£temporary1969
+£temporary1970 = &£temporary1968
+parameter £temporary1970, record 0, offset 6
+parameter arg_list, record 0, offset 8
+parameter 0, record 0, offset 10
+parameter 0, record 0, offset 12
+parameter grid, record 0, offset 14
+parameter 0, record 0, offset 16
+parameter precision, record 0, offset 18
+parameter shortInt, record 0, offset 20
+parameter longInt, record 0, offset 22
+parameter longDouble, record 0, offset 24
+parameter 0, record 0, offset 26
+parameter 0, record 0, offset 28
+pre call
+call function noellipse-noellipse printArgument, record 0, extra 0
+post call integral
+post call floating
+£temporary1971 = return_value
+arg_list = £temporary1971
+goto <MiddleCode>
+startChars = g_outChars
+oldOutStatus = g_outStatus
+g_outStatus = 2
+call header
+£temporary1973 = format + index
+£temporary1972 = *£temporary1973
+£temporary1974 = &£temporary1972
+parameter £temporary1974, record 0, offset 6
+parameter arg_list, record 0, offset 8
+parameter plus, record 0, offset 10
+parameter space, record 0, offset 12
+parameter grid, record 0, offset 14
+£temporary1975 = &width
+parameter £temporary1975, record 0, offset 16
+parameter precision, record 0, offset 18
+parameter shortInt, record 0, offset 20
+parameter longInt, record 0, offset 22
+parameter longDouble, record 0, offset 24
+parameter 1, record 0, offset 26
+parameter 0, record 0, offset 28
+pre call
+call function noellipse-noellipse printArgument, record 0, extra 0
+post call integral
+post call floating
+£temporary1976 = return_value
+g_outStatus = oldOutStatus
+£temporary1977 = g_outChars - startChars
+field = £temporary1977
+g_outChars = startChars
+£temporary1978 = field
+++field
+if £temporary1978 < width goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 32, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+£temporary1982 = format + index
+£temporary1981 = *£temporary1982
+£temporary1983 = &£temporary1981
+parameter £temporary1983, record 0, offset 6
+parameter arg_list, record 0, offset 8
+parameter plus, record 0, offset 10
+parameter space, record 0, offset 12
+parameter grid, record 0, offset 14
+parameter 0, record 0, offset 16
+parameter precision, record 0, offset 18
+parameter shortInt, record 0, offset 20
+parameter longInt, record 0, offset 22
+parameter longDouble, record 0, offset 24
+parameter 1, record 0, offset 26
+parameter 0, record 0, offset 28
+pre call
+call function noellipse-noellipse printArgument, record 0, extra 0
+post call integral
+post call floating
+£temporary1984 = return_value
+arg_list = £temporary1984
+goto <MiddleCode>
+goto <MiddleCode>
+percent = 0
+goto <MiddleCode>
+value = 0
+call header
+£temporary1987 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary1987, record 0, offset 6
+pre call
+call function noellipse-noellipse isdigit, record 0, extra 0
+post call integral
+post call floating
+£temporary1988 = return_value
+if £temporary1988 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1989 = 10 * value
+£temporary1990 = c - 48
+£temporary1991 = int_to_int £temporary1990 (Signed_Char -> Signed_Int)
+£temporary1992 = £temporary1989 + £temporary1991
+value = £temporary1992
+++index
+£temporary1993 = index
+£temporary1995 = format + £temporary1993
+£temporary1994 = *£temporary1995
+c = £temporary1994
+goto <MiddleCode>
+--index
+if period != 0 goto <MiddleCode>
+goto <MiddleCode>
+width = value
+goto <MiddleCode>
+precision = value
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+if c == 37 goto <MiddleCode>
+goto <MiddleCode>
+percent = 1
+plus = 0
+minus = 0
+space = 0
+zero = 0
+grid = 0
+widthStar = 0
+period = 0
+precisionStar = 0
+shortInt = 0
+longInt = 0
+longDouble = 0
+width = 0
+precision = 0
+goto <MiddleCode>
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+if g_outStatus == 1 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2004 = int_to_int g_outDevice (Pointer -> Pointer)
+outString = £temporary2004
+£temporary2006 = outString + g_outChars
+£temporary2005 = *£temporary2006
+£temporary2005 = 0
+goto <MiddleCode>
+return_value = g_outChars
+return
+empty
+return
+function end printFormat

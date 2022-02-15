@@ -1,0 +1,62 @@
+function start assert_test
+n = 0
+call header
+parameter "Please write a number (not 6 or 7): ", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary3399 = return_value
+call header
+parameter "%i", record 0, offset 6
+£temporary3400 = &n
+parameter £temporary3400, record 0, offset 8
+pre call
+call function noellipse-ellipse scanf, record 0, extra 2
+post call integral
+post call floating
+£temporary3401 = return_value
+if n != 6 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stderr, record 0, offset 6
+parameter "Assertion failed: "%s" in file %s at line %i\012", record 0, offset 8
+parameter "n != 6", record 0, offset 10
+parameter "C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits\stdio\AssertTest.c", record 0, offset 12
+parameter 8, record 0, offset 14
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 6
+post call integral
+post call floating
+£temporary3404 = return_value
+call header
+pre call
+call function noellipse-noellipse abort, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+if n != 7 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stderr, record 0, offset 6
+parameter "Assertion failed: "%s" in file %s at line %i\012", record 0, offset 8
+parameter "n != 7", record 0, offset 10
+parameter "C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits\stdio\AssertTest.c", record 0, offset 12
+parameter 9, record 0, offset 14
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 6
+post call integral
+post call floating
+£temporary3408 = return_value
+call header
+pre call
+call function noellipse-noellipse abort, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+empty
+return
+return
+function end assert_test

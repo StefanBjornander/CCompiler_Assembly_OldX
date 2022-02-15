@@ -1,0 +1,21 @@
+function start memset
+£temporary3080 = int_to_int block (Pointer -> Pointer)
+charBlock = £temporary3080
+£temporary3081 = int_to_int i (Signed_Int -> Signed_Char)
+c = £temporary3081
+index = 0
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary3085 = charBlock + index
+£temporary3084 = *£temporary3085
+£temporary3084 = c
+empty
+++index
+goto <MiddleCode>
+return_value = block
+return
+empty
+return
+function end memset

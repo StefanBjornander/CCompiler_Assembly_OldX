@@ -1,0 +1,42 @@
+function start isupper
+call header
+pre call
+call function noellipse-noellipse localeconv, record 0, extra 0
+post call integral
+post call floating
+£temporary194 = return_value
+localeConvPtr = £temporary194
+if localeConvPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary196 = *localeConvPtr, offset 14
+parameter £temporary196, record 0, offset 6
+parameter c, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary197 = return_value
+if £temporary197 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary199 = 1
+goto <MiddleCode>
+£temporary199 = 0
+empty
+return_value = £temporary199
+return
+goto <MiddleCode>
+if c >= 65 goto <MiddleCode>
+goto <MiddleCode>
+if c <= 90 goto <MiddleCode>
+goto <MiddleCode>
+£temporary203 = 1
+goto <MiddleCode>
+£temporary203 = 0
+empty
+return_value = £temporary203
+return
+goto <MiddleCode>
+empty
+return
+function end isupper

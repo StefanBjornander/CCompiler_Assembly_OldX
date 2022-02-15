@@ -1,0 +1,38 @@
+function start strncat
+call header
+parameter target, record 0, offset 6
+pre call
+call function noellipse-noellipse strlen, record 0, extra 0
+post call integral
+post call floating
+£temporary2826 = return_value
+targetLength = £temporary2826
+index = 0
+empty
+£temporary2827 = size - 1
+if index < £temporary2827 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2830 = source + index
+£temporary2829 = *£temporary2830
+if £temporary2829 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2834 = targetLength + index
+£temporary2836 = target + £temporary2834
+£temporary2835 = *£temporary2836
+£temporary2838 = source + index
+£temporary2837 = *£temporary2838
+£temporary2835 = £temporary2837
+empty
+++index
+goto <MiddleCode>
+£temporary2839 = targetLength + size
+£temporary2840 = £temporary2839 - 1
+£temporary2842 = target + £temporary2840
+£temporary2841 = *£temporary2842
+£temporary2841 = 0
+return_value = target
+return
+empty
+return
+function end strncat

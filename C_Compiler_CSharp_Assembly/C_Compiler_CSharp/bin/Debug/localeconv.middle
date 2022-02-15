@@ -1,0 +1,12 @@
+function start localeconv
+empty
+£temporary350 = £temporary346
+goto <MiddleCode>
+empty
+£temporary350 = 0
+empty
+return_value = £temporary350
+return
+empty
+return
+function end localeconv

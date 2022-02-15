@@ -1,0 +1,12 @@
+function start unscanChar
+if g_inStatus == 0 goto <MiddleCode>
+if g_inStatus == 1 goto <MiddleCode>
+goto <MiddleCode>
+--g_inChars
+goto <MiddleCode>
+--g_inChars
+goto <MiddleCode>
+empty
+return
+return
+function end unscanChar

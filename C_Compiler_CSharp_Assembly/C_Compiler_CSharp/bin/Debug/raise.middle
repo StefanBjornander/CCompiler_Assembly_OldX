@@ -1,0 +1,52 @@
+function start raise
+call header
+parameter "raise sig %i", record 0, offset 6
+parameter sig, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary714 = return_value
+ah = 53
+£temporary715 = int_to_int sig (Signed_Int -> Signed_Short_Int)
+al = £temporary715
+interrupt 33
+call header
+parameter "X", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary716 = return_value
+func = bx
+call header
+parameter "raise func %p", record 0, offset 6
+parameter func, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary717 = return_value
+if func == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 1
+return
+goto <MiddleCode>
+if func == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+call header
+parameter sig, record 0, offset 6
+pre call
+call function noellipse-noellipse func, record 0, extra 0
+post call integral
+post call floating
+return_value = 1
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+function end raise

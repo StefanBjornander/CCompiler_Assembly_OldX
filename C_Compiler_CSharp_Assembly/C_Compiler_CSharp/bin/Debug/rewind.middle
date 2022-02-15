@@ -1,0 +1,14 @@
+function start rewind
+call header
+parameter stream, record 0, offset 6
+parameter 0, record 0, offset 8
+parameter 0, record 0, offset 12
+pre call
+call function noellipse-noellipse fseek, record 0, extra 0
+post call integral
+post call floating
+£temporary957 = return_value
+empty
+return
+return
+function end rewind

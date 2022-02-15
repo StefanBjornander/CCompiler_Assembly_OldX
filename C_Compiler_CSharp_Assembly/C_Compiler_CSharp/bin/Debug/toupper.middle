@@ -1,0 +1,50 @@
+function start toupper
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse islower, record 0, extra 0
+post call integral
+post call floating
+£temporary303 = return_value
+if £temporary303 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse localeconv, record 0, extra 0
+post call integral
+post call floating
+£temporary304 = return_value
+localeConvPtr = £temporary304
+if localeConvPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary306 = *localeConvPtr, offset 12
+lowerCase = £temporary306
+£temporary307 = *localeConvPtr, offset 14
+upperCase = £temporary307
+call header
+parameter lowerCase, record 0, offset 6
+parameter c, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary308 = return_value
+£temporary309 = £temporary308 - lowerCase
+index = £temporary309
+£temporary311 = upperCase + index
+£temporary310 = *£temporary311
+£temporary312 = int_to_int £temporary310 (Signed_Char -> Signed_Int)
+return_value = £temporary312
+return
+goto <MiddleCode>
+£temporary313 = c - 32
+return_value = £temporary313
+return
+goto <MiddleCode>
+goto <MiddleCode>
+return_value = c
+return
+goto <MiddleCode>
+empty
+return
+function end toupper

@@ -1,0 +1,17 @@
+function start vfscanf
+g_inStatus = 0
+£temporary1483 = int_to_int inStream (Pointer -> Pointer)
+g_inDevice = £temporary1483
+call header
+parameter format, record 0, offset 6
+parameter arg_list, record 0, offset 8
+pre call
+call function noellipse-noellipse scanFormat, record 0, extra 0
+post call integral
+post call floating
+£temporary1484 = return_value
+return_value = £temporary1484
+return
+empty
+return
+function end vfscanf

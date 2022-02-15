@@ -1,0 +1,58 @@
+function start fclose
+if stream != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary843 = *stream, offset 2
+handle = £temporary843
+ah = 62
+bx = handle
+interrupt 33
+handle = ax
+save from flagbyte
+£temporary845 = int_to_int flagbyte (Signed_Short_Int -> Unsigned_Int)
+£temporary844 = £temporary845 & 1
+if £temporary844 != 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+errno = handle
+return_value = -1
+return
+goto <MiddleCode>
+goto <MiddleCode>
+index = 0
+empty
+if index < 16 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary851 = index * 35
+£temporary852 = g_fileArray + £temporary851
+£temporary850 = *£temporary852
+if £temporary850.open$0 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary854 = index * 35
+£temporary855 = g_fileArray + £temporary854
+£temporary853 = *£temporary855
+£temporary856 = &£temporary853
+parameter £temporary856, record 0, offset 6
+pre call
+call function noellipse-noellipse fclose, record 0, extra 0
+post call integral
+post call floating
+£temporary857 = return_value
+if £temporary857 == -1 goto <MiddleCode>
+goto <MiddleCode>
+return_value = -1
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+empty
+return
+function end fclose

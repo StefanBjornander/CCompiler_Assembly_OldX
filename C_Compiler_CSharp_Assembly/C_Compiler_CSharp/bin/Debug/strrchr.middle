@@ -1,0 +1,28 @@
+function start strrchr
+result = 0
+£temporary2905 = int_to_int i (Signed_Int -> Signed_Char)
+c = £temporary2905
+index = 0
+empty
+£temporary2907 = text + index
+£temporary2906 = *£temporary2907
+if £temporary2906 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2911 = text + index
+£temporary2910 = *£temporary2911
+if £temporary2910 == c goto <MiddleCode>
+goto <MiddleCode>
+£temporary2914 = text + index
+£temporary2913 = *£temporary2914
+£temporary2915 = &£temporary2913
+result = £temporary2915
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = result
+return
+empty
+return
+function end strrchr

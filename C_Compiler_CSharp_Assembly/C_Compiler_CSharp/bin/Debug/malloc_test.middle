@@ -1,0 +1,94 @@
+function start malloc_test
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4251 = return_value
+a = £temporary4251
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4252 = return_value
+b = £temporary4252
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4253 = return_value
+c = £temporary4253
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4254 = return_value
+d = £temporary4254
+call header
+parameter 96, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4255 = return_value
+e = £temporary4255
+call header
+parameter c, record 0, offset 6
+parameter 40, record 0, offset 8
+pre call
+call function noellipse-noellipse realloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4256 = return_value
+call header
+parameter 40, record 0, offset 6
+parameter 1, record 0, offset 8
+pre call
+call function noellipse-noellipse calloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4257 = return_value
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+stackTop = bp
+lowHeapPtr = 65534
+call header
+parameter "Stack Top: %u, Low Heap: %u\012", record 0, offset 6
+parameter stackTop, record 0, offset 8
+£temporary4259 = *lowHeapPtr
+parameter £temporary4259, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary4260 = return_value
+call header
+parameter "%p %p %p %p", record 0, offset 6
+parameter a, record 0, offset 8
+parameter b, record 0, offset 10
+parameter d, record 0, offset 12
+parameter e, record 0, offset 14
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary4261 = return_value
+empty
+return
+return
+function end malloc_test

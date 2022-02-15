@@ -1,0 +1,28 @@
+function start memswp
+£temporary2149 = int_to_int value1 (Pointer -> Pointer)
+charValue1 = £temporary2149
+£temporary2150 = int_to_int value2 (Pointer -> Pointer)
+charValue2 = £temporary2150
+index = 0
+empty
+if index < valueSize goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2154 = charValue1 + index
+£temporary2153 = *£temporary2154
+tempValue = £temporary2153
+£temporary2156 = charValue1 + index
+£temporary2155 = *£temporary2156
+£temporary2158 = charValue2 + index
+£temporary2157 = *£temporary2158
+£temporary2155 = £temporary2157
+£temporary2160 = charValue2 + index
+£temporary2159 = *£temporary2160
+£temporary2159 = tempValue
+empty
+++index
+goto <MiddleCode>
+empty
+return
+return
+function end memswp

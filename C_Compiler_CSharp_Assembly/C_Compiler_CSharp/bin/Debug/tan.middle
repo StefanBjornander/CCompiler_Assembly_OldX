@@ -1,0 +1,35 @@
+function start tan
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse cos, record 0, extra 0
+post call integral
+post call floating
+£temporary481 = return_value
+pop float cos_value
+push float cos_value
+push 0
+if cos_value != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse sin, record 0, extra 0
+post call integral
+post call floating
+£temporary483 = return_value
+push float cos_value
+£temporary484 = £temporary483 / cos_value
+return_value = £temporary484
+return
+goto <MiddleCode>
+errno = 6
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+empty
+return
+function end tan

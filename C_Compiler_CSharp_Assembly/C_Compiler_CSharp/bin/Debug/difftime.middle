@@ -1,0 +1,12 @@
+function start difftime
+£temporary2490 = time1 & 2147483647
+totalSeconds1 = £temporary2490
+£temporary2491 = time2 & 2147483647
+totalSeconds2 = £temporary2491
+£temporary2492 = totalSeconds2 - totalSeconds1
+£temporary2493 = int_to_float £temporary2492 (Signed_Long_Int -> Double)
+return_value = £temporary2493
+return
+empty
+return
+function end difftime

@@ -1,0 +1,6 @@
+function start setvbuf
+return_value = 0
+return
+empty
+return
+function end setvbuf

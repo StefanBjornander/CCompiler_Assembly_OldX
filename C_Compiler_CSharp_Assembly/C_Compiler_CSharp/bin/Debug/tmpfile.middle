@@ -1,0 +1,22 @@
+function start tmpfile
+call header
+parameter "QWER.txt", record 0, offset 6
+parameter "w", record 0, offset 8
+pre call
+call function noellipse-noellipse fopen, record 0, extra 0
+post call integral
+post call floating
+£temporary1041 = return_value
+stream = £temporary1041
+if stream != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1043 = *stream, offset 31
+£temporary1043 = 1
+return_value = stream
+return
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end tmpfile

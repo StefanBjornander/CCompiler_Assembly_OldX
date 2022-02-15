@@ -1,0 +1,30 @@
+function start strerror
+call header
+pre call
+call function noellipse-noellipse localeconv, record 0, extra 0
+post call integral
+post call floating
+£temporary2968 = return_value
+localeConvPtr = £temporary2968
+empty
+£temporary2974 = £temporary2970
+goto <MiddleCode>
+empty
+£temporary2974 = 0
+empty
+messageList = £temporary2974
+empty
+£temporary2979 = messageList
+goto <MiddleCode>
+empty
+£temporary2979 = enMessageList
+empty
+messageList = £temporary2979
+£temporary2981 = errno * 2
+£temporary2982 = messageList + £temporary2981
+£temporary2980 = *£temporary2982
+return_value = £temporary2980
+return
+empty
+return
+function end strerror

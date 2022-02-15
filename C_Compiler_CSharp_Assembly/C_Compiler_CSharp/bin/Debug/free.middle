@@ -1,0 +1,56 @@
+function start free
+if freeMemoryPtr == 0 goto <MiddleCode>
+goto <MiddleCode>
+return
+goto <MiddleCode>
+£temporary76 = int_to_int freeMemoryPtr (Pointer -> Unsigned_Int)
+£temporary77 = £temporary76 - 4
+£temporary78 = int_to_int £temporary77 (Unsigned_Int -> Pointer)
+freeBlockPtr = £temporary78
+prevBlockPtr = 0
+currBlockPtr = firstBlockPtr
+if currBlockPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+if currBlockPtr == freeBlockPtr goto <MiddleCode>
+goto <MiddleCode>
+if prevBlockPtr == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary82 = *currBlockPtr, offset 2
+if £temporary82 == 0 goto <MiddleCode>
+goto <MiddleCode>
+firstBlockPtr = 0
+lowHeapPtr = 65534
+£temporary85 = *lowHeapPtr
+£temporary85 = 65534
+goto <MiddleCode>
+if prevBlockPtr == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary87 = *currBlockPtr, offset 2
+firstBlockPtr = £temporary87
+goto <MiddleCode>
+£temporary88 = *currBlockPtr, offset 2
+if £temporary88 == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary90 = *prevBlockPtr, offset 2
+£temporary90 = 0
+lowHeapPtr = 65534
+£temporary91 = *lowHeapPtr
+£temporary92 = int_to_int prevBlockPtr (Pointer -> Pointer)
+£temporary91 = £temporary92
+goto <MiddleCode>
+£temporary93 = *prevBlockPtr, offset 2
+£temporary94 = *currBlockPtr, offset 2
+£temporary93 = £temporary94
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+return
+goto <MiddleCode>
+prevBlockPtr = currBlockPtr
+£temporary95 = *currBlockPtr, offset 2
+currBlockPtr = £temporary95
+goto <MiddleCode>
+empty
+return
+return
+function end free

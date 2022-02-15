@@ -1,0 +1,71 @@
+function start cos
+push 0
+pop float n
+push 1
+pop float plusMinusOne
+push 1
+pop float faculty
+push 1
+pop float power
+push 0
+pop float sum
+push float term
+pop float empty X
+push float plusMinusOne
+push float power
+push float faculty
+£temporary472 = power / faculty
+£temporary473 = plusMinusOne * £temporary472
+top float term
+pop float empty X
+push float sum
+push float term
+sum = sum + term
+top float sum
+pop float empty X
+push float plusMinusOne
+push float -1
+plusMinusOne = plusMinusOne * -1
+top float plusMinusOne
+pop float empty X
+push float power
+push float x
+push float x
+£temporary474 = x * x
+power = power * £temporary474
+top float power
+pop float empty X
+push float faculty
+push float n
+push 1
+£temporary475 = n + 1
+push float n
+push float 2
+£temporary476 = n + 2
+£temporary477 = £temporary475 * £temporary476
+faculty = faculty * £temporary477
+top float faculty
+pop float empty X
+push float n
+push float 2
+n = n + 2
+top float n
+pop float empty X
+call header
+push float term
+parameter term, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary478 = return_value
+push float 0.000000001
+if £temporary478 >= 0.000000001 goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+push float sum
+return_value = sum
+return
+empty
+return
+function end cos

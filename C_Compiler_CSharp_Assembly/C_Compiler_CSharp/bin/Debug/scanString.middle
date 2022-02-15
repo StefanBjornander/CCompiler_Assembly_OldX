@@ -1,0 +1,174 @@
+function start scanString
+index = 0
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1114 = return_value
+input = £temporary1114
+found = 0
+call header
+£temporary1115 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1115, record 0, offset 6
+pre call
+call function noellipse-noellipse isspace, record 0, extra 0
+post call integral
+post call floating
+£temporary1116 = return_value
+if £temporary1116 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1117 = return_value
+input = £temporary1117
+goto <MiddleCode>
+if string != 0 goto <MiddleCode>
+goto <MiddleCode>
+if precision == 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary1121 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1121, record 0, offset 6
+pre call
+call function noellipse-noellipse isspace, record 0, extra 0
+post call integral
+post call floating
+£temporary1122 = return_value
+if £temporary1122 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1125 = int_to_int input (Signed_Char -> Signed_Int)
+if £temporary1125 != -1 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1128 = index
+++index
+£temporary1130 = string + £temporary1128
+£temporary1129 = *£temporary1130
+£temporary1129 = input
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1131 = return_value
+input = £temporary1131
+found = 1
+++g_inChars
+goto <MiddleCode>
+£temporary1134 = string + index
+£temporary1133 = *£temporary1134
+£temporary1133 = 0
+++g_inChars
+goto <MiddleCode>
+£temporary1136 = precision
+--precision
+if £temporary1136 > 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary1138 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1138, record 0, offset 6
+pre call
+call function noellipse-noellipse isspace, record 0, extra 0
+post call integral
+post call floating
+£temporary1139 = return_value
+if £temporary1139 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1142 = int_to_int input (Signed_Char -> Signed_Int)
+if £temporary1142 != -1 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1146 = index
+++index
+£temporary1148 = string + £temporary1146
+£temporary1147 = *£temporary1148
+£temporary1147 = input
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1149 = return_value
+input = £temporary1149
+found = 1
+++g_inChars
+goto <MiddleCode>
+if precision > 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1153 = string + index
+£temporary1152 = *£temporary1153
+£temporary1152 = 0
+++g_inChars
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+if precision == 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary1156 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1156, record 0, offset 6
+pre call
+call function noellipse-noellipse isspace, record 0, extra 0
+post call integral
+post call floating
+£temporary1157 = return_value
+if £temporary1157 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1160 = int_to_int input (Signed_Char -> Signed_Int)
+if £temporary1160 != -1 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1163 = return_value
+input = £temporary1163
+found = 1
+++g_inChars
+goto <MiddleCode>
+++g_inChars
+goto <MiddleCode>
+£temporary1166 = precision
+--precision
+if £temporary1166 > 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary1168 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1168, record 0, offset 6
+pre call
+call function noellipse-noellipse isspace, record 0, extra 0
+post call integral
+post call floating
+£temporary1169 = return_value
+if £temporary1169 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1172 = int_to_int input (Signed_Char -> Signed_Int)
+if £temporary1172 != -1 goto <MiddleCode>
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1176 = return_value
+input = £temporary1176
+found = 1
+++g_inChars
+goto <MiddleCode>
+if precision > 0 goto <MiddleCode>
+goto <MiddleCode>
+++g_inChars
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+if found != 0 goto <MiddleCode>
+goto <MiddleCode>
+++g_inCount
+goto <MiddleCode>
+empty
+return
+return
+function end scanString

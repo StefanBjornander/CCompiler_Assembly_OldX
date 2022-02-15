@@ -1,0 +1,14 @@
+function start isdigit
+if c >= 48 goto <MiddleCode>
+goto <MiddleCode>
+if c <= 57 goto <MiddleCode>
+goto <MiddleCode>
+£temporary217 = 1
+goto <MiddleCode>
+£temporary217 = 0
+empty
+return_value = £temporary217
+return
+empty
+return
+function end isdigit

@@ -1,0 +1,35 @@
+
+// ==========================================================================
+//  GPPG error listing for yacc source file <PreParser.gppg - 2018-12-29 00:13:01>
+// ==========================================================================
+//  Version:  1.5.2
+//  Machine:  STEFAN1968
+//  DateTime: 2019-02-23 16:15:29
+//  UserName: Stefan
+// ==========================================================================
+
+
+%{
+  package c_compiler;
+%}
+
+%name-prefix = "Pre"
+//^^^^^^^^^^^^
+// Error: Unknown %keyword in this context
+// Error: This character is invalid in this context
+// Error: Syntax error, unexpected ident
+// Error: This character is invalid in this context
+// ------------------------------------------------
+
+%token <String> NAME STRING LEFT_PAREN RIGHT_PAREN
+                COMMA SHARP DOUBLE_SHARP TOKEN MARK EOL
+
+%start translation_unit
+
+%%
+
+translation_unit:
+  /* Empty. */;
+
+%%// ==========================================================================
+

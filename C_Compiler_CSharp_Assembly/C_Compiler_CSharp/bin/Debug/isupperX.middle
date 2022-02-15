@@ -1,0 +1,14 @@
+function start isupperX
+if c >= 65 goto <MiddleCode>
+goto <MiddleCode>
+if c <= 90 goto <MiddleCode>
+goto <MiddleCode>
+£temporary193 = 1
+goto <MiddleCode>
+£temporary193 = 0
+empty
+return_value = £temporary193
+return
+empty
+return
+function end isupperX

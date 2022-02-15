@@ -1,0 +1,403 @@
+function start scanFormat
+percent = 0
+shortInt = 0
+longIntOrDouble = 0
+longDouble = 0
+star = 0
+g_inCount = 0
+g_inChars = 0
+index = 0
+empty
+£temporary1302 = format + index
+£temporary1301 = *£temporary1302
+if £temporary1301 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary1306 = format + index
+£temporary1305 = *£temporary1306
+c = £temporary1305
+if percent != 0 goto <MiddleCode>
+goto <MiddleCode>
+if c == 104 goto <MiddleCode>
+if c == 108 goto <MiddleCode>
+if c == 76 goto <MiddleCode>
+if c == 42 goto <MiddleCode>
+if c == 99 goto <MiddleCode>
+if c == 115 goto <MiddleCode>
+if c == 100 goto <MiddleCode>
+if c == 105 goto <MiddleCode>
+if c == 111 goto <MiddleCode>
+if c == 120 goto <MiddleCode>
+if c == 117 goto <MiddleCode>
+if c == 103 goto <MiddleCode>
+if c == 102 goto <MiddleCode>
+if c == 101 goto <MiddleCode>
+if c == 91 goto <MiddleCode>
+if c == 110 goto <MiddleCode>
+goto <MiddleCode>
+shortInt = 1
+goto <MiddleCode>
+longIntOrDouble = 1
+goto <MiddleCode>
+longDouble = 1
+goto <MiddleCode>
+star = 1
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanChar, record 0, extra 0
+post call integral
+post call floating
+£temporary1307 = return_value
+charValue = £temporary1307
+if star != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1310 = arg_list - 2
+£temporary1311 = int_to_int £temporary1310 (Pointer -> Pointer)
+£temporary1312 = *£temporary1311
+charPtr = £temporary1312
+£temporary1313 = *charPtr
+£temporary1313 = charValue
+goto <MiddleCode>
+percent = 0
+£temporary1314 = int_to_int charValue (Signed_Char -> Signed_Int)
+if £temporary1314 != -1 goto <MiddleCode>
+goto <MiddleCode>
+++g_inCount
+goto <MiddleCode>
+goto <MiddleCode>
+if star != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1319 = arg_list - 2
+£temporary1320 = int_to_int £temporary1319 (Pointer -> Pointer)
+£temporary1321 = *£temporary1320
+charPtr = £temporary1321
+call header
+parameter charPtr, record 0, offset 6
+parameter 0, record 0, offset 8
+pre call
+call function noellipse-noellipse scanString, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+parameter 0, record 0, offset 6
+parameter 0, record 0, offset 8
+pre call
+call function noellipse-noellipse scanString, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+percent = 0
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse scanLongInt, record 0, extra 0
+post call integral
+post call floating
+£temporary1324 = return_value
+longValue = £temporary1324
+if star != 0 goto <MiddleCode>
+goto <MiddleCode>
+if shortInt != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1327 = arg_list - 2
+£temporary1328 = int_to_int £temporary1327 (Pointer -> Pointer)
+£temporary1329 = *£temporary1328
+shortPtr = £temporary1329
+£temporary1330 = *shortPtr
+£temporary1331 = int_to_int longValue (Signed_Long_Int -> Signed_Short_Int)
+£temporary1330 = £temporary1331
+goto <MiddleCode>
+if longIntOrDouble != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1334 = arg_list - 2
+£temporary1335 = int_to_int £temporary1334 (Pointer -> Pointer)
+£temporary1336 = *£temporary1335
+intPtr = £temporary1336
+£temporary1337 = *intPtr
+£temporary1338 = int_to_int longValue (Signed_Long_Int -> Signed_Int)
+£temporary1337 = £temporary1338
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1339 = arg_list - 2
+£temporary1340 = int_to_int £temporary1339 (Pointer -> Pointer)
+£temporary1341 = *£temporary1340
+longPtr = £temporary1341
+£temporary1342 = *longPtr
+£temporary1342 = longValue
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+percent = 0
+goto <MiddleCode>
+call header
+parameter 8, record 0, offset 6
+pre call
+call function noellipse-noellipse scanUnsignedLongInt, record 0, extra 0
+post call integral
+post call floating
+£temporary1344 = return_value
+unsignedLongValue = £temporary1344
+if star != 0 goto <MiddleCode>
+goto <MiddleCode>
+if shortInt != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1347 = arg_list - 2
+£temporary1348 = int_to_int £temporary1347 (Pointer -> Pointer)
+£temporary1349 = *£temporary1348
+unsignedShortPtr = £temporary1349
+£temporary1350 = *unsignedShortPtr
+£temporary1351 = int_to_int unsignedLongValue (Unsigned_Long_Int -> Signed_Short_Int)
+£temporary1350 = £temporary1351
+goto <MiddleCode>
+if longIntOrDouble != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1354 = arg_list - 2
+£temporary1355 = int_to_int £temporary1354 (Pointer -> Pointer)
+£temporary1356 = *£temporary1355
+unsignedIntPtr = £temporary1356
+£temporary1357 = *unsignedIntPtr
+£temporary1358 = int_to_int unsignedLongValue (Unsigned_Long_Int -> Signed_Int)
+£temporary1357 = £temporary1358
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1359 = arg_list - 2
+£temporary1360 = int_to_int £temporary1359 (Pointer -> Pointer)
+£temporary1361 = *£temporary1360
+unsignedLongPtr = £temporary1361
+£temporary1362 = *unsignedLongPtr
+£temporary1362 = unsignedLongValue
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+percent = 0
+goto <MiddleCode>
+call header
+parameter 16, record 0, offset 6
+pre call
+call function noellipse-noellipse scanUnsignedLongInt, record 0, extra 0
+post call integral
+post call floating
+£temporary1364 = return_value
+unsignedLongValue = £temporary1364
+if star != 0 goto <MiddleCode>
+goto <MiddleCode>
+if shortInt != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1367 = arg_list - 2
+£temporary1368 = int_to_int £temporary1367 (Pointer -> Pointer)
+£temporary1369 = *£temporary1368
+unsignedShortPtr = £temporary1369
+£temporary1370 = *unsignedShortPtr
+£temporary1371 = int_to_int unsignedLongValue (Unsigned_Long_Int -> Signed_Short_Int)
+£temporary1370 = £temporary1371
+goto <MiddleCode>
+if longIntOrDouble != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1374 = arg_list - 2
+£temporary1375 = int_to_int £temporary1374 (Pointer -> Pointer)
+£temporary1376 = *£temporary1375
+unsignedIntPtr = £temporary1376
+£temporary1377 = *unsignedIntPtr
+£temporary1378 = int_to_int unsignedLongValue (Unsigned_Long_Int -> Signed_Int)
+£temporary1377 = £temporary1378
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1379 = arg_list - 2
+£temporary1380 = int_to_int £temporary1379 (Pointer -> Pointer)
+£temporary1381 = *£temporary1380
+unsignedLongPtr = £temporary1381
+£temporary1382 = *unsignedLongPtr
+£temporary1382 = unsignedLongValue
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+percent = 0
+goto <MiddleCode>
+call header
+parameter 0, record 0, offset 6
+pre call
+call function noellipse-noellipse scanUnsignedLongInt, record 0, extra 0
+post call integral
+post call floating
+£temporary1384 = return_value
+unsignedLongValue = £temporary1384
+if star != 0 goto <MiddleCode>
+goto <MiddleCode>
+if shortInt != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1387 = arg_list - 2
+£temporary1388 = int_to_int £temporary1387 (Pointer -> Pointer)
+£temporary1389 = *£temporary1388
+unsignedShortPtr = £temporary1389
+£temporary1390 = *unsignedShortPtr
+£temporary1391 = int_to_int unsignedLongValue (Unsigned_Long_Int -> Signed_Short_Int)
+£temporary1390 = £temporary1391
+goto <MiddleCode>
+if longIntOrDouble != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1394 = arg_list - 2
+£temporary1395 = int_to_int £temporary1394 (Pointer -> Pointer)
+£temporary1396 = *£temporary1395
+unsignedIntPtr = £temporary1396
+£temporary1397 = *unsignedIntPtr
+£temporary1398 = int_to_int unsignedLongValue (Unsigned_Long_Int -> Signed_Int)
+£temporary1397 = £temporary1398
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1399 = arg_list - 2
+£temporary1400 = int_to_int £temporary1399 (Pointer -> Pointer)
+£temporary1401 = *£temporary1400
+unsignedLongPtr = £temporary1401
+£temporary1402 = *unsignedLongPtr
+£temporary1402 = unsignedLongValue
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+percent = 0
+goto <MiddleCode>
+push float longDoubleValue
+pop float empty X
+call header
+pre call
+call function noellipse-noellipse scanLongDouble, record 0, extra 0
+post call integral
+post call floating
+£temporary1404 = return_value
+top float longDoubleValue
+pop float empty X
+if star != 0 goto <MiddleCode>
+goto <MiddleCode>
+if longIntOrDouble != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1407 = arg_list - 2
+£temporary1408 = int_to_int £temporary1407 (Pointer -> Pointer)
+£temporary1409 = *£temporary1408
+doublePtr = £temporary1409
+£temporary1410 = *doublePtr
+push float £temporary1410
+pop float empty X
+push float longDoubleValue
+top float £temporary1410
+pop float empty X
+goto <MiddleCode>
+if longDouble != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1412 = arg_list - 2
+£temporary1413 = int_to_int £temporary1412 (Pointer -> Pointer)
+£temporary1414 = *£temporary1413
+longDoublePtr = £temporary1414
+£temporary1415 = *longDoublePtr
+push float £temporary1415
+pop float empty X
+push float longDoubleValue
+top float £temporary1415
+pop float empty X
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1416 = arg_list - 2
+£temporary1417 = int_to_int £temporary1416 (Pointer -> Pointer)
+£temporary1418 = *£temporary1417
+floatPtr = £temporary1418
+£temporary1419 = *floatPtr
+push float £temporary1419
+pop float empty X
+push float longDoubleValue
+top float £temporary1419
+pop float empty X
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+percent = 0
+goto <MiddleCode>
+not = 0
+++index
+£temporary1425 = format + index
+£temporary1424 = *£temporary1425
+if £temporary1424 == 94 goto <MiddleCode>
+goto <MiddleCode>
+not = 1
+++index
+goto <MiddleCode>
+startIndex = index
+£temporary1429 = format + index
+£temporary1428 = *£temporary1429
+if £temporary1428 != 93 goto <MiddleCode>
+goto <MiddleCode>
+++index
+goto <MiddleCode>
+£temporary1433 = format + index
+£temporary1432 = *£temporary1433
+£temporary1432 = 0
+if star != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1436 = arg_list - 2
+£temporary1437 = int_to_int £temporary1436 (Pointer -> Pointer)
+£temporary1438 = *£temporary1437
+string = £temporary1438
+call header
+parameter string, record 0, offset 6
+£temporary1440 = format + startIndex
+£temporary1439 = *£temporary1440
+£temporary1441 = &£temporary1439
+parameter £temporary1441, record 0, offset 8
+parameter not, record 0, offset 10
+pre call
+call function noellipse-noellipse scanPattern, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+parameter 0, record 0, offset 6
+£temporary1444 = format + startIndex
+£temporary1443 = *£temporary1444
+£temporary1445 = &£temporary1443
+parameter £temporary1445, record 0, offset 8
+parameter not, record 0, offset 10
+pre call
+call function noellipse-noellipse scanPattern, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1447 = arg_list - 2
+£temporary1448 = int_to_int £temporary1447 (Pointer -> Pointer)
+£temporary1449 = *£temporary1448
+charsPtr = £temporary1449
+£temporary1450 = *charsPtr
+£temporary1450 = g_inChars
+percent = 0
+goto <MiddleCode>
+goto <MiddleCode>
+if c == 37 goto <MiddleCode>
+goto <MiddleCode>
+percent = 1
+shortInt = 0
+longIntOrDouble = 0
+longDouble = 0
+star = 0
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = g_inCount
+return
+empty
+return
+function end scanFormat

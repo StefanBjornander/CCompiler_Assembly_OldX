@@ -1,0 +1,45 @@
+function start setlocale
+empty
+£temporary330 = £temporary326
+goto <MiddleCode>
+empty
+£temporary330 = 0
+empty
+oldName = £temporary330
+g_currStructPtr = 0
+if newName != 0 goto <MiddleCode>
+goto <MiddleCode>
+index = 0
+empty
+if index < sSize goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+parameter newName, record 0, offset 6
+£temporary335 = index * 4
+£temporary336 = sArray + £temporary335
+£temporary334 = *£temporary336
+parameter £temporary334.name$0, record 0, offset 8
+pre call
+call function noellipse-noellipse strcmp, record 0, extra 0
+post call integral
+post call floating
+£temporary337 = return_value
+if £temporary337 == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary340 = index * 4
+£temporary341 = sArray + £temporary340
+£temporary339 = *£temporary341
+£temporary342 = &£temporary339
+g_currStructPtr = £temporary342
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+goto <MiddleCode>
+return_value = oldName
+return
+empty
+return
+function end setlocale

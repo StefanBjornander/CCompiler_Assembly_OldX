@@ -1,0 +1,46 @@
+function start scanChar
+c = 0
+if g_inStatus == 0 goto <MiddleCode>
+if g_inStatus == 1 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1051 = int_to_int g_inDevice (Pointer -> Pointer)
+stream = £temporary1051
+if g_inDevice != stdin goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stream, record 0, offset 6
+pre call
+call function noellipse-noellipse feof, record 0, extra 0
+post call integral
+post call floating
+£temporary1053 = return_value
+if £temporary1053 != 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = -1
+return
+goto <MiddleCode>
+£temporary1056 = *stream, offset 2
+handle = £temporary1056
+ah = 63
+bx = handle
+cx = 1
+£temporary1057 = &c
+dx = £temporary1057
+interrupt 33
+++g_inChars
+return_value = c
+return
+goto <MiddleCode>
+£temporary1059 = int_to_int g_inDevice (Pointer -> Pointer)
+inString = £temporary1059
+£temporary1060 = g_inChars
+++g_inChars
+£temporary1062 = inString + £temporary1060
+£temporary1061 = *£temporary1062
+return_value = £temporary1061
+return
+return_value = 0
+return
+empty
+return
+function end scanChar

@@ -1,0 +1,7 @@
+function start srand
+£temporary2165 = int_to_int seed (Unsigned_Int -> Signed_Long_Int)
+g_randValue = £temporary2165
+empty
+return
+return
+function end srand

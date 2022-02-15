@@ -1,0 +1,37 @@
+function start memcmp
+£temporary3055 = int_to_int left (Pointer -> Pointer)
+charLeft = £temporary3055
+£temporary3056 = int_to_int right (Pointer -> Pointer)
+charRight = £temporary3056
+index = 0
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary3060 = charLeft + index
+£temporary3059 = *£temporary3060
+£temporary3062 = charRight + index
+£temporary3061 = *£temporary3062
+if £temporary3059 < £temporary3061 goto <MiddleCode>
+goto <MiddleCode>
+return_value = -1
+return
+goto <MiddleCode>
+£temporary3065 = charLeft + index
+£temporary3064 = *£temporary3065
+£temporary3067 = charRight + index
+£temporary3066 = *£temporary3067
+if £temporary3064 > £temporary3066 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 1
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end memcmp

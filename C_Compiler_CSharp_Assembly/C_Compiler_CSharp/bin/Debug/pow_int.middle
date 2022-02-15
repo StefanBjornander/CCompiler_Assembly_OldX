@@ -1,0 +1,32 @@
+function start pow_int
+minus = 0
+if y < 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary393 = -y
+y = £temporary393
+minus = 1
+goto <MiddleCode>
+push 1
+pop float product
+index = 0
+empty
+if index < y goto <MiddleCode>
+goto <MiddleCode>
+empty
+push float product
+push float x
+product = product * x
+top float product
+pop float empty X
+empty
+++index
+goto <MiddleCode>
+empty
+goto <MiddleCode>
+empty
+empty
+return_value = £temporary401
+return
+empty
+return
+function end pow_int

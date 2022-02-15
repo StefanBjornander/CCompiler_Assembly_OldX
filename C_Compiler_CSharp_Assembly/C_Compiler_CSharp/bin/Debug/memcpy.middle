@@ -1,0 +1,24 @@
+function start memcpy
+£temporary3029 = int_to_int target (Pointer -> Pointer)
+charTarget = £temporary3029
+£temporary3030 = int_to_int source (Pointer -> Pointer)
+charSource = £temporary3030
+index = 0
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary3034 = charTarget + index
+£temporary3033 = *£temporary3034
+£temporary3036 = charSource + index
+£temporary3035 = *£temporary3036
+£temporary3033 = £temporary3035
+empty
+++index
+goto <MiddleCode>
+£temporary3037 = int_to_int target (Pointer -> Pointer)
+return_value = £temporary3037
+return
+empty
+return
+function end memcpy

@@ -1,0 +1,52 @@
+function start printLongInt
+if longValue < 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1563 = -longValue
+longValue = £temporary1563
+call header
+parameter 45, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+if space != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 32, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+if plus != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 43, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+if longValue == 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 48, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+parameter longValue, record 0, offset 6
+pre call
+call function noellipse-noellipse printLongIntRec, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+return
+return
+function end printLongInt

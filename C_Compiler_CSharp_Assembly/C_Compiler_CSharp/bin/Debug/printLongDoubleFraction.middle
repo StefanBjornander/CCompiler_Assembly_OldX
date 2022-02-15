@@ -1,0 +1,54 @@
+function start printLongDoubleFraction
+push float longDoubleValue
+push float longDoubleValue
+£temporary1629 = float_to_int longDoubleValue (Long_Double -> Signed_Long_Int)
+£temporary1630 = int_to_float £temporary1629 (Signed_Long_Int -> Long_Double)
+longDoubleValue = longDoubleValue - £temporary1630
+top float longDoubleValue
+pop float empty X
+if precision == 0 goto <MiddleCode>
+goto <MiddleCode>
+precision = 6
+goto <MiddleCode>
+if grid != 0 goto <MiddleCode>
+goto <MiddleCode>
+if precision > 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 46, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+£temporary1636 = precision
+--precision
+if £temporary1636 > 0 goto <MiddleCode>
+goto <MiddleCode>
+push float 10.0
+push float longDoubleValue
+£temporary1638 = 10.0 * longDoubleValue
+pop float longDoubleValue10
+push float longDoubleValue10
+£temporary1639 = float_to_int longDoubleValue10 (Long_Double -> Signed_Int)
+digitValue = £temporary1639
+call header
+£temporary1640 = digitValue + 48
+£temporary1641 = int_to_int £temporary1640 (Signed_Int -> Signed_Char)
+parameter £temporary1641, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+push float longDoubleValue
+pop float empty X
+push float longDoubleValue10
+£temporary1643 = int_to_float digitValue (Signed_Int -> Long_Double)
+£temporary1644 = longDoubleValue10 - £temporary1643
+top float longDoubleValue
+pop float empty X
+goto <MiddleCode>
+empty
+return
+return
+function end printLongDoubleFraction

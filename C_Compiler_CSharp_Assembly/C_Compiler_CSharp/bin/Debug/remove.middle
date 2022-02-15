@@ -1,0 +1,10 @@
+function start remove
+ah = 65
+dx = name
+cl = 0
+interrupt 33
+return_value = 0
+return
+empty
+return
+function end remove

@@ -1,0 +1,24 @@
+function start swap
+index = 0
+empty
+if index < valueSize goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2200 = leftValuePtr + index
+£temporary2199 = *£temporary2200
+tempValue = £temporary2199
+£temporary2202 = leftValuePtr + index
+£temporary2201 = *£temporary2202
+£temporary2204 = rightValuePtr + index
+£temporary2203 = *£temporary2204
+£temporary2201 = £temporary2203
+£temporary2206 = rightValuePtr + index
+£temporary2205 = *£temporary2206
+£temporary2205 = tempValue
+empty
+++index
+goto <MiddleCode>
+empty
+return
+return
+function end swap

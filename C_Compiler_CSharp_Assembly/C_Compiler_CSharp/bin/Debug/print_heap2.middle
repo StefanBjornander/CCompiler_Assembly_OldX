@@ -1,0 +1,48 @@
+function start print_heap2
+heapBottom = (Word_32764#,0)
+topStack = (Word_32766#,0)
+heapTop = (Word_32762#,0)
+index = 0
+call header
+parameter "stack top %u, heap top %u, heap bottom %u\012", record 0, offset 6
+parameter topStack, record 0, offset 8
+parameter heapTop, record 0, offset 10
+parameter heapBottom, record 0, offset 12
+pre call
+call function noellipse-ellipse printf, record 0, extra 6
+post call integral
+post call floating
+£temporary2169 = return_value
+if heapTop != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2171 = int_to_int heapTop (Unsigned_Int -> Pointer)
+£temporary2172 = £temporary2171 + 2
+£temporary2173 = *£temporary2172
+size = £temporary2173
+call header
+parameter "  index %u, address %u, size %u\012", record 0, offset 6
+£temporary2174 = index
+++index
+parameter £temporary2174, record 0, offset 8
+parameter heapTop, record 0, offset 10
+parameter size, record 0, offset 12
+pre call
+call function noellipse-ellipse printf, record 0, extra 6
+post call integral
+post call floating
+£temporary2175 = return_value
+£temporary2176 = int_to_int heapTop (Unsigned_Int -> Pointer)
+£temporary2177 = *£temporary2176
+heapTop = £temporary2177
+goto <MiddleCode>
+call header
+parameter "\012", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary2178 = return_value
+empty
+return
+return
+function end print_heap2

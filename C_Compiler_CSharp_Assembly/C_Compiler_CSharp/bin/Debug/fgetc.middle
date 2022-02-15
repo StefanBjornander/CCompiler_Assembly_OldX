@@ -1,0 +1,24 @@
+function start fgetc
+c = 0
+call header
+£temporary861 = &c
+parameter £temporary861, record 0, offset 6
+parameter 1, record 0, offset 8
+parameter 1, record 0, offset 10
+parameter stream, record 0, offset 12
+pre call
+call function noellipse-noellipse fread, record 0, extra 0
+post call integral
+post call floating
+£temporary862 = return_value
+if £temporary862 > 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary864 = int_to_int c (Signed_Char -> Signed_Int)
+return_value = £temporary864
+return
+goto <MiddleCode>
+return_value = -1
+return
+empty
+return
+function end fgetc

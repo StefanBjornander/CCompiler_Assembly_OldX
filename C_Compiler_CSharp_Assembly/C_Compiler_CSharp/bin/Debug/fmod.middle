@@ -1,0 +1,37 @@
+function start fmod
+push float y
+push 0
+if y != 0 goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push float y
+£temporary678 = x / y
+pop float quotient
+call header
+push float quotient
+push float quotient
+£temporary679 = float_to_int quotient (Double -> Signed_Long_Int)
+£temporary680 = int_to_float £temporary679 (Signed_Long_Int -> Double)
+£temporary681 = quotient - £temporary680
+parameter £temporary681, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary682 = return_value
+pop float remainder
+empty
+goto <MiddleCode>
+empty
+empty
+return_value = £temporary688
+return
+goto <MiddleCode>
+errno = 6
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+empty
+return
+function end fmod

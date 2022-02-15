@@ -1,0 +1,30 @@
+function start existsTempName
+index = 0
+empty
+if index < g_tempSize goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+parameter name, record 0, offset 6
+£temporary998 = index * 2
+£temporary999 = g_tempArray + £temporary998
+£temporary997 = *£temporary999
+parameter £temporary997, record 0, offset 8
+pre call
+call function noellipse-noellipse strcmp, record 0, extra 0
+post call integral
+post call floating
+£temporary1000 = return_value
+if £temporary1000 == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 1
+return
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end existsTempName

@@ -1,0 +1,393 @@
+function start string_test
+s = "Hello, World!"
+call header
+parameter "strlen("%s") = %i\012", record 0, offset 6
+parameter s, record 0, offset 8
+call header
+parameter s, record 0, offset 6
+pre call
+call function noellipse-noellipse strlen, record 0, extra 0
+post call integral
+post call floating
+£temporary3423 = return_value
+parameter £temporary3423, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3424 = return_value
+call header
+parameter t, record 0, offset 6
+parameter s, record 0, offset 8
+pre call
+call function noellipse-noellipse strcpy, record 0, extra 0
+post call integral
+post call floating
+£temporary3425 = return_value
+call header
+parameter u, record 0, offset 6
+parameter s, record 0, offset 8
+parameter 5, record 0, offset 10
+pre call
+call function noellipse-noellipse strncpy, record 0, extra 0
+post call integral
+post call floating
+£temporary3426 = return_value
+£temporary3427 = *u, offset 5
+£temporary3427 = 0
+call header
+parameter "t = "%s", u = "%s"\012", record 0, offset 6
+parameter t, record 0, offset 8
+parameter u, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3428 = return_value
+call header
+parameter t, record 0, offset 6
+parameter "abc", record 0, offset 8
+pre call
+call function noellipse-noellipse strcat, record 0, extra 0
+post call integral
+post call floating
+£temporary3429 = return_value
+call header
+parameter u, record 0, offset 6
+pre call
+call function noellipse-noellipse strlen, record 0, extra 0
+post call integral
+post call floating
+£temporary3430 = return_value
+i = £temporary3430
+call header
+parameter u, record 0, offset 6
+parameter "abc", record 0, offset 8
+parameter 2, record 0, offset 10
+pre call
+call function noellipse-noellipse strncat, record 0, extra 0
+post call integral
+post call floating
+£temporary3431 = return_value
+£temporary3432 = i + 2
+£temporary3434 = u + £temporary3432
+£temporary3433 = *£temporary3434
+£temporary3433 = 0
+call header
+parameter "t = "%s", u = "%s"\012", record 0, offset 6
+parameter t, record 0, offset 8
+parameter u, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3435 = return_value
+call header
+parameter "strcmp(s, u) = %i\012", record 0, offset 6
+call header
+parameter s, record 0, offset 6
+parameter u, record 0, offset 8
+pre call
+call function noellipse-noellipse strcmp, record 0, extra 0
+post call integral
+post call floating
+£temporary3436 = return_value
+parameter £temporary3436, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3437 = return_value
+call header
+parameter "strncmp(s, u, 2) = %i\012", record 0, offset 6
+call header
+parameter s, record 0, offset 6
+parameter u, record 0, offset 8
+parameter 2, record 0, offset 10
+pre call
+call function noellipse-noellipse strncmp, record 0, extra 0
+post call integral
+post call floating
+£temporary3438 = return_value
+parameter £temporary3438, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3439 = return_value
+call header
+parameter s, record 0, offset 6
+parameter 108, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary3440 = return_value
+p = £temporary3440
+call header
+parameter "strchr(s, 'l') = %i\012", record 0, offset 6
+empty
+£temporary3446 = £temporary3442
+goto <MiddleCode>
+empty
+£temporary3446 = -1
+empty
+parameter £temporary3446, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3447 = return_value
+call header
+parameter s, record 0, offset 6
+parameter 108, record 0, offset 8
+pre call
+call function noellipse-noellipse strrchr, record 0, extra 0
+post call integral
+post call floating
+£temporary3448 = return_value
+p = £temporary3448
+call header
+parameter "strrchr(s, 'l') = %i\012", record 0, offset 6
+empty
+£temporary3454 = £temporary3450
+goto <MiddleCode>
+empty
+£temporary3454 = -1
+empty
+parameter £temporary3454, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3455 = return_value
+call header
+parameter s, record 0, offset 6
+parameter 120, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary3456 = return_value
+p = £temporary3456
+call header
+parameter "strchr(s, 'x') = %i\012", record 0, offset 6
+empty
+£temporary3462 = £temporary3458
+goto <MiddleCode>
+empty
+£temporary3462 = -1
+empty
+parameter £temporary3462, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3463 = return_value
+call header
+parameter s, record 0, offset 6
+parameter 120, record 0, offset 8
+pre call
+call function noellipse-noellipse strrchr, record 0, extra 0
+post call integral
+post call floating
+£temporary3464 = return_value
+p = £temporary3464
+call header
+parameter "strrchr(s, 'x') = %i\012", record 0, offset 6
+empty
+£temporary3470 = £temporary3466
+goto <MiddleCode>
+empty
+£temporary3470 = -1
+empty
+parameter £temporary3470, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3471 = return_value
+call header
+parameter s, record 0, offset 6
+parameter "Hello, World!", record 0, offset 8
+parameter 20, record 0, offset 10
+pre call
+call function noellipse-noellipse memcpy, record 0, extra 0
+post call integral
+post call floating
+£temporary3472 = return_value
+call header
+parameter t, record 0, offset 6
+parameter "Hello, World!", record 0, offset 8
+parameter 20, record 0, offset 10
+pre call
+call function noellipse-noellipse memmove, record 0, extra 0
+post call integral
+post call floating
+£temporary3473 = return_value
+call header
+parameter u, record 0, offset 6
+parameter 88, record 0, offset 8
+parameter 20, record 0, offset 10
+pre call
+call function noellipse-noellipse memset, record 0, extra 0
+post call integral
+post call floating
+£temporary3474 = return_value
+£temporary3475 = *u, offset 19
+£temporary3475 = 0
+call header
+parameter "s = "%s", t = "%s", u = "%s"\012", record 0, offset 6
+parameter s, record 0, offset 8
+parameter t, record 0, offset 10
+parameter u, record 0, offset 12
+pre call
+call function noellipse-ellipse printf, record 0, extra 6
+post call integral
+post call floating
+£temporary3476 = return_value
+call header
+parameter s, record 0, offset 6
+parameter 108, record 0, offset 8
+parameter 20, record 0, offset 10
+pre call
+call function noellipse-noellipse memchr, record 0, extra 0
+post call integral
+post call floating
+£temporary3477 = return_value
+p = £temporary3477
+call header
+parameter "memchr(s, 'l', SIZE * sizeof(char)) = %i\012", record 0, offset 6
+empty
+£temporary3483 = £temporary3479
+goto <MiddleCode>
+empty
+£temporary3483 = -1
+empty
+parameter £temporary3483, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3484 = return_value
+call header
+parameter s, record 0, offset 6
+parameter 120, record 0, offset 8
+parameter 20, record 0, offset 10
+pre call
+call function noellipse-noellipse memchr, record 0, extra 0
+post call integral
+post call floating
+£temporary3485 = return_value
+p = £temporary3485
+call header
+parameter "memchr(s, 'x', SIZE * sizeof(char)) = %i\012", record 0, offset 6
+empty
+£temporary3491 = £temporary3487
+goto <MiddleCode>
+empty
+£temporary3491 = -1
+empty
+parameter £temporary3491, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3492 = return_value
+call header
+parameter "memcmp(s, t, SIZE * sizeof(char)) = %i\012", record 0, offset 6
+call header
+parameter s, record 0, offset 6
+parameter t, record 0, offset 8
+parameter 20, record 0, offset 10
+pre call
+call function noellipse-noellipse memcmp, record 0, extra 0
+post call integral
+post call floating
+£temporary3493 = return_value
+parameter £temporary3493, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3494 = return_value
+call header
+parameter "strspn(s, "Hello, C") = %i\012", record 0, offset 6
+call header
+parameter s, record 0, offset 6
+parameter "Hello, C", record 0, offset 8
+pre call
+call function noellipse-noellipse strspn, record 0, extra 0
+post call integral
+post call floating
+£temporary3495 = return_value
+parameter £temporary3495, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3496 = return_value
+call header
+parameter "strcspn(s, "Hello, C") = %i\012", record 0, offset 6
+call header
+parameter s, record 0, offset 6
+parameter "Hello, C", record 0, offset 8
+pre call
+call function noellipse-noellipse strcspn, record 0, extra 0
+post call integral
+post call floating
+£temporary3497 = return_value
+parameter £temporary3497, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3498 = return_value
+call header
+parameter "strerror(errno) = "%s"\012", record 0, offset 6
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3499 = return_value
+parameter £temporary3499, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3500 = return_value
+call header
+parameter s, record 0, offset 6
+parameter ",", record 0, offset 8
+pre call
+call function noellipse-noellipse strtok, record 0, extra 0
+post call integral
+post call floating
+£temporary3501 = return_value
+p = £temporary3501
+if p != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter "strtok(s, ",") = "%s"\012", record 0, offset 6
+parameter p, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3503 = return_value
+call header
+parameter 0, record 0, offset 6
+parameter ",", record 0, offset 8
+pre call
+call function noellipse-noellipse strtok, record 0, extra 0
+post call integral
+post call floating
+£temporary3504 = return_value
+p = £temporary3504
+goto <MiddleCode>
+empty
+return
+return
+function end string_test

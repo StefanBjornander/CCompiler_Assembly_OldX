@@ -1,0 +1,107 @@
+function start strtok
+if string != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2984 = *string
+if £temporary2984 == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+index = 0
+empty
+£temporary2987 = string + index
+£temporary2986 = *£temporary2987
+if £temporary2986 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+parameter charSet, record 0, offset 6
+£temporary2991 = string + index
+£temporary2990 = *£temporary2991
+£temporary2992 = int_to_int £temporary2990 (Signed_Char -> Signed_Int)
+parameter £temporary2992, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary2993 = return_value
+if £temporary2993 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2996 = string + index
+£temporary2995 = *£temporary2996
+£temporary2995 = 0
+£temporary2997 = index + 1
+£temporary2999 = string + £temporary2997
+£temporary2998 = *£temporary2999
+£temporary3000 = &£temporary2998
+token = £temporary3000
+return_value = string
+return
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+£temporary3002 = string + index
+£temporary3001 = *£temporary3002
+£temporary3003 = &£temporary3001
+token = £temporary3003
+return_value = string
+return
+goto <MiddleCode>
+if token == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+if (token,0) == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+index = 0
+empty
+£temporary3008 = token + index
+£temporary3007 = *£temporary3008
+if £temporary3007 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+parameter charSet, record 0, offset 6
+£temporary3012 = token + index
+£temporary3011 = *£temporary3012
+£temporary3013 = int_to_int £temporary3011 (Signed_Char -> Signed_Int)
+parameter £temporary3013, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary3014 = return_value
+if £temporary3014 != 0 goto <MiddleCode>
+goto <MiddleCode>
+tokenStart2 = token
+£temporary3017 = token + index
+£temporary3016 = *£temporary3017
+£temporary3016 = 0
+£temporary3018 = index + 1
+£temporary3020 = token + £temporary3018
+£temporary3019 = *£temporary3020
+£temporary3021 = &£temporary3019
+token = £temporary3021
+return_value = tokenStart2
+return
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+tokenStart = token
+£temporary3023 = token + index
+£temporary3022 = *£temporary3023
+£temporary3024 = &£temporary3022
+token = £temporary3024
+return_value = tokenStart
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+function end strtok

@@ -1,0 +1,28 @@
+function start isalnum
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse isalpha, record 0, extra 0
+post call integral
+post call floating
+£temporary218 = return_value
+if £temporary218 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse isdigit, record 0, extra 0
+post call integral
+post call floating
+£temporary219 = return_value
+if £temporary219 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary223 = 1
+goto <MiddleCode>
+£temporary223 = 0
+empty
+return_value = £temporary223
+return
+empty
+return
+function end isalnum

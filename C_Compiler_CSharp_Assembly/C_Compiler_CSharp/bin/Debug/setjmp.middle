@@ -1,0 +1,29 @@
+function start setjmp
+bp_pointer = bp
+£temporary690 = *buf
+£temporary691 = *bp_pointer
+£temporary690 = £temporary691
+£temporary692 = *buf, offset 2
+£temporary693 = *bp_pointer, offset 2
+£temporary692 = £temporary693
+£temporary694 = *buf, offset 4
+£temporary695 = *bp_pointer, offset 4
+£temporary694 = £temporary695
+call header
+parameter "<%u> <%u> <%u>\012", record 0, offset 6
+£temporary696 = *buf
+parameter £temporary696, record 0, offset 8
+£temporary697 = *buf, offset 2
+parameter £temporary697, record 0, offset 10
+£temporary698 = *buf, offset 4
+parameter £temporary698, record 0, offset 12
+pre call
+call function noellipse-ellipse printf, record 0, extra 6
+post call integral
+post call floating
+£temporary699 = return_value
+return_value = 0
+return
+empty
+return
+function end setjmp

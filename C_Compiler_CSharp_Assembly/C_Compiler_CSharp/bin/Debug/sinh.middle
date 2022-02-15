@@ -1,0 +1,26 @@
+function start sinh
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse exp, record 0, extra 0
+post call integral
+post call floating
+£temporary487 = return_value
+call header
+push float x
+£temporary488 = -x
+parameter £temporary488, record 0, offset 6
+pre call
+call function noellipse-noellipse exp, record 0, extra 0
+post call integral
+post call floating
+£temporary489 = return_value
+£temporary490 = £temporary487 - £temporary489
+push float 2
+£temporary491 = £temporary490 / 2
+return_value = £temporary491
+return
+empty
+return
+function end sinh

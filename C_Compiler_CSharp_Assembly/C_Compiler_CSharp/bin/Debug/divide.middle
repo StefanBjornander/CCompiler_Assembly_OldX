@@ -1,0 +1,35 @@
+function start divide
+push float y
+push 0
+if y != 0 goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push float y
+£temporary3597 = x / y
+return_value = £temporary3597
+return
+goto <MiddleCode>
+p = "Division by Zero."
+call header
+parameter "longjmp <%s> <%u>\012", record 0, offset 6
+parameter p, record 0, offset 8
+parameter p, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3598 = return_value
+call header
+parameter buffer, record 0, offset 6
+parameter p, record 0, offset 8
+pre call
+call function noellipse-noellipse longjmp, record 0, extra 0
+post call integral
+post call floating
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+empty
+return
+function end divide

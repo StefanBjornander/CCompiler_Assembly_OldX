@@ -1,0 +1,51 @@
+function start fgets
+count = 0
+prevChar = 0
+£temporary869 = size - 1
+if count < £temporary869 goto <MiddleCode>
+goto <MiddleCode>
+currChar = 0
+call header
+parameter stream, record 0, offset 6
+parameter "%c", record 0, offset 8
+£temporary871 = &currChar
+parameter £temporary871, record 0, offset 10
+pre call
+call function noellipse-ellipse fscanf, record 0, extra 2
+post call integral
+post call floating
+£temporary872 = return_value
+if prevChar == 13 goto <MiddleCode>
+goto <MiddleCode>
+if currChar == 10 goto <MiddleCode>
+goto <MiddleCode>
+£temporary877 = text + count
+£temporary876 = *£temporary877
+£temporary876 = 0
+goto <MiddleCode>
+goto <MiddleCode>
+£temporary878 = int_to_int currChar (Signed_Char -> Signed_Int)
+if £temporary878 == -1 goto <MiddleCode>
+goto <MiddleCode>
+£temporary881 = text + count
+£temporary880 = *£temporary881
+£temporary880 = 0
+goto <MiddleCode>
+goto <MiddleCode>
+if currChar != 13 goto <MiddleCode>
+goto <MiddleCode>
+if currChar != 10 goto <MiddleCode>
+goto <MiddleCode>
+£temporary885 = count
+++count
+£temporary887 = text + £temporary885
+£temporary886 = *£temporary887
+£temporary886 = currChar
+goto <MiddleCode>
+prevChar = currChar
+goto <MiddleCode>
+return_value = text
+return
+empty
+return
+function end fgets

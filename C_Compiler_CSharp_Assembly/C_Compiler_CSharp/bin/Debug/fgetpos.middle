@@ -1,0 +1,16 @@
+function start fgetpos
+£temporary962 = *ptr
+call header
+parameter stream, record 0, offset 6
+pre call
+call function noellipse-noellipse ftell, record 0, extra 0
+post call integral
+post call floating
+£temporary963 = return_value
+£temporary964 = int_to_int £temporary963 (Signed_Long_Int -> Signed_Int)
+£temporary962 = £temporary964
+return_value = 0
+return
+empty
+return
+function end fgetpos

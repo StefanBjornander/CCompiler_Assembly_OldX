@@ -1,0 +1,133 @@
+function start print_test
+call header
+parameter "<%8i> <%+8i> <% 8i> <%-8i> <%+-8i> <%-+8i> <% -8i> <%- 8i>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter 123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter 123, record 0, offset 14
+parameter 123, record 0, offset 16
+parameter 123, record 0, offset 18
+parameter 123, record 0, offset 20
+parameter 123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 16
+post call integral
+post call floating
+£temporary3086 = return_value
+call header
+parameter "<%8i> <%+8i> <% 8i> <%-8i> <%+-8i> <%-+8i> <% -8i> <%- 8i>\012", record 0, offset 6
+parameter -123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter -123, record 0, offset 12
+parameter -123, record 0, offset 14
+parameter -123, record 0, offset 16
+parameter -123, record 0, offset 18
+parameter -123, record 0, offset 20
+parameter -123, record 0, offset 22
+pre call
+call function noellipse-ellipse printf, record 0, extra 16
+post call integral
+post call floating
+£temporary3087 = return_value
+call header
+parameter "<%08i> <%+08i> <% 08i> <%0 8i>\012", record 0, offset 6
+parameter 123, record 0, offset 8
+parameter 123, record 0, offset 10
+parameter 123, record 0, offset 12
+parameter 123, record 0, offset 14
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary3088 = return_value
+call header
+parameter "<%08i> <%+08i> <% 08i> <%0 8i>\012", record 0, offset 6
+parameter -123, record 0, offset 8
+parameter -123, record 0, offset 10
+parameter -123, record 0, offset 12
+parameter -123, record 0, offset 14
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary3089 = return_value
+call header
+parameter "<%12.3f> <%+12.3f> <% 12.3f> <%-12.3f> <%+-12.3f> <%-+12.3f> <% -12.3f> <%- 12.3f>\012", record 0, offset 6
+push float 123.456
+parameter 123.456, record 0, offset 8
+push float 123.456
+parameter 123.456, record 0, offset 16
+push float 123.456
+parameter 123.456, record 0, offset 24
+push float 123.456
+parameter 123.456, record 0, offset 32
+push float 123.456
+parameter 123.456, record 0, offset 40
+push float 123.456
+parameter 123.456, record 0, offset 48
+push float 123.456
+parameter 123.456, record 0, offset 56
+push float 123.456
+parameter 123.456, record 0, offset 64
+pre call
+call function noellipse-ellipse printf, record 0, extra 64
+post call integral
+post call floating
+£temporary3090 = return_value
+call header
+parameter "<%12.3f> <%+12.3f> <% 12.3f> <%-12.3f> <%+-12.3f> <%-+12.3f> <% -12.3f> <%- 12.3f>\012", record 0, offset 6
+push float -123.456
+parameter -123.456, record 0, offset 8
+push float -123.456
+parameter -123.456, record 0, offset 16
+push float -123.456
+parameter -123.456, record 0, offset 24
+push float -123.456
+parameter -123.456, record 0, offset 32
+push float -123.456
+parameter -123.456, record 0, offset 40
+push float -123.456
+parameter -123.456, record 0, offset 48
+push float -123.456
+parameter -123.456, record 0, offset 56
+push float -123.456
+parameter -123.456, record 0, offset 64
+pre call
+call function noellipse-ellipse printf, record 0, extra 64
+post call integral
+post call floating
+£temporary3091 = return_value
+call header
+parameter "<%012.3f> <%+012.3f> <% 012.3f> <%0 12.3f>\012", record 0, offset 6
+push float 123.456
+parameter 123.456, record 0, offset 8
+push float 123.456
+parameter 123.456, record 0, offset 16
+push float 123.456
+parameter 123.456, record 0, offset 24
+push float 123.456
+parameter 123.456, record 0, offset 32
+pre call
+call function noellipse-ellipse printf, record 0, extra 32
+post call integral
+post call floating
+£temporary3092 = return_value
+call header
+parameter "<%012.3f> <%+012.3f> <% 012.3f> <%0 12.3f>\012", record 0, offset 6
+push float -123.456
+parameter -123.456, record 0, offset 8
+push float -123.456
+parameter -123.456, record 0, offset 16
+push float -123.456
+parameter -123.456, record 0, offset 24
+push float -123.456
+parameter -123.456, record 0, offset 32
+pre call
+call function noellipse-ellipse printf, record 0, extra 32
+post call integral
+post call floating
+£temporary3093 = return_value
+empty
+return
+return
+function end print_test

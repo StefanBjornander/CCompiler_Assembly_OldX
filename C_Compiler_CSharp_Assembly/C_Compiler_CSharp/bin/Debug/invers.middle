@@ -1,0 +1,16 @@
+function start invers
+call header
+push float 1.0
+parameter 1.0, record 0, offset 6
+push float x
+parameter x, record 0, offset 14
+pre call
+call function noellipse-noellipse divide, record 0, extra 0
+post call integral
+post call floating
+£temporary3605 = return_value
+return_value = £temporary3605
+return
+empty
+return
+function end invers

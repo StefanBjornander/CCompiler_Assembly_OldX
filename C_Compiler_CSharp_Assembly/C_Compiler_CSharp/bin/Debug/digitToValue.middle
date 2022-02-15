@@ -1,0 +1,42 @@
+function start digitToValue
+call header
+£temporary1187 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1187, record 0, offset 6
+pre call
+call function noellipse-noellipse isdigit, record 0, extra 0
+post call integral
+post call floating
+£temporary1188 = return_value
+if £temporary1188 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1189 = input - 48
+£temporary1190 = int_to_int £temporary1189 (Signed_Char -> Unsigned_Long_Int)
+return_value = £temporary1190
+return
+goto <MiddleCode>
+call header
+£temporary1191 = int_to_int input (Signed_Char -> Signed_Int)
+parameter £temporary1191, record 0, offset 6
+pre call
+call function noellipse-noellipse islower, record 0, extra 0
+post call integral
+post call floating
+£temporary1192 = return_value
+if £temporary1192 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1193 = input - 97
+£temporary1194 = int_to_int £temporary1193 (Signed_Char -> Unsigned_Long_Int)
+£temporary1195 = £temporary1194 + 10
+return_value = £temporary1195
+return
+goto <MiddleCode>
+£temporary1196 = input - 65
+£temporary1197 = int_to_int £temporary1196 (Signed_Char -> Unsigned_Long_Int)
+£temporary1198 = £temporary1197 + 10
+return_value = £temporary1198
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+function end digitToValue

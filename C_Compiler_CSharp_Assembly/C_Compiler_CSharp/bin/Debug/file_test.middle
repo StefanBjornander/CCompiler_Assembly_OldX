@@ -1,0 +1,142 @@
+function start file_test
+call header
+parameter "inFileName <%s>\012", record 0, offset 6
+parameter inFileName, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3859 = return_value
+call header
+parameter inFileName, record 0, offset 6
+parameter "r", record 0, offset 8
+pre call
+call function noellipse-noellipse fopen, record 0, extra 0
+post call integral
+post call floating
+£temporary3860 = return_value
+inFilePtr = £temporary3860
+if inFilePtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stderr, record 0, offset 6
+parameter "Assertion failed: "%s" in file %s at line %i\012", record 0, offset 8
+parameter "inFilePtr != NULL", record 0, offset 10
+parameter "C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits\stdio\FileTest.c", record 0, offset 12
+parameter 11, record 0, offset 14
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 6
+post call integral
+post call floating
+£temporary3863 = return_value
+call header
+pre call
+call function noellipse-noellipse abort, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+call header
+parameter "outFileName <%s>\012", record 0, offset 6
+parameter outFileName, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3865 = return_value
+call header
+parameter outFileName, record 0, offset 6
+parameter "w", record 0, offset 8
+pre call
+call function noellipse-noellipse fopen, record 0, extra 0
+post call integral
+post call floating
+£temporary3866 = return_value
+outFilePtr = £temporary3866
+if outFilePtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter stderr, record 0, offset 6
+parameter "Assertion failed: "%s" in file %s at line %i\012", record 0, offset 8
+parameter "outFilePtr != NULL", record 0, offset 10
+parameter "C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits\stdio\FileTest.c", record 0, offset 12
+parameter 15, record 0, offset 14
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 6
+post call integral
+post call floating
+£temporary3869 = return_value
+call header
+pre call
+call function noellipse-noellipse abort, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+size = 0
+call header
+parameter inFilePtr, record 0, offset 6
+parameter "%i", record 0, offset 8
+£temporary3871 = &size
+parameter £temporary3871, record 0, offset 10
+pre call
+call function noellipse-ellipse fscanf, record 0, extra 2
+post call integral
+post call floating
+£temporary3872 = return_value
+index = 0
+empty
+if index < size goto <MiddleCode>
+goto <MiddleCode>
+empty
+inValue = 0
+call header
+parameter inFilePtr, record 0, offset 6
+parameter "%i", record 0, offset 8
+£temporary3875 = &inValue
+parameter £temporary3875, record 0, offset 10
+pre call
+call function noellipse-ellipse fscanf, record 0, extra 2
+post call integral
+post call floating
+£temporary3876 = return_value
+call header
+£temporary3877 = int_to_float inValue (Signed_Int -> Double)
+parameter £temporary3877, record 0, offset 6
+pre call
+call function noellipse-noellipse sqrt, record 0, extra 0
+post call integral
+post call floating
+£temporary3878 = return_value
+pop float outValue
+call header
+parameter outFilePtr, record 0, offset 6
+parameter "%f\012", record 0, offset 8
+push float outValue
+parameter outValue, record 0, offset 10
+pre call
+call function noellipse-ellipse fprintf, record 0, extra 8
+post call integral
+post call floating
+£temporary3879 = return_value
+empty
+++index
+goto <MiddleCode>
+call header
+parameter inFilePtr, record 0, offset 6
+pre call
+call function noellipse-noellipse fclose, record 0, extra 0
+post call integral
+post call floating
+£temporary3880 = return_value
+call header
+parameter outFilePtr, record 0, offset 6
+pre call
+call function noellipse-noellipse fclose, record 0, extra 0
+post call integral
+post call floating
+£temporary3881 = return_value
+empty
+return
+return
+function end file_test

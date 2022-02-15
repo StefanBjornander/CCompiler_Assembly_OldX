@@ -1,0 +1,14 @@
+function start print_div
+call header
+parameter "div_t quot %i rem %i\012", record 0, offset 6
+parameter £temporary4321, record 0, offset 8
+parameter £temporary4322, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary4323 = return_value
+empty
+return
+return
+function end print_div

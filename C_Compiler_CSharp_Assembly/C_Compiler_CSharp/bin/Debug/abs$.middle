@@ -1,0 +1,12 @@
+function start abs$
+empty
+£temporary2212 = £temporary2208
+goto <MiddleCode>
+empty
+£temporary2212 = value
+empty
+return_value = £temporary2212
+return
+empty
+return
+function end abs$

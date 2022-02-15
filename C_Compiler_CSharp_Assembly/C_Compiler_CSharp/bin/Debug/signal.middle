@@ -1,0 +1,26 @@
+function start signal
+call header
+parameter "signal func %i %p", record 0, offset 6
+parameter sig, record 0, offset 8
+parameter func, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary707 = return_value
+ah = 37
+£temporary708 = int_to_int sig (Signed_Int -> Signed_Short_Int)
+al = £temporary708
+dx = func
+interrupt 33
+call header
+parameter "Y", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary709 = return_value
+empty
+return
+return
+function end signal

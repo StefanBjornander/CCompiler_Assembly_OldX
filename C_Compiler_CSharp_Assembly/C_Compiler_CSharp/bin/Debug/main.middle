@@ -1,0 +1,52 @@
+function start main
+push float 1.2
+pop float d
+push float 1.2
+pop float e
+call header
+parameter "Hello!\012", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary7 = return_value
+call header
+parameter "Please write a character, a string, an integer, and a double: ", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary8 = return_value
+call header
+parameter "%c %s %i %lf", record 0, offset 6
+£temporary9 = &c
+parameter £temporary9, record 0, offset 8
+parameter s, record 0, offset 10
+£temporary10 = &i
+parameter £temporary10, record 0, offset 12
+push float d
+pop float empty X
+£temporary11 = &d
+parameter £temporary11, record 0, offset 14
+pre call
+call function noellipse-ellipse scanf, record 0, extra 8
+post call integral
+post call floating
+£temporary12 = return_value
+call header
+parameter "You wrote the character '%c', the string "%s", the integer %i, and the double %f.", record 0, offset 6
+£temporary13 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary13, record 0, offset 8
+parameter s, record 0, offset 10
+parameter i, record 0, offset 12
+push float d
+parameter d, record 0, offset 14
+pre call
+call function noellipse-ellipse printf, record 0, extra 14
+post call integral
+post call floating
+£temporary14 = return_value
+empty
+exit 0
+return
+function end main

@@ -1,0 +1,21 @@
+function start fputs
+call header
+parameter s, record 0, offset 6
+pre call
+call function noellipse-noellipse strlen, record 0, extra 0
+post call integral
+post call floating
+£temporary891 = return_value
+£temporary892 = £temporary891 * 1
+size = £temporary892
+empty
+£temporary898 = 0
+goto <MiddleCode>
+empty
+£temporary898 = -1
+empty
+return_value = £temporary898
+return
+empty
+return
+function end fputs

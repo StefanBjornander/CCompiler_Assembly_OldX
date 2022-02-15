@@ -1,0 +1,118 @@
+function start malloc_test2
+p = 0
+r = 0
+call header
+parameter 96, record 0, offset 6
+pre call
+call function noellipse-noellipse malloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4185 = return_value
+q = £temporary4185
+index = 0
+empty
+if index < 10 goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+parameter 96, record 0, offset 6
+pre call
+call function noellipse-noellipse malloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4188 = return_value
+p = £temporary4188
+if index == 5 goto <MiddleCode>
+goto <MiddleCode>
+r = p
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter q, record 0, offset 6
+parameter 50, record 0, offset 8
+pre call
+call function noellipse-noellipse realloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4191 = return_value
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter r, record 0, offset 6
+parameter 50, record 0, offset 8
+pre call
+call function noellipse-noellipse realloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4193 = return_value
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter p, record 0, offset 6
+parameter 50, record 0, offset 8
+pre call
+call function noellipse-noellipse realloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4195 = return_value
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter q, record 0, offset 6
+parameter 200, record 0, offset 8
+pre call
+call function noellipse-noellipse realloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4197 = return_value
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter r, record 0, offset 6
+parameter 200, record 0, offset 8
+pre call
+call function noellipse-noellipse realloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4199 = return_value
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter p, record 0, offset 6
+parameter 200, record 0, offset 8
+pre call
+call function noellipse-noellipse realloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4201 = return_value
+call header
+pre call
+call function noellipse-noellipse print_heap, record 0, extra 0
+post call integral
+post call floating
+empty
+return
+return
+function end malloc_test2

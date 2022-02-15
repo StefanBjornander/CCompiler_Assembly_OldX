@@ -1,0 +1,19 @@
+function start sscanf
+£temporary1487 = &format
+£temporary1488 = int_to_int £temporary1487 (Pointer -> Pointer)
+£temporary1489 = £temporary1488 + 2
+arg_list = £temporary1489
+call header
+parameter inString, record 0, offset 6
+parameter format, record 0, offset 8
+parameter arg_list, record 0, offset 10
+pre call
+call function ellipse-noellipse vsscanf, record 0, extra 0
+post call integral
+post call floating
+£temporary1490 = return_value
+return_value = £temporary1490
+return
+empty
+return
+function end sscanf

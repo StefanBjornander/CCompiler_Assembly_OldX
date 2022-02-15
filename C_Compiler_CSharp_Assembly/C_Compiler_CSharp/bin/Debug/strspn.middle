@@ -1,0 +1,32 @@
+function start strspn
+index = 0
+empty
+£temporary2917 = mainString + index
+£temporary2916 = *£temporary2917
+if £temporary2916 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+parameter charSet, record 0, offset 6
+£temporary2921 = mainString + index
+£temporary2920 = *£temporary2921
+£temporary2922 = int_to_int £temporary2920 (Signed_Char -> Signed_Int)
+parameter £temporary2922, record 0, offset 8
+pre call
+call function noellipse-noellipse strchr, record 0, extra 0
+post call integral
+post call floating
+£temporary2923 = return_value
+if £temporary2923 == 0 goto <MiddleCode>
+goto <MiddleCode>
+return_value = index
+return
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+return_value = -1
+return
+empty
+return
+function end strspn

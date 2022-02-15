@@ -1,0 +1,27 @@
+function start isxdigit
+call header
+parameter c, record 0, offset 6
+pre call
+call function noellipse-noellipse isdigit, record 0, extra 0
+post call integral
+post call floating
+£temporary226 = return_value
+if £temporary226 != 0 goto <MiddleCode>
+goto <MiddleCode>
+if c >= 97 goto <MiddleCode>
+goto <MiddleCode>
+if c <= 102 goto <MiddleCode>
+goto <MiddleCode>
+if c >= 65 goto <MiddleCode>
+goto <MiddleCode>
+if c <= 70 goto <MiddleCode>
+goto <MiddleCode>
+£temporary236 = 1
+goto <MiddleCode>
+£temporary236 = 0
+empty
+return_value = £temporary236
+return
+empty
+return
+function end isxdigit

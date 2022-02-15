@@ -1,0 +1,22 @@
+function start rec
+stackTop = bp
+lowHeapPtr = 65534
+call header
+parameter "Stack Top: %u, Low Heap: %u\012", record 0, offset 6
+parameter stackTop, record 0, offset 8
+£temporary4244 = *lowHeapPtr
+parameter £temporary4244, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary4245 = return_value
+call header
+pre call
+call function noellipse-noellipse rec, record 0, extra 0
+post call integral
+post call floating
+empty
+return
+return
+function end rec

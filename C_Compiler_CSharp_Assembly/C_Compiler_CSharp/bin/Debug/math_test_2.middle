@@ -1,0 +1,108 @@
+function start math_test_2
+call header
+parameter "fmod(%f, %f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+push float y
+parameter y, record 0, offset 16
+call header
+push float x
+parameter x, record 0, offset 6
+push float y
+parameter y, record 0, offset 14
+pre call
+call function noellipse-noellipse fmod, record 0, extra 0
+post call integral
+post call floating
+£temporary3813 = return_value
+parameter £temporary3813, record 0, offset 24
+parameter errno, record 0, offset 32
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3814 = return_value
+parameter £temporary3814, record 0, offset 34
+pre call
+call function noellipse-ellipse printf, record 0, extra 28
+post call integral
+post call floating
+£temporary3815 = return_value
+errno = 0
+call header
+parameter "atan2(%f, %f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+push float y
+parameter y, record 0, offset 16
+call header
+push float x
+parameter x, record 0, offset 6
+push float y
+parameter y, record 0, offset 14
+pre call
+call function noellipse-noellipse atan2, record 0, extra 0
+post call integral
+post call floating
+£temporary3816 = return_value
+parameter £temporary3816, record 0, offset 24
+parameter errno, record 0, offset 32
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3817 = return_value
+parameter £temporary3817, record 0, offset 34
+pre call
+call function noellipse-ellipse printf, record 0, extra 28
+post call integral
+post call floating
+£temporary3818 = return_value
+errno = 0
+call header
+parameter "pow(%f, %f) = %f, errno = %i <%s>\012", record 0, offset 6
+push float x
+parameter x, record 0, offset 8
+push float y
+parameter y, record 0, offset 16
+call header
+push float x
+parameter x, record 0, offset 6
+push float y
+parameter y, record 0, offset 14
+pre call
+call function noellipse-noellipse pow, record 0, extra 0
+post call integral
+post call floating
+£temporary3819 = return_value
+parameter £temporary3819, record 0, offset 24
+parameter errno, record 0, offset 32
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary3820 = return_value
+parameter £temporary3820, record 0, offset 34
+pre call
+call function noellipse-ellipse printf, record 0, extra 28
+post call integral
+post call floating
+£temporary3821 = return_value
+errno = 0
+call header
+parameter "\012", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary3822 = return_value
+empty
+return
+return
+function end math_test_2

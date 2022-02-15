@@ -1,0 +1,12 @@
+function start exit_handle3
+call header
+parameter "exit3\012", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary4337 = return_value
+empty
+return
+return
+function end exit_handle3

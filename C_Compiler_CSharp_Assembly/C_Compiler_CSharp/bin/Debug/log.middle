@@ -1,0 +1,80 @@
+function start log
+push float x
+push 0
+if x <= 0 goto <MiddleCode>
+goto <MiddleCode>
+errno = 6
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+push float x
+push 1
+if x == 1 goto <MiddleCode>
+goto <MiddleCode>
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+push float x
+push 1
+if x > 1 goto <MiddleCode>
+goto <MiddleCode>
+expo = 0
+push float x
+push 1
+if x > 1 goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push float 2.7182818284590452353
+x = x / 2.7182818284590452353
+top float x
+pop float empty X
+++expo
+goto <MiddleCode>
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse logX, record 0, extra 0
+post call integral
+post call floating
+£temporary368 = return_value
+£temporary369 = int_to_float expo (Signed_Int -> Double)
+£temporary370 = £temporary368 + £temporary369
+return_value = £temporary370
+return
+goto <MiddleCode>
+expo = 0
+push float x
+push 1
+if x < 1 goto <MiddleCode>
+goto <MiddleCode>
+push float x
+push float 2.7182818284590452353
+x = x * 2.7182818284590452353
+top float x
+pop float empty X
+++expo
+goto <MiddleCode>
+call header
+push float x
+push float 2.7182818284590452353
+£temporary373 = x / 2.7182818284590452353
+parameter £temporary373, record 0, offset 6
+pre call
+call function noellipse-noellipse logX, record 0, extra 0
+post call integral
+post call floating
+£temporary374 = return_value
+£temporary375 = expo - 1
+£temporary376 = int_to_float £temporary375 (Signed_Int -> Double)
+£temporary377 = £temporary374 - £temporary376
+return_value = £temporary377
+return
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+function end log

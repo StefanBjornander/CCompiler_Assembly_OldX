@@ -1,0 +1,35 @@
+function start malloc_test6
+stackTop = bp
+lowHeapPtr = 65534
+i = 0
+empty
+if i < 1000 goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+parameter 96, record 0, offset 6
+pre call
+call function noellipse-noellipse malloc, record 0, extra 0
+post call integral
+post call floating
+£temporary4286 = return_value
+p = £temporary4286
+call header
+parameter "Index: %i, Pointer: %u, Stack top: %u, Low Heap: %u\012", record 0, offset 6
+parameter i, record 0, offset 8
+parameter p, record 0, offset 10
+parameter stackTop, record 0, offset 12
+£temporary4287 = *lowHeapPtr
+parameter £temporary4287, record 0, offset 14
+pre call
+call function noellipse-ellipse printf, record 0, extra 8
+post call integral
+post call floating
+£temporary4288 = return_value
+empty
+++i
+goto <MiddleCode>
+empty
+return
+return
+function end malloc_test6

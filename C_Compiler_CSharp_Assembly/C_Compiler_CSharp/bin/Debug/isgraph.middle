@@ -1,0 +1,14 @@
+function start isgraph
+if c >= 32 goto <MiddleCode>
+goto <MiddleCode>
+if c <= 126 goto <MiddleCode>
+goto <MiddleCode>
+£temporary241 = 1
+goto <MiddleCode>
+£temporary241 = 0
+empty
+return_value = £temporary241
+return
+empty
+return
+function end isgraph

@@ -1,0 +1,9 @@
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp\C_Compiler_CSharp\C_Compiler_CSharp\bin\Debug\C_Compiler_CSharp.exe.config
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp\C_Compiler_CSharp\C_Compiler_CSharp\bin\Debug\C_Compiler_CSharp.exe
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp\C_Compiler_CSharp\C_Compiler_CSharp\bin\Debug\C_Compiler_CSharp.pdb
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp\C_Compiler_CSharp\C_Compiler_CSharp\bin\Debug\QUT.ShiftReduceParser.dll
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp\C_Compiler_CSharp\C_Compiler_CSharp\obj\Debug\C_Compiler_CSharp.exe
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp\C_Compiler_CSharp\C_Compiler_CSharp\obj\Debug\C_Compiler_CSharp.pdb
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp Assembly Text\C_Compiler_CSharp\C_Compiler_CSharp\bin\Debug\C_Compiler_CSharp.exe.config
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp Assembly Text\C_Compiler_CSharp\C_Compiler_CSharp\obj\Debug\C_Compiler_CSharp.exe
+C:\Users\Stefan\Documents\A A C_Compiler_Assembler - A 16 bits 0 CSharp Assembly Text\C_Compiler_CSharp\C_Compiler_CSharp\obj\Debug\C_Compiler_CSharp.pdb

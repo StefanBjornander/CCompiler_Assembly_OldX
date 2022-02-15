@@ -1,0 +1,42 @@
+function start feof
+call header
+parameter stream, record 0, offset 6
+parameter 0, record 0, offset 8
+parameter 1, record 0, offset 12
+pre call
+call function noellipse-noellipse fseek, record 0, extra 0
+post call integral
+post call floating
+£temporary974 = return_value
+currPosition = £temporary974
+call header
+parameter stream, record 0, offset 6
+parameter 0, record 0, offset 8
+parameter 2, record 0, offset 12
+pre call
+call function noellipse-noellipse fseek, record 0, extra 0
+post call integral
+post call floating
+£temporary975 = return_value
+lastPosition = £temporary975
+call header
+parameter stream, record 0, offset 6
+parameter currPosition, record 0, offset 8
+parameter 0, record 0, offset 12
+pre call
+call function noellipse-noellipse fseek, record 0, extra 0
+post call integral
+post call floating
+£temporary976 = return_value
+if currPosition == lastPosition goto <MiddleCode>
+goto <MiddleCode>
+£temporary978 = 1
+goto <MiddleCode>
+£temporary978 = 0
+empty
+endOfFile = £temporary978
+return_value = endOfFile
+return
+empty
+return
+function end feof

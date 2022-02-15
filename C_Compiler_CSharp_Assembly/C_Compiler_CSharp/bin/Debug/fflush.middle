@@ -1,0 +1,39 @@
+function start fflush
+if stream == 0 goto <MiddleCode>
+goto <MiddleCode>
+index = 0
+empty
+if index < 16 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary832 = index * 35
+£temporary833 = g_fileArray + £temporary832
+£temporary831 = *£temporary833
+if £temporary831.open$0 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+£temporary835 = index * 35
+£temporary836 = g_fileArray + £temporary835
+£temporary834 = *£temporary836
+£temporary837 = &£temporary834
+parameter £temporary837, record 0, offset 6
+pre call
+call function noellipse-noellipse fflush, record 0, extra 0
+post call integral
+post call floating
+£temporary838 = return_value
+if £temporary838 == -1 goto <MiddleCode>
+goto <MiddleCode>
+return_value = -1
+return
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end fflush

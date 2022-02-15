@@ -1,0 +1,30 @@
+function start checkWidthAndPrecision
+if widthPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1713 = *widthPtr
+if £temporary1713 == -1 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1716 = *widthPtr
+arg_list = arg_list + 2
+£temporary1717 = arg_list - 2
+£temporary1718 = int_to_int £temporary1717 (Pointer -> Pointer)
+£temporary1719 = *£temporary1718
+£temporary1716 = £temporary1719
+goto <MiddleCode>
+if precisionPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1721 = *precisionPtr
+if £temporary1721 == -1 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1724 = *precisionPtr
+arg_list = arg_list + 2
+£temporary1725 = arg_list - 2
+£temporary1726 = int_to_int £temporary1725 (Pointer -> Pointer)
+£temporary1727 = *£temporary1726
+£temporary1724 = £temporary1727
+goto <MiddleCode>
+return_value = arg_list
+return
+empty
+return
+function end checkWidthAndPrecision

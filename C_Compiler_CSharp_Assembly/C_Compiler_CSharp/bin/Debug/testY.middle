@@ -1,0 +1,6 @@
+function start testY
+i = 1
+empty
+return
+return
+function end testY

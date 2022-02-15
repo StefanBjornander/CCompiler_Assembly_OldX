@@ -1,0 +1,451 @@
+function start printArgument
+£temporary1729 = *format
+c = £temporary1729
+if c == 100 goto <MiddleCode>
+if c == 105 goto <MiddleCode>
+if c == 99 goto <MiddleCode>
+if c == 115 goto <MiddleCode>
+if c == 88 goto <MiddleCode>
+if c == 120 goto <MiddleCode>
+if c == 98 goto <MiddleCode>
+if c == 111 goto <MiddleCode>
+if c == 117 goto <MiddleCode>
+if c == 71 goto <MiddleCode>
+if c == 103 goto <MiddleCode>
+if c == 69 goto <MiddleCode>
+if c == 101 goto <MiddleCode>
+if c == 102 goto <MiddleCode>
+if c == 112 goto <MiddleCode>
+if c == 110 goto <MiddleCode>
+if c == 37 goto <MiddleCode>
+goto <MiddleCode>
+if shortInt != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1730 = arg_list - 2
+£temporary1731 = int_to_int £temporary1730 (Pointer -> Pointer)
+£temporary1732 = *£temporary1731
+£temporary1733 = int_to_int £temporary1732 (Signed_Int -> Signed_Short_Int)
+£temporary1734 = int_to_int £temporary1733 (Signed_Short_Int -> Signed_Long_Int)
+longValue = £temporary1734
+goto <MiddleCode>
+if longInt != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 4
+£temporary1735 = arg_list - 4
+£temporary1736 = int_to_int £temporary1735 (Pointer -> Pointer)
+£temporary1737 = *£temporary1736
+longValue = £temporary1737
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1738 = arg_list - 2
+£temporary1739 = int_to_int £temporary1738 (Pointer -> Pointer)
+£temporary1740 = *£temporary1739
+£temporary1741 = int_to_int £temporary1740 (Signed_Int -> Signed_Long_Int)
+longValue = £temporary1741
+goto <MiddleCode>
+goto <MiddleCode>
+if negativePtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1745 = *negativePtr
+if longValue < 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1747 = 1
+goto <MiddleCode>
+£temporary1747 = 0
+empty
+£temporary1745 = £temporary1747
+goto <MiddleCode>
+if sign != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter longValue, record 0, offset 6
+pre call
+call function noellipse-noellipse labs, record 0, extra 0
+post call integral
+post call floating
+£temporary1750 = return_value
+longValue = £temporary1750
+goto <MiddleCode>
+call header
+parameter arg_list, record 0, offset 6
+parameter widthPtr, record 0, offset 8
+£temporary1751 = &precision
+parameter £temporary1751, record 0, offset 10
+pre call
+call function noellipse-noellipse checkWidthAndPrecision, record 0, extra 0
+post call integral
+post call floating
+£temporary1752 = return_value
+arg_list = £temporary1752
+call header
+parameter longValue, record 0, offset 6
+parameter plus, record 0, offset 10
+parameter space, record 0, offset 12
+pre call
+call function noellipse-noellipse printLongInt, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1754 = arg_list - 2
+£temporary1755 = int_to_int £temporary1754 (Pointer -> Pointer)
+£temporary1756 = *£temporary1755
+£temporary1757 = int_to_int £temporary1756 (Signed_Int -> Signed_Char)
+charValue = £temporary1757
+call header
+parameter arg_list, record 0, offset 6
+parameter widthPtr, record 0, offset 8
+£temporary1758 = &precision
+parameter £temporary1758, record 0, offset 10
+pre call
+call function noellipse-noellipse checkWidthAndPrecision, record 0, extra 0
+post call integral
+post call floating
+£temporary1759 = return_value
+arg_list = £temporary1759
+call header
+parameter charValue, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1761 = arg_list - 2
+£temporary1762 = int_to_int £temporary1761 (Pointer -> Pointer)
+£temporary1763 = *£temporary1762
+stringValue = £temporary1763
+call header
+parameter arg_list, record 0, offset 6
+parameter widthPtr, record 0, offset 8
+£temporary1764 = &precision
+parameter £temporary1764, record 0, offset 10
+pre call
+call function noellipse-noellipse checkWidthAndPrecision, record 0, extra 0
+post call integral
+post call floating
+£temporary1765 = return_value
+arg_list = £temporary1765
+call header
+parameter stringValue, record 0, offset 6
+parameter precision, record 0, offset 8
+pre call
+call function noellipse-noellipse printString, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+£temporary1779 = 10
+goto <MiddleCode>
+empty
+£temporary1779 = £temporary1776
+empty
+base = £temporary1779
+if shortInt != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1780 = arg_list - 2
+£temporary1781 = int_to_int £temporary1780 (Pointer -> Pointer)
+£temporary1782 = *£temporary1781
+£temporary1783 = int_to_int £temporary1782 (Unsigned_Int -> Unsigned_Short_Int)
+£temporary1784 = int_to_int £temporary1783 (Unsigned_Short_Int -> Unsigned_Long_Int)
+value = £temporary1784
+goto <MiddleCode>
+if longInt != 0 goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 4
+£temporary1785 = arg_list - 4
+£temporary1786 = int_to_int £temporary1785 (Pointer -> Pointer)
+£temporary1787 = *£temporary1786
+value = £temporary1787
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1788 = arg_list - 2
+£temporary1789 = int_to_int £temporary1788 (Pointer -> Pointer)
+£temporary1790 = *£temporary1789
+£temporary1791 = int_to_int £temporary1790 (Unsigned_Int -> Unsigned_Long_Int)
+value = £temporary1791
+goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter arg_list, record 0, offset 6
+parameter widthPtr, record 0, offset 8
+£temporary1794 = &precision
+parameter £temporary1794, record 0, offset 10
+pre call
+call function noellipse-noellipse checkWidthAndPrecision, record 0, extra 0
+post call integral
+post call floating
+£temporary1795 = return_value
+arg_list = £temporary1795
+call header
+parameter value, record 0, offset 6
+parameter plus, record 0, offset 10
+parameter space, record 0, offset 12
+parameter grid, record 0, offset 14
+parameter base, record 0, offset 16
+call header
+£temporary1796 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary1796, record 0, offset 6
+pre call
+call function noellipse-noellipse isupper, record 0, extra 0
+post call integral
+post call floating
+£temporary1797 = return_value
+parameter £temporary1797, record 0, offset 20
+pre call
+call function noellipse-noellipse printUnsignedLong, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+if longDouble != 0 goto <MiddleCode>
+goto <MiddleCode>
+push float longDoubleValue
+pop float empty X
+arg_list = arg_list + 8
+£temporary1799 = arg_list - 8
+£temporary1800 = int_to_int £temporary1799 (Pointer -> Pointer)
+£temporary1801 = *£temporary1800
+push float £temporary1801
+top float longDoubleValue
+pop float empty X
+call header
+push float longDoubleValue
+parameter longDoubleValue, record 0, offset 6
+parameter 0, record 0, offset 14
+parameter 0, record 0, offset 16
+parameter 0, record 0, offset 18
+parameter 3, record 0, offset 20
+pre call
+call function noellipse-noellipse printLongDoublePlain, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+push float longDoubleValue
+pop float empty X
+arg_list = arg_list + 8
+£temporary1803 = arg_list - 8
+£temporary1804 = int_to_int £temporary1803 (Pointer -> Pointer)
+£temporary1805 = *£temporary1804
+push float £temporary1805
+top float longDoubleValue
+pop float empty X
+goto <MiddleCode>
+if negativePtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1809 = *negativePtr
+push float longDoubleValue
+push 0
+if longDoubleValue < 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1811 = 1
+goto <MiddleCode>
+£temporary1811 = 0
+empty
+£temporary1809 = £temporary1811
+goto <MiddleCode>
+if sign != 0 goto <MiddleCode>
+goto <MiddleCode>
+push float longDoubleValue
+pop float empty X
+call header
+push float longDoubleValue
+parameter longDoubleValue, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary1814 = return_value
+top float longDoubleValue
+pop float empty X
+goto <MiddleCode>
+call header
+parameter arg_list, record 0, offset 6
+parameter widthPtr, record 0, offset 8
+£temporary1815 = &precision
+parameter £temporary1815, record 0, offset 10
+pre call
+call function noellipse-noellipse checkWidthAndPrecision, record 0, extra 0
+post call integral
+post call floating
+£temporary1816 = return_value
+arg_list = £temporary1816
+if c == 102 goto <MiddleCode>
+goto <MiddleCode>
+call header
+push float longDoubleValue
+parameter longDoubleValue, record 0, offset 6
+parameter plus, record 0, offset 14
+parameter space, record 0, offset 16
+parameter grid, record 0, offset 18
+parameter precision, record 0, offset 20
+pre call
+call function noellipse-noellipse printLongDoublePlain, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+£temporary1819 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary1819, record 0, offset 6
+pre call
+call function noellipse-noellipse tolower, record 0, extra 0
+post call integral
+post call floating
+£temporary1820 = return_value
+if £temporary1820 == 101 goto <MiddleCode>
+goto <MiddleCode>
+call header
+push float longDoubleValue
+parameter longDoubleValue, record 0, offset 6
+parameter plus, record 0, offset 14
+parameter space, record 0, offset 16
+parameter grid, record 0, offset 18
+parameter precision, record 0, offset 20
+call header
+£temporary1822 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary1822, record 0, offset 6
+pre call
+call function noellipse-noellipse isupper, record 0, extra 0
+post call integral
+post call floating
+£temporary1823 = return_value
+parameter £temporary1823, record 0, offset 22
+pre call
+call function noellipse-noellipse printLongDoubleExpo, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+call header
+push float longDoubleValue
+parameter longDoubleValue, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary1825 = return_value
+parameter £temporary1825, record 0, offset 6
+pre call
+call function noellipse-noellipse log10, record 0, extra 0
+post call integral
+post call floating
+£temporary1826 = return_value
+£temporary1827 = float_to_int £temporary1826 (Double -> Signed_Int)
+expo = £temporary1827
+if expo >= -3 goto <MiddleCode>
+goto <MiddleCode>
+if expo <= 2 goto <MiddleCode>
+goto <MiddleCode>
+call header
+push float longDoubleValue
+parameter longDoubleValue, record 0, offset 6
+parameter plus, record 0, offset 14
+parameter space, record 0, offset 16
+parameter grid, record 0, offset 18
+parameter precision, record 0, offset 20
+pre call
+call function noellipse-noellipse printLongDoublePlain, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+call header
+push float longDoubleValue
+parameter longDoubleValue, record 0, offset 6
+parameter plus, record 0, offset 14
+parameter space, record 0, offset 16
+parameter grid, record 0, offset 18
+parameter precision, record 0, offset 20
+call header
+£temporary1832 = int_to_int c (Signed_Char -> Signed_Int)
+parameter £temporary1832, record 0, offset 6
+pre call
+call function noellipse-noellipse isupper, record 0, extra 0
+post call integral
+post call floating
+£temporary1833 = return_value
+parameter £temporary1833, record 0, offset 22
+pre call
+call function noellipse-noellipse printLongDoubleExpo, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1835 = arg_list - 2
+£temporary1836 = int_to_int £temporary1835 (Pointer -> Pointer)
+£temporary1837 = *£temporary1836
+ptrValue = £temporary1837
+call header
+parameter arg_list, record 0, offset 6
+parameter widthPtr, record 0, offset 8
+£temporary1838 = &precision
+parameter £temporary1838, record 0, offset 10
+pre call
+call function noellipse-noellipse checkWidthAndPrecision, record 0, extra 0
+post call integral
+post call floating
+£temporary1839 = return_value
+arg_list = £temporary1839
+call header
+£temporary1840 = int_to_int ptrValue (Pointer -> Unsigned_Long_Int)
+parameter £temporary1840, record 0, offset 6
+parameter 0, record 0, offset 10
+parameter 0, record 0, offset 12
+parameter 0, record 0, offset 14
+parameter 10, record 0, offset 16
+parameter 0, record 0, offset 20
+pre call
+call function noellipse-noellipse printUnsignedLong, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+arg_list = arg_list + 2
+£temporary1842 = arg_list - 2
+£temporary1843 = int_to_int £temporary1842 (Pointer -> Pointer)
+£temporary1844 = *£temporary1843
+ptrValue = £temporary1844
+arg_list = arg_list + 2
+£temporary1845 = arg_list - 2
+£temporary1846 = int_to_int £temporary1845 (Pointer -> Pointer)
+£temporary1847 = *£temporary1846
+intPtr = £temporary1847
+call header
+parameter arg_list, record 0, offset 6
+parameter widthPtr, record 0, offset 8
+£temporary1848 = &precision
+parameter £temporary1848, record 0, offset 10
+pre call
+call function noellipse-noellipse checkWidthAndPrecision, record 0, extra 0
+post call integral
+post call floating
+£temporary1849 = return_value
+arg_list = £temporary1849
+£temporary1850 = *intPtr
+£temporary1850 = g_outChars
+goto <MiddleCode>
+call header
+parameter arg_list, record 0, offset 6
+parameter widthPtr, record 0, offset 8
+£temporary1851 = &precision
+parameter £temporary1851, record 0, offset 10
+pre call
+call function noellipse-noellipse checkWidthAndPrecision, record 0, extra 0
+post call integral
+post call floating
+£temporary1852 = return_value
+arg_list = £temporary1852
+call header
+parameter 37, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+return_value = arg_list
+return
+empty
+return
+function end printArgument

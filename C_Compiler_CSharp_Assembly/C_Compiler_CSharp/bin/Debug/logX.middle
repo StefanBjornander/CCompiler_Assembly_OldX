@@ -1,0 +1,58 @@
+function start logX
+push 1
+pop float n
+push 1
+pop float plusMinusOne
+push float x
+push 1
+£temporary356 = x - 1
+pop float x_minus_1
+push 0
+pop float sum
+push float x_minus_1
+pop float power
+push float term
+pop float empty X
+push float plusMinusOne
+push float power
+push float n
+push 1
+n = n + 1
+top float n
+£temporary358 = power / £temporary357
+£temporary359 = plusMinusOne * £temporary358
+top float term
+pop float empty X
+push float sum
+push float term
+sum = sum + term
+top float sum
+pop float empty X
+push float power
+push float x_minus_1
+power = power * x_minus_1
+top float power
+pop float empty X
+push float plusMinusOne
+push float -1.0
+plusMinusOne = plusMinusOne * -1.0
+top float plusMinusOne
+pop float empty X
+call header
+push float term
+parameter term, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary360 = return_value
+push float 0.000000001
+if £temporary360 > 0.000000001 goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+push float sum
+return_value = sum
+return
+empty
+return
+function end logX

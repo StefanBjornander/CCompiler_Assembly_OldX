@@ -1,0 +1,36 @@
+function start gets
+call header
+parameter s, record 0, offset 6
+parameter -1, record 0, offset 8
+parameter stdin, record 0, offset 10
+pre call
+call function noellipse-noellipse fgets, record 0, extra 0
+post call integral
+post call floating
+£temporary902 = return_value
+if £temporary902 != 0 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter s, record 0, offset 6
+pre call
+call function noellipse-noellipse strlen, record 0, extra 0
+post call integral
+post call floating
+£temporary904 = return_value
+size = £temporary904
+if size > 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary906 = size - 1
+£temporary908 = s + £temporary906
+£temporary907 = *£temporary908
+£temporary907 = 0
+goto <MiddleCode>
+return_value = s
+return
+goto <MiddleCode>
+return_value = 0
+return
+goto <MiddleCode>
+empty
+return
+function end gets

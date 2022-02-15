@@ -1,0 +1,8 @@
+function start clearerr
+£temporary973 = *stream, offset 21
+errno = 0
+£temporary973 = errno
+empty
+return
+return
+function end clearerr

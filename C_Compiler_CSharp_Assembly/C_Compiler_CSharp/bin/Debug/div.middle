@@ -1,0 +1,18 @@
+function start div
+result$quot = 0
+result$rem = 0
+if denum == 0 goto <MiddleCode>
+goto <MiddleCode>
+errno = 6
+return_value = result
+return
+goto <MiddleCode>
+£temporary2223 = num / denum
+£temporary2222 = £temporary2223
+£temporary2225 = num % denum
+£temporary2224 = £temporary2225
+return_value = result
+return
+empty
+return
+function end div

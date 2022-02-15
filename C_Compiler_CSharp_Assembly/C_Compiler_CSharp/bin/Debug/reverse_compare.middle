@@ -1,0 +1,18 @@
+function start reverse_compare
+£temporary4308 = int_to_int valuePtr1 (Pointer -> Pointer)
+£temporary4309 = *£temporary4308
+intValue1 = £temporary4309
+£temporary4310 = int_to_int valuePtr2 (Pointer -> Pointer)
+£temporary4311 = *£temporary4310
+intValue2 = £temporary4311
+empty
+£temporary4320 = 1
+goto <MiddleCode>
+empty
+£temporary4320 = £temporary4317
+empty
+return_value = £temporary4320
+return
+empty
+return
+function end reverse_compare

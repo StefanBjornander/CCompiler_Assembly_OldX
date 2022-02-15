@@ -1,0 +1,27 @@
+function start mainx
+g_outStatus = 0
+g_inDevice = stdin
+call header
+pre call
+call function noellipse-noellipse scanLongDouble, record 0, extra 0
+post call integral
+post call floating
+£temporary0 = return_value
+pop float x
+g_outStatus = 0
+g_outDevice = stdout
+call header
+push float x
+parameter x, record 0, offset 6
+parameter 0, record 0, offset 14
+parameter 0, record 0, offset 16
+parameter 0, record 0, offset 18
+parameter 6, record 0, offset 20
+pre call
+call function noellipse-noellipse printLongDoublePlain, record 0, extra 0
+post call integral
+post call floating
+empty
+return
+return
+function end mainx

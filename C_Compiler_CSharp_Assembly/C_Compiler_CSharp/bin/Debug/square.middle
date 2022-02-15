@@ -1,0 +1,9 @@
+function start square
+push float x
+push float x
+£temporary546 = x * x
+return_value = £temporary546
+return
+empty
+return
+function end square

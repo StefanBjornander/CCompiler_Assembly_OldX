@@ -1,0 +1,12 @@
+function start round
+empty
+goto <MiddleCode>
+empty
+empty
+£temporary647 = float_to_int £temporary646 (Double -> Signed_Long_Int)
+£temporary648 = int_to_float £temporary647 (Signed_Long_Int -> Double)
+return_value = £temporary648
+return
+empty
+return
+function end round

@@ -1,0 +1,15 @@
+function start atol
+call header
+parameter s, record 0, offset 6
+parameter 0, record 0, offset 8
+parameter 10, record 0, offset 10
+pre call
+call function noellipse-noellipse strtol, record 0, extra 0
+post call integral
+post call floating
+£temporary2112 = return_value
+return_value = £temporary2112
+return
+empty
+return
+function end atol

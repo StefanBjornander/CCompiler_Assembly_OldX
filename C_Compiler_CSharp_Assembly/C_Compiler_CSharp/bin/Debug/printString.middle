@@ -1,0 +1,89 @@
+function start printString
+if s != 0 goto <MiddleCode>
+goto <MiddleCode>
+if precision == 0 goto <MiddleCode>
+goto <MiddleCode>
+index = 0
+empty
+£temporary1522 = s + index
+£temporary1521 = *£temporary1522
+if £temporary1521 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+£temporary1526 = s + index
+£temporary1525 = *£temporary1526
+parameter £temporary1525, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+empty
+++index
+goto <MiddleCode>
+goto <MiddleCode>
+index = 0
+empty
+£temporary1528 = precision
+--precision
+if £temporary1528 > 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1531 = s + index
+£temporary1530 = *£temporary1531
+if £temporary1530 != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+call header
+£temporary1536 = s + index
+£temporary1535 = *£temporary1536
+parameter £temporary1535, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+empty
+++index
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter 60, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 78, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 85, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 76, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 76, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+call header
+parameter 62, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+return
+return
+function end printString

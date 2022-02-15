@@ -1,0 +1,174 @@
+function start atan
+push float v
+push 0
+if v == 0 goto <MiddleCode>
+goto <MiddleCode>
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+push float v
+push 1
+if v == 1 goto <MiddleCode>
+goto <MiddleCode>
+push float 3.1415926535897932384
+pop float empty X
+push float 12.5663706143591729536
+return_value = 12.5663706143591729536
+return
+goto <MiddleCode>
+push float v
+push float -1
+if v == -1 goto <MiddleCode>
+goto <MiddleCode>
+push float 3.1415926535897932384
+pop float empty X
+push float -3.1415926535897932384
+pop float empty X
+push float -12.5663706143591729536
+return_value = -12.5663706143591729536
+return
+goto <MiddleCode>
+call header
+push float v
+parameter v, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary550 = return_value
+push float 0.5
+if £temporary550 < 0.5 goto <MiddleCode>
+goto <MiddleCode>
+sign = 1
+denominator = 1
+push float v
+pop float product
+push 0
+pop float sum
+push float term
+pop float empty X
+£temporary552 = int_to_float sign (Signed_Int -> Double)
+push float product
+£temporary553 = £temporary552 * product
+£temporary554 = int_to_float denominator (Signed_Int -> Double)
+£temporary555 = £temporary553 / £temporary554
+top float term
+pop float empty X
+push float sum
+push float term
+sum = sum + term
+top float sum
+pop float empty X
+£temporary556 = -sign
+sign = £temporary556
+push float product
+push float v
+push float v
+£temporary557 = v * v
+product = product * £temporary557
+top float product
+pop float empty X
+denominator = denominator + 2
+call header
+push float term
+parameter term, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary558 = return_value
+push float 0.000000001
+if £temporary558 >= 0.000000001 goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+push float sum
+return_value = sum
+return
+goto <MiddleCode>
+call header
+push float v
+parameter v, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary560 = return_value
+push 1
+if £temporary560 < 1 goto <MiddleCode>
+goto <MiddleCode>
+push 1
+pop float x_nplus1
+push float x
+pop float empty X
+push float x_nplus1
+top float x
+pop float empty X
+push float x_nplus1
+pop float empty X
+push float x
+call header
+push float x
+parameter x, record 0, offset 6
+pre call
+call function noellipse-noellipse tan, record 0, extra 0
+post call integral
+post call floating
+£temporary562 = return_value
+push float v
+£temporary563 = £temporary562 - v
+call header
+call header
+push float 2
+push float x
+£temporary564 = 2 * x
+parameter £temporary564, record 0, offset 6
+pre call
+call function noellipse-noellipse cos, record 0, extra 0
+post call integral
+post call floating
+£temporary565 = return_value
+push 1
+£temporary566 = £temporary565 + 1
+parameter £temporary566, record 0, offset 6
+pre call
+call function noellipse-noellipse square, record 0, extra 0
+post call integral
+post call floating
+£temporary567 = return_value
+£temporary568 = £temporary563 * £temporary567
+push float 2
+£temporary569 = £temporary568 / 2
+£temporary570 = x - £temporary569
+top float x_nplus1
+pop float empty X
+call header
+push float x_nplus1
+push float x
+£temporary571 = x_nplus1 - x
+parameter £temporary571, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary572 = return_value
+push float 0.000000001
+if £temporary572 >= 0.000000001 goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+push float x_nplus1
+return_value = x_nplus1
+return
+goto <MiddleCode>
+errno = 6
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+return
+function end atan

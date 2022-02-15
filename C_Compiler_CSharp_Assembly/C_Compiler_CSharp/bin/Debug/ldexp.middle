@@ -1,0 +1,18 @@
+function start ldexp
+push float x
+call header
+push float 2
+parameter 2, record 0, offset 6
+£temporary408 = int_to_float n (Signed_Int -> Double)
+parameter £temporary408, record 0, offset 14
+pre call
+call function noellipse-noellipse pow, record 0, extra 0
+post call integral
+post call floating
+£temporary409 = return_value
+£temporary410 = x * £temporary409
+return_value = £temporary410
+return
+empty
+return
+function end ldexp

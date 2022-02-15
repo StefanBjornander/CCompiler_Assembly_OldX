@@ -1,0 +1,44 @@
+function start print_heap
+currBlockPtr = firstBlockPtr
+call header
+parameter "Heap:\012", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary157 = return_value
+count = 0
+if currBlockPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary159 = count
+++count
+if £temporary159 < 10 goto <MiddleCode>
+goto <MiddleCode>
+call header
+parameter "  Address %u, Size %u\012", record 0, offset 6
+£temporary162 = int_to_int currBlockPtr (Pointer -> Unsigned_Int)
+parameter £temporary162, record 0, offset 8
+£temporary163 = *currBlockPtr
+parameter £temporary163, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary164 = return_value
+£temporary165 = *currBlockPtr, offset 2
+currBlockPtr = £temporary165
+goto <MiddleCode>
+lowHeapPtr = 65534
+call header
+parameter "Low Heap: %u\012", record 0, offset 6
+£temporary166 = *lowHeapPtr
+parameter £temporary166, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary167 = return_value
+empty
+return
+return
+function end print_heap

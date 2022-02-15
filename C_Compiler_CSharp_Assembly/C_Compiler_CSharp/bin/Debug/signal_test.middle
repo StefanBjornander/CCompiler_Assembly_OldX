@@ -1,0 +1,66 @@
+function start signal_test
+call header
+parameter "A", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary4154 = return_value
+call header
+parameter "B", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary4155 = return_value
+call header
+parameter 22, record 0, offset 6
+pre call
+call function noellipse-noellipse raise, record 0, extra 0
+post call integral
+post call floating
+£temporary4156 = return_value
+call header
+parameter "C", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary4157 = return_value
+call header
+parameter "D", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary4158 = return_value
+a = 1
+b = 0
+call header
+parameter "E", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary4159 = return_value
+£temporary4160 = a / b
+c = £temporary4160
+call header
+parameter "%i", record 0, offset 6
+parameter c, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary4161 = return_value
+call header
+parameter "G", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary4162 = return_value
+empty
+return
+return
+function end signal_test

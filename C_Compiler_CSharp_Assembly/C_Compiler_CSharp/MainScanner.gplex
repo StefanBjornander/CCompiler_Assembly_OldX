@@ -1,0 +1,237 @@
+%namespace CCompiler_Main
+
+%using CCompiler;
+%using System.Numerics;
+
+%{ // Empty.
+%}
+
+DECIMAL_VALUE ((\+|\-)?[0-9]+([uU]|[sSlL]|[uU][sSlL]|[sSlL][uU])?)|((\+|\-)?0[xX][0-9a-fA-F]+([uU]|[sSlL]|[uU][sSlL]|[sSlL][uU])?)
+FLOATING_VALUE (\+|\-)?([0-9]+|[0-9]+"."[0-9]*|"."[0-9]+)(([eE][\+\-]?[0-9]+)?|[0-9]+[eE][\+\-]?[0-9]+)([fF]|[lL])?
+
+CHAR_VALUE \'[^\']+\'
+STRING_VALUE \"[^\"]*\"
+
+NAME [a-zA-Z_][a-zA-Z0-9_]*
+PATH_LINE \$.*\$
+WHITE_SPACE [ \t\r\n\f]
+
+%%
+"auto"            { return ((int) Tokens.AUTO);            }
+"break"           { return ((int) Tokens.BREAK);           }
+"carry_flag"      { return ((int) Tokens.CARRY_FLAG);      }
+"case"            { return ((int) Tokens.CASE);            }
+"char"            { return ((int) Tokens.CHAR);            }
+"clear_registers" { return ((int) Tokens.CLEAR_REGISTERS); }
+"const"           { return ((int) Tokens.CONSTANT);        }
+"continue"        { return ((int) Tokens.CONTINUE);        }
+"default"         { return ((int) Tokens.DEFAULT);         }
+"do"              { return ((int) Tokens.DO);              }
+"double"          { return ((int) Tokens.DOUBLE);          }
+"else"            { return ((int) Tokens.ELSE);            }
+"enum"            { return ((int) Tokens.ENUM);            }
+"extern"          { return ((int) Tokens.EXTERN);          }
+"flagbyte"        { return ((int) Tokens.FLAGBYTE);        }
+"float"           { return ((int) Tokens.FLOAT);           }
+"for"             { return ((int) Tokens.FOR);             }
+"goto"            { return ((int) Tokens.GOTO);            }
+"int"             { return ((int) Tokens.INT);             }
+"interrupt"       { return ((int) Tokens.INTERRUPT);       }
+"if"              { return ((int) Tokens.IF);              }
+"jump_register"   { return ((int) Tokens.JUMP_REGISTER);   }
+"load_register"   { return ((int) Tokens.LOAD_REGISTER);   }
+"long"            { return ((int) Tokens.LONG);            }
+"register"        { return ((int) Tokens.REGISTER);        }
+"return"          { return ((int) Tokens.RETURN);          }
+"short"           { return ((int) Tokens.SHORT);           }
+"signed"          { return ((int) Tokens.SIGNED);          }
+"sizeof"          { return ((int) Tokens.SIZEOF);          }
+"static"          { return ((int) Tokens.STATIC);          }
+"store_register"  { return ((int) Tokens.STORE_REGISTER);  }
+"struct"          { return ((int) Tokens.STRUCT);          }
+"switch"          { return ((int) Tokens.SWITCH);          }
+"system_call"     { return ((int) Tokens.SYSTEM_CALL);     }
+"typedef"         { return ((int) Tokens.TYPEDEF);         }
+"union"           { return ((int) Tokens.UNION);           }
+"unsigned"        { return ((int) Tokens.UNSIGNED);        }
+//"wchar_t"         { return ((int) Tokens.WCHAR_T);         }
+"while"           { return ((int) Tokens.WHILE);           }
+"void"            { return ((int) Tokens.VOID);            }
+"volatile"        { return ((int) Tokens.VOLATILE);        }
+
+";" { return ((int) Tokens.SEMICOLON); }
+":" { return ((int) Tokens.COLON); }
+"," { return ((int) Tokens.COMMA); }
+
+"." { return ((int) Tokens.DOT); }
+"->" { return ((int) Tokens.ARROW); }
+"..." { return ((int) Tokens.ELLIPSE); }
+
+"(" { return ((int) Tokens.LEFT_PAREN); }
+")" { return ((int) Tokens.RIGHT_PAREN); }
+"{" { return ((int) Tokens.LEFT_BLOCK); }
+"}" { return ((int) Tokens.RIGHT_BLOCK); }
+"[" { return ((int) Tokens.LEFT_SQUARE); }
+"]" { return ((int) Tokens.RIGHT_SQUARE); }
+
+"*" { return ((int) Tokens.ASTERRISK); }
+"?" { return ((int) Tokens.QUESTION_MARK); }
+
+"||" { return ((int) Tokens.LOGICAL_OR); }
+"&&" { return ((int) Tokens.LOGICAL_AND); }
+"!" { return ((int) Tokens.LOGICAL_NOT); }
+"&" { return ((int) Tokens.AMPERSAND); }
+"^" { return ((int) Tokens.BITWISE_XOR); }
+"|" { return ((int) Tokens.BITWISE_IOR); }
+"~" { return ((int) Tokens.BITWISE_NOT); }
+
+"==" { return ((int) Tokens.EQUAL); }
+"!=" { return ((int) Tokens.NOT_EQUAL); }
+
+"<"  { return ((int) Tokens.LESS_THAN); }
+"<=" { return ((int) Tokens.LESS_THAN_EQUAL); }
+">"  { return ((int) Tokens.GREATER_THAN); }
+">=" { return ((int) Tokens.GREATER_THAN_EQUAL); }
+
+"<<" { return ((int) Tokens.LEFT_SHIFT); }
+">>" { return ((int) Tokens.RIGHT_SHIFT); }
+
+"+" { return ((int) Tokens.PLUS); }
+"-" { return ((int) Tokens.MINUS); }
+
+"/" { return ((int) Tokens.DIVIDE); }
+"%" { return ((int) Tokens.MODULO); }
+
+"++" { return ((int) Tokens.INCREMENT); }
+"--" { return ((int) Tokens.DECREMENT); }
+
+"="  { return ((int) Tokens.ASSIGN); }
+"+="  { return ((int) Tokens.ADD_ASSIGN); }
+"-="  { return ((int) Tokens.SUBTRACT_ASSIGN); }
+"*="  { return ((int) Tokens.MULTIPLY_ASSIGN); }
+"/="  { return ((int) Tokens.DIVIDE_ASSIGN); }
+"%="  { return ((int) Tokens.MODULO_ASSIGN); }
+"<<=" { return ((int) Tokens.LEFT_SHIFT_ASSIGN); }
+">>=" { return ((int) Tokens.RIGHT_SHIFT_ASSIGN); }
+"&="  { return ((int) Tokens.AND_ASSIGN); }
+"^="  { return ((int) Tokens.XOR_ASSIGN); }
+"|="  { return ((int) Tokens.IOR_ASSIGN); }
+
+{NAME} {
+  { if (yytext.StartsWith("register_")) {
+      Register register;
+
+      if (Enum.TryParse<Register>(yytext.Substring(9), out register)) {
+        yylval.register = register;
+        return ((int) Tokens.REGISTER_NAME);
+      }
+    }
+    
+    string name = yytext;
+
+    if (name.Equals("abs")) {
+      name = "_abs";
+    }
+
+    Symbol symbol = Start.CurrentTable.LookupSymbol(name);
+
+    if ((symbol != null) && symbol.IsTypedef()) {
+      yylval.type = symbol.Type;
+      return ((int) Tokens.TYPEDEF_NAME);
+    }
+    else {
+      yylval.name = name;
+      return ((int) Tokens.NAME);
+    }
+  }
+}
+
+{DECIMAL_VALUE} {
+  { String text = yytext.ToLower();
+    Sort sort = Sort.Signed_Int;
+    int baseX = 10;
+
+    if (text.Contains("s")) {
+      sort = Sort.Signed_Short_Int;
+      text = text.Replace("s", "");
+    }
+    else if (text.Contains("l")) {
+      sort = Sort.Signed_Long_Int;
+      text = text.Replace("l", "");
+    }
+
+    if (text.Contains("u")) {
+      string name = Enum.GetName(typeof(Sort), sort);
+      sort = (Sort) Enum.Parse(typeof(Sort), name.Replace("Signed", "Unsigned"));
+      text = text.Replace("u", "");
+    }
+
+    if (text.StartsWith("0x")) {
+      baseX = 16;
+      text = text.Substring(2);
+    }
+    else if (text.StartsWith("0")) {
+      baseX = 8;
+    }
+
+    CCompiler.Type type = new CCompiler.Type(sort);
+    BigInteger value = new BigInteger(Convert.ToInt64(text, baseX));
+    yylval.symbol = new Symbol(type, value);
+    return ((int) Tokens.VALUE);
+  }
+}
+
+{FLOATING_VALUE} {
+  { String text = yytext.ToLower();
+    Sort sort = Sort.Double;
+
+    if (text.Contains("f")) {
+      sort = Sort.Float;
+      text = text.Replace("f", "");
+    }
+    else if (text.Contains("l")) {
+      sort = Sort.Long_Double;
+      text = text.Replace("l", "");
+    }
+
+    CCompiler.Type type = new CCompiler.Type(sort);
+    decimal value = decimal.Parse(text, NumberStyles.Float/*, CultureInfo.InvariantCulture*/);
+    yylval.symbol = new Symbol(type, value);
+    //CCompiler.Start.CurrentTable.AddSymbol(yylval.symbol);
+    return ((int) Tokens.VALUE);
+  }
+}
+
+{CHAR_VALUE} {
+  { CCompiler.Type type = new CCompiler.Type(Sort.Signed_Char);
+    String text = yytext.Substring(1, yyleng - 2);
+    int value = (int) Preprocessor.octalToChar(text)[0];
+    yylval.symbol = new Symbol(type, new BigInteger(value));
+    return ((int) Tokens.VALUE);
+  }
+}
+
+{STRING_VALUE} {
+  { CCompiler.Type type = new CCompiler.Type(Sort.StringX);
+    String text = yytext.Substring(1, yyleng - 2);
+    yylval.symbol = new Symbol(type, Preprocessor.octalToChar(text));
+    //CCompiler.Start.CurrentTable.AddSymbol(yylval.symbol);
+    return ((int) Tokens.VALUE);
+  }
+}
+
+{PATH_LINE} {
+  { String text = yytext.Substring(1, yyleng - 2);
+    int index = text.IndexOf(',');
+    CCompiler.Start.Path = text.Substring(0, index).Replace("+", " ");
+    CCompiler.Start.Line = int.Parse(text.Substring(index + 1));
+  }
+}
+
+{WHITE_SPACE} {
+  if (yytext.Equals("\n")) {
+    ++CCompiler.Start.Line;
+  }
+}
+
+. { Assert.Error(yytext, "unknown character"); }

@@ -1,0 +1,11 @@
+function start rand
+£temporary2161 = 1664525 * g_randValue
+£temporary2162 = £temporary2161 + 1013904223
+£temporary2163 = £temporary2162 % 127
+g_randValue = £temporary2163
+£temporary2164 = int_to_int g_randValue (Signed_Long_Int -> Signed_Int)
+return_value = £temporary2164
+return
+empty
+return
+function end rand

@@ -1,0 +1,144 @@
+function start localtime
+if timePtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2319 = *timePtr
+time = £temporary2319
+£temporary2321 = time >> 31
+£temporary2322 = int_to_int £temporary2321 (Unsigned_Long_Int -> Signed_Int)
+£temporary2320 = £temporary2322
+£temporary2323 = time & 2147483647
+totalSeconds = £temporary2323
+£temporary2324 = totalSeconds / 86400
+totalDays = £temporary2324
+£temporary2326 = totalDays + 3
+£temporary2327 = £temporary2326 % 7
+£temporary2328 = int_to_int £temporary2327 (Unsigned_Long_Int -> Signed_Int)
+£temporary2325 = £temporary2328
+£temporary2329 = totalDays / 1461
+£temporary2330 = int_to_int £temporary2329 (Unsigned_Long_Int -> Signed_Int)
+fourYears = £temporary2330
+totalDays = totalDays % 1461
+£temporary2331 = totalDays / 365
+£temporary2332 = int_to_int £temporary2331 (Unsigned_Long_Int -> Signed_Int)
+years = £temporary2332
+totalDays = totalDays % 365
+£temporary2334 = 4 * fourYears
+£temporary2335 = 69 + £temporary2334
+£temporary2336 = £temporary2335 + years
+£temporary2333 = £temporary2336
+£temporary2338 = int_to_int totalDays (Unsigned_Long_Int -> Signed_Int)
+£temporary2337 = £temporary2338
+£temporary2340 = £temporary2339 % 4
+if £temporary2340 == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2342 = 1
+goto <MiddleCode>
+£temporary2342 = 0
+empty
+leapYear = £temporary2342
+if leapYear != 0 goto <MiddleCode>
+goto <MiddleCode>
+@17$leapMonths$0 = 0
+@17$leapMonths$1 = 31
+@17$leapMonths$2 = 60
+@17$leapMonths$3 = 91
+@17$leapMonths$4 = 121
+@17$leapMonths$5 = 152
+@17$leapMonths$6 = 182
+@17$leapMonths$7 = 213
+@17$leapMonths$8 = 243
+@17$leapMonths$9 = 274
+@17$leapMonths$10 = 304
+@17$leapMonths$11 = 335
+@17$leapMonths$12 = 366
+arraySize = 13
+index = 1
+empty
+if index < arraySize goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2360 = index * 2
+£temporary2361 = leapMonths + £temporary2360
+£temporary2359 = *£temporary2361
+£temporary2362 = int_to_int £temporary2359 (Signed_Int -> Unsigned_Long_Int)
+if totalDays < £temporary2362 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2365 = index - 1
+£temporary2364 = £temporary2365
+£temporary2367 = index - 1
+£temporary2369 = £temporary2367 * 2
+£temporary2370 = leapMonths + £temporary2369
+£temporary2368 = *£temporary2370
+£temporary2371 = int_to_int £temporary2368 (Signed_Int -> Unsigned_Long_Int)
+£temporary2372 = totalDays % £temporary2371
+£temporary2373 = £temporary2372 + 1
+£temporary2374 = int_to_int £temporary2373 (Unsigned_Long_Int -> Signed_Int)
+£temporary2366 = £temporary2374
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+goto <MiddleCode>
+@20$regularMonths$0 = 0
+@20$regularMonths$1 = 31
+@20$regularMonths$2 = 59
+@20$regularMonths$3 = 90
+@20$regularMonths$4 = 120
+@20$regularMonths$5 = 151
+@20$regularMonths$6 = 181
+@20$regularMonths$7 = 212
+@20$regularMonths$8 = 242
+@20$regularMonths$9 = 273
+@20$regularMonths$10 = 303
+@20$regularMonths$11 = 334
+@20$regularMonths$12 = 365
+arraySize = 13
+index = 1
+empty
+if index < arraySize goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2392 = index * 2
+£temporary2393 = regularMonths + £temporary2392
+£temporary2391 = *£temporary2393
+£temporary2394 = int_to_int £temporary2391 (Signed_Int -> Unsigned_Long_Int)
+if totalDays < £temporary2394 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2397 = index - 1
+£temporary2396 = £temporary2397
+£temporary2399 = index - 1
+£temporary2401 = £temporary2399 * 2
+£temporary2402 = regularMonths + £temporary2401
+£temporary2400 = *£temporary2402
+£temporary2403 = int_to_int £temporary2400 (Signed_Int -> Unsigned_Long_Int)
+£temporary2404 = totalDays % £temporary2403
+£temporary2405 = £temporary2404 + 1
+£temporary2406 = int_to_int £temporary2405 (Unsigned_Long_Int -> Signed_Int)
+£temporary2398 = £temporary2406
+goto <MiddleCode>
+goto <MiddleCode>
+empty
+++index
+goto <MiddleCode>
+goto <MiddleCode>
+£temporary2408 = totalSeconds % 86400
+daySeconds = £temporary2408
+£temporary2410 = daySeconds / 3600
+£temporary2411 = int_to_int £temporary2410 (Unsigned_Long_Int -> Signed_Int)
+£temporary2409 = £temporary2411
+£temporary2413 = daySeconds % 3600
+£temporary2414 = £temporary2413 / 60
+£temporary2415 = int_to_int £temporary2414 (Unsigned_Long_Int -> Signed_Int)
+£temporary2412 = £temporary2415
+£temporary2417 = daySeconds % 60
+£temporary2418 = int_to_int £temporary2417 (Unsigned_Long_Int -> Signed_Int)
+£temporary2416 = £temporary2418
+return_value = (g_timeStruct,0)
+return
+goto <MiddleCode>
+return_value = 0
+return
+empty
+return
+function end localtime

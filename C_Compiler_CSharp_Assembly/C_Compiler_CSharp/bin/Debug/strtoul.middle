@@ -1,0 +1,26 @@
+function start strtoul
+chars = 0
+value = 0
+call header
+parameter s, record 0, offset 6
+parameter "%lu%n", record 0, offset 8
+£temporary2126 = &value
+parameter £temporary2126, record 0, offset 10
+£temporary2127 = &chars
+parameter £temporary2127, record 0, offset 12
+pre call
+call function noellipse-ellipse sscanf, record 0, extra 4
+post call integral
+post call floating
+£temporary2128 = return_value
+if endp != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2130 = *endp
+£temporary2131 = s + chars
+£temporary2130 = £temporary2131
+goto <MiddleCode>
+return_value = value
+return
+empty
+return
+function end strtoul

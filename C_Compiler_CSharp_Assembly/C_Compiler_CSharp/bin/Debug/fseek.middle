@@ -1,0 +1,40 @@
+function start fseek
+£temporary937 = offset >> 16
+£temporary938 = int_to_int £temporary937 (Signed_Long_Int -> Signed_Int)
+high = £temporary938
+£temporary939 = int_to_int origin (Signed_Int -> Signed_Short_Int)
+al = £temporary939
+ah = 66
+£temporary940 = *stream, offset 2
+bx = £temporary940
+cx = high
+£temporary941 = int_to_int offset (Signed_Long_Int -> Signed_Int)
+dx = £temporary941
+interrupt 33
+highPosition = dx
+lowPositionHandle = ax
+clear registers
+save from flagbyte
+£temporary943 = int_to_int flagbyte (Signed_Short_Int -> Unsigned_Int)
+£temporary942 = £temporary943 & 1
+if £temporary942 != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary946 = *stream, offset 23
+£temporary947 = int_to_int highPosition (Signed_Int -> Unsigned_Long_Int)
+£temporary948 = £temporary947 << 16
+£temporary949 = int_to_int lowPositionHandle (Signed_Int -> Unsigned_Long_Int)
+£temporary950 = £temporary948 + £temporary949
+£temporary946 = £temporary950
+£temporary951 = *stream, offset 23
+return_value = £temporary951
+return
+goto <MiddleCode>
+£temporary952 = *stream, offset 21
+errno = lowPositionHandle
+£temporary952 = errno
+return_value = -1
+return
+goto <MiddleCode>
+empty
+return
+function end fseek

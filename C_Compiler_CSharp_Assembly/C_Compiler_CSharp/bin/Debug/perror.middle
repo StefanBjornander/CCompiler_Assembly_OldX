@@ -1,0 +1,21 @@
+function start perror
+call header
+parameter "%s: %s.\012", record 0, offset 6
+parameter s, record 0, offset 8
+call header
+parameter errno, record 0, offset 6
+pre call
+call function noellipse-noellipse strerror, record 0, extra 0
+post call integral
+post call floating
+£temporary989 = return_value
+parameter £temporary989, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary990 = return_value
+empty
+return
+return
+function end perror

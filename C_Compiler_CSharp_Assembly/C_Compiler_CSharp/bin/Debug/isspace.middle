@@ -1,0 +1,22 @@
+function start isspace
+if c == 32 goto <MiddleCode>
+goto <MiddleCode>
+if c == 12 goto <MiddleCode>
+goto <MiddleCode>
+if c == 10 goto <MiddleCode>
+goto <MiddleCode>
+if c == 13 goto <MiddleCode>
+goto <MiddleCode>
+if c == 9 goto <MiddleCode>
+goto <MiddleCode>
+if c == 11 goto <MiddleCode>
+goto <MiddleCode>
+£temporary273 = 1
+goto <MiddleCode>
+£temporary273 = 0
+empty
+return_value = £temporary273
+return
+empty
+return
+function end isspace

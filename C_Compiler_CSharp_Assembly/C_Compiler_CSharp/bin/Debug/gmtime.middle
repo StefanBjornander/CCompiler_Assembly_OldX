@@ -1,0 +1,45 @@
+function start gmtime
+£temporary2555 = *timePtr
+t = £temporary2555
+timeZone = 0
+call header
+parameter timePtr, record 0, offset 6
+pre call
+call function noellipse-noellipse localtime, record 0, extra 0
+post call integral
+post call floating
+£temporary2556 = return_value
+tmPtr = £temporary2556
+call header
+pre call
+call function noellipse-noellipse localeconv, record 0, extra 0
+post call integral
+post call floating
+£temporary2557 = return_value
+localeConvPtr = £temporary2557
+if localeConvPtr != 0 goto <MiddleCode>
+goto <MiddleCode>
+empty
+£temporary2566 = £temporary2560
+goto <MiddleCode>
+empty
+£temporary2566 = £temporary2561
+empty
+timeZone = £temporary2566
+goto <MiddleCode>
+£temporary2567 = int_to_int timeZone (Signed_Int -> Signed_Long_Int)
+£temporary2568 = 3600 * £temporary2567
+t = t - £temporary2568
+call header
+£temporary2569 = &t
+parameter £temporary2569, record 0, offset 6
+pre call
+call function noellipse-noellipse localtime, record 0, extra 0
+post call integral
+post call floating
+£temporary2570 = return_value
+return_value = £temporary2570
+return
+empty
+return
+function end gmtime

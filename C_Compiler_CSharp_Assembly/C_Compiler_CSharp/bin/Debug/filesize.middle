@@ -1,0 +1,42 @@
+function start filesize
+call header
+parameter "<handle %i> ", record 0, offset 6
+parameter handle, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary733 = return_value
+ah = 66
+bx = handle
+cx = 0
+dx = 0
+interrupt 33
+call header
+parameter "<test> ", record 0, offset 6
+pre call
+call function noellipse-ellipse printf, record 0, extra 0
+post call integral
+post call floating
+£temporary734 = return_value
+high = dx
+low = ax
+clear registers
+call header
+parameter "<low %i> <high %i> ", record 0, offset 6
+parameter low, record 0, offset 8
+parameter high, record 0, offset 10
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary735 = return_value
+£temporary736 = int_to_int high (Signed_Int -> Signed_Long_Int)
+£temporary737 = £temporary736 << 4
+£temporary738 = int_to_int low (Signed_Int -> Signed_Long_Int)
+£temporary739 = £temporary737 + £temporary738
+return_value = £temporary739
+return
+empty
+return
+function end filesize

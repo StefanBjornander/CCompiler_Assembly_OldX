@@ -1,0 +1,13 @@
+function start getchar
+call header
+parameter stdin, record 0, offset 6
+pre call
+call function noellipse-noellipse fgetc, record 0, extra 0
+post call integral
+post call floating
+£temporary900 = return_value
+return_value = £temporary900
+return
+empty
+return
+function end getchar

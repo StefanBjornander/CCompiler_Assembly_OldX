@@ -1,0 +1,49 @@
+function start sqrt
+push float v
+push 0
+if v >= 0 goto <MiddleCode>
+goto <MiddleCode>
+push 1
+pop float x_nplus1
+push float x
+pop float empty X
+push float x_nplus1
+top float x
+pop float empty X
+push float x_nplus1
+pop float empty X
+push float x
+push float v
+push float x
+£temporary507 = v / x
+£temporary508 = x + £temporary507
+push float 2
+£temporary509 = £temporary508 / 2
+top float x_nplus1
+pop float empty X
+call header
+push float x_nplus1
+push float x
+£temporary510 = x_nplus1 - x
+parameter £temporary510, record 0, offset 6
+pre call
+call function noellipse-noellipse fabs, record 0, extra 0
+post call integral
+post call floating
+£temporary511 = return_value
+push float 0.000000001
+if £temporary511 >= 0.000000001 goto <MiddleCode>
+goto <MiddleCode>
+goto <MiddleCode>
+push float x_nplus1
+return_value = x_nplus1
+return
+goto <MiddleCode>
+errno = 6
+push 0
+return_value = 0
+return
+goto <MiddleCode>
+empty
+return
+function end sqrt

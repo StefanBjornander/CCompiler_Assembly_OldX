@@ -1,0 +1,125 @@
+function start limits_test
+call header
+parameter "CHAR_BIT = %i\012", record 0, offset 6
+parameter 8, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3354 = return_value
+call header
+parameter "CHAR_MAX = %i\012", record 0, offset 6
+parameter 127, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3355 = return_value
+call header
+parameter "CHAR_MIN = %i\012\012", record 0, offset 6
+parameter -128, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3356 = return_value
+call header
+parameter "SCHAR_MAX = %i\012", record 0, offset 6
+parameter 127, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3357 = return_value
+call header
+parameter "SCHAR_MIN = %i\012", record 0, offset 6
+parameter -128, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3358 = return_value
+call header
+parameter "UCHAR_MAX = %u\012\012", record 0, offset 6
+parameter 255, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3359 = return_value
+call header
+parameter "SHRT_MAX = %i\012", record 0, offset 6
+parameter 127, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3360 = return_value
+call header
+parameter "SHRT_MIN = %i\012", record 0, offset 6
+parameter -128, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3361 = return_value
+call header
+parameter "USHRT_MAX = %u\012\012", record 0, offset 6
+parameter 255, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3362 = return_value
+call header
+parameter "INT_MAX = %i\012", record 0, offset 6
+parameter 32767, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3363 = return_value
+call header
+parameter "INT_MIN = %i\012", record 0, offset 6
+parameter -32768, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3364 = return_value
+call header
+parameter "UINT_MAX = %u\012\012", record 0, offset 6
+parameter 65535, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 2
+post call integral
+post call floating
+£temporary3365 = return_value
+call header
+parameter "LONG_MAX = %li\012", record 0, offset 6
+parameter 2147483647, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3366 = return_value
+call header
+parameter "LONG_MIN = %li\012", record 0, offset 6
+parameter -2147483647, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3367 = return_value
+call header
+parameter "ULONG_MAX = %lu\012\012", record 0, offset 6
+parameter 4294967295, record 0, offset 8
+pre call
+call function noellipse-ellipse printf, record 0, extra 4
+post call integral
+post call floating
+£temporary3368 = return_value
+empty
+return
+return
+function end limits_test

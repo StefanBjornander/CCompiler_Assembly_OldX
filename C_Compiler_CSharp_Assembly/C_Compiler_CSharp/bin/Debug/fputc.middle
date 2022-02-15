@@ -1,0 +1,16 @@
+function start fputc
+g_outStatus = 0
+£temporary1502 = int_to_int stream (Pointer -> Pointer)
+g_outDevice = £temporary1502
+call header
+£temporary1503 = int_to_int i (Signed_Int -> Signed_Char)
+parameter £temporary1503, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+return_value = 1
+return
+empty
+return
+function end fputc

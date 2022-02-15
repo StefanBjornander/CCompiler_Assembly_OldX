@@ -1,0 +1,5 @@
+function start setbuf
+empty
+return
+return
+function end setbuf

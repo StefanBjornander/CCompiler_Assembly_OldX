@@ -1,0 +1,7 @@
+function start ferror
+£temporary988 = *stream, offset 21
+return_value = £temporary988
+return
+empty
+return
+function end ferror

@@ -1,0 +1,85 @@
+function start mktime
+£temporary2253 = *tp, offset 10
+£temporary2254 = £temporary2253 - 69
+£temporary2255 = £temporary2254 / 4
+leapDays = £temporary2255
+£temporary2256 = *tp, offset 10
+£temporary2257 = £temporary2256 - 69
+£temporary2258 = 365 * £temporary2257
+£temporary2259 = £temporary2258 + leapDays
+£temporary2260 = *tp, offset 6
+£temporary2261 = £temporary2260 - 1
+£temporary2262 = £temporary2259 + £temporary2261
+totalDays = £temporary2262
+£temporary2263 = *tp, offset 10
+£temporary2264 = £temporary2263 % 4
+if £temporary2264 == 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary2266 = 1
+goto <MiddleCode>
+£temporary2266 = 0
+empty
+leapYear = £temporary2266
+if leapYear != 0 goto <MiddleCode>
+goto <MiddleCode>
+@12$leapMonths$0 = 0
+@12$leapMonths$1 = 31
+@12$leapMonths$2 = 60
+@12$leapMonths$3 = 91
+@12$leapMonths$4 = 121
+@12$leapMonths$5 = 152
+@12$leapMonths$6 = 182
+@12$leapMonths$7 = 213
+@12$leapMonths$8 = 243
+@12$leapMonths$9 = 274
+@12$leapMonths$10 = 304
+@12$leapMonths$11 = 335
+£temporary2279 = *tp, offset 8
+£temporary2281 = £temporary2279 * 2
+£temporary2282 = leapMonths + £temporary2281
+£temporary2280 = *£temporary2282
+totalDays = totalDays + £temporary2280
+goto <MiddleCode>
+@13$regularMonths$0 = 0
+@13$regularMonths$1 = 31
+@13$regularMonths$2 = 59
+@13$regularMonths$3 = 90
+@13$regularMonths$4 = 120
+@13$regularMonths$5 = 151
+@13$regularMonths$6 = 181
+@13$regularMonths$7 = 212
+@13$regularMonths$8 = 242
+@13$regularMonths$9 = 273
+@13$regularMonths$10 = 303
+@13$regularMonths$11 = 334
+£temporary2295 = *tp, offset 8
+£temporary2297 = £temporary2295 * 2
+£temporary2298 = regularMonths + £temporary2297
+£temporary2296 = *£temporary2298
+totalDays = totalDays + £temporary2296
+goto <MiddleCode>
+£temporary2300 = int_to_int totalDays (Signed_Int -> Unsigned_Long_Int)
+£temporary2301 = 86400 * £temporary2300
+£temporary2302 = *tp, offset 4
+£temporary2303 = int_to_int £temporary2302 (Signed_Int -> Unsigned_Long_Int)
+£temporary2304 = 3600 * £temporary2303
+£temporary2305 = £temporary2301 + £temporary2304
+£temporary2306 = *tp, offset 2
+£temporary2307 = int_to_int £temporary2306 (Signed_Int -> Unsigned_Long_Int)
+£temporary2308 = 60 * £temporary2307
+£temporary2309 = £temporary2305 + £temporary2308
+£temporary2310 = *tp
+£temporary2311 = int_to_int £temporary2310 (Signed_Int -> Unsigned_Long_Int)
+£temporary2312 = £temporary2309 + £temporary2311
+totalSeconds = £temporary2312
+£temporary2313 = *tp, offset 16
+£temporary2314 = int_to_int £temporary2313 (Signed_Int -> Unsigned_Long_Int)
+£temporary2315 = £temporary2314 << 31
+£temporary2316 = 2147483647 & totalSeconds
+£temporary2317 = £temporary2315 | £temporary2316
+result = £temporary2317
+return_value = result
+return
+empty
+return
+function end mktime

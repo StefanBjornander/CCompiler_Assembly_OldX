@@ -1,0 +1,26 @@
+function start printLongIntRec
+if longValue != 0 goto <MiddleCode>
+goto <MiddleCode>
+£temporary1553 = longValue % 10
+£temporary1554 = int_to_int £temporary1553 (Signed_Long_Int -> Signed_Int)
+digit = £temporary1554
+call header
+£temporary1555 = longValue / 10
+parameter £temporary1555, record 0, offset 6
+pre call
+call function noellipse-noellipse printLongIntRec, record 0, extra 0
+post call integral
+post call floating
+call header
+£temporary1557 = digit + 48
+£temporary1558 = int_to_int £temporary1557 (Signed_Int -> Signed_Char)
+parameter £temporary1558, record 0, offset 6
+pre call
+call function noellipse-noellipse printChar, record 0, extra 0
+post call integral
+post call floating
+goto <MiddleCode>
+empty
+return
+return
+function end printLongIntRec
